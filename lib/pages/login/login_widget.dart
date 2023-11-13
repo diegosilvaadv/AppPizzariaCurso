@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -39,11 +40,11 @@ class _LoginWidgetState extends State<LoginWidget>
     _model.senhaloginController ??= TextEditingController();
     _model.senhaloginFocusNode ??= FocusNode();
 
-    _model.emailController1 ??= TextEditingController();
-    _model.emailFocusNode1 ??= FocusNode();
+    _model.nomeController ??= TextEditingController();
+    _model.nomeFocusNode ??= FocusNode();
 
-    _model.emailController2 ??= TextEditingController();
-    _model.emailFocusNode2 ??= FocusNode();
+    _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
 
     _model.senhaController ??= TextEditingController();
     _model.senhaFocusNode ??= FocusNode();
@@ -476,8 +477,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color: Colors
-                                                                    .white,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 14.0,
                                                               ),
                                                       elevation: 3.0,
@@ -618,10 +620,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: TextFormField(
-                                                      controller: _model
-                                                          .emailController1,
-                                                      focusNode: _model
-                                                          .emailFocusNode1,
+                                                      controller:
+                                                          _model.nomeController,
+                                                      focusNode:
+                                                          _model.nomeFocusNode,
                                                       autofillHints: [
                                                         AutofillHints.name
                                                       ],
@@ -700,7 +702,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .bodyMedium,
                                                       validator: _model
-                                                          .emailController1Validator
+                                                          .nomeControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -723,9 +725,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 8.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .emailController2,
-                                                      focusNode: _model
-                                                          .emailFocusNode2,
+                                                          .emailController,
+                                                      focusNode:
+                                                          _model.emailFocusNode,
                                                       autofillHints: [
                                                         AutofillHints.email
                                                       ],
@@ -807,7 +809,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           TextInputType
                                                               .emailAddress,
                                                       validator: _model
-                                                          .emailController2Validator
+                                                          .emailControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -991,9 +993,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 14.0,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 12.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -1007,84 +1010,78 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 8.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      GoRouter.of(context)
-                                                          .prepareAuthEvent();
-                                                      if (_model.senhaController
-                                                              .text !=
-                                                          _model.senhaController
-                                                              .text) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'Passwords don\'t match!',
-                                                            ),
-                                                          ),
-                                                        );
-                                                        return;
-                                                      }
-
-                                                      final user = await authManager
-                                                          .createAccountWithEmail(
-                                                        context,
-                                                        _model.emailController1
-                                                            .text,
+                                                FFButtonWidget(
+                                                  onPressed: () async {
+                                                    GoRouter.of(context)
+                                                        .prepareAuthEvent();
+                                                    if (_model.senhaController
+                                                            .text !=
                                                         _model.senhaController
-                                                            .text,
+                                                            .text) {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Passwords don\'t match!',
+                                                          ),
+                                                        ),
                                                       );
-                                                      if (user == null) {
-                                                        return;
-                                                      }
+                                                      return;
+                                                    }
 
-                                                      context.goNamedAuth(
-                                                          'HomePage',
-                                                          context.mounted);
-                                                    },
-                                                    text: 'Entrar',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: Color(0xFFE46D1F),
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                      elevation: 3.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
+                                                    final user = await authManager
+                                                        .createAccountWithEmail(
+                                                      context,
+                                                      _model
+                                                          .emailController.text,
+                                                      _model
+                                                          .senhaController.text,
+                                                    );
+                                                    if (user == null) {
+                                                      return;
+                                                    }
+
+                                                    await UsersTable().insert({
+                                                      'nome': _model
+                                                          .nomeController.text,
+                                                      'email': _model
+                                                          .emailController.text,
+                                                      'user_id': currentUserUid,
+                                                    });
+
+                                                    context.goNamedAuth(
+                                                        'HomePage',
+                                                        context.mounted);
+                                                  },
+                                                  text: 'Criar Conta',
+                                                  options: FFButtonOptions(
+                                                    height: 40.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: Color(0xFFE46D1F),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                        ),
+                                                    elevation: 3.0,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
                                                     ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
                                                   ),
                                                 ),
                                               ],

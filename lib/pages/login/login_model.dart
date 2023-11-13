@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -27,14 +28,14 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   TextEditingController? senhaloginController;
   late bool senhaloginVisibility;
   String? Function(BuildContext, String?)? senhaloginControllerValidator;
+  // State field(s) for nome widget.
+  FocusNode? nomeFocusNode;
+  TextEditingController? nomeController;
+  String? Function(BuildContext, String?)? nomeControllerValidator;
   // State field(s) for email widget.
-  FocusNode? emailFocusNode1;
-  TextEditingController? emailController1;
-  String? Function(BuildContext, String?)? emailController1Validator;
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode2;
-  TextEditingController? emailController2;
-  String? Function(BuildContext, String?)? emailController2Validator;
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
   // State field(s) for senha widget.
   FocusNode? senhaFocusNode;
   TextEditingController? senhaController;
@@ -57,11 +58,11 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
     senhaloginFocusNode?.dispose();
     senhaloginController?.dispose();
 
-    emailFocusNode1?.dispose();
-    emailController1?.dispose();
+    nomeFocusNode?.dispose();
+    nomeController?.dispose();
 
-    emailFocusNode2?.dispose();
-    emailController2?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
     senhaFocusNode?.dispose();
     senhaController?.dispose();
