@@ -30,7 +30,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'textOnPageLoadAnimation': AnimationInfo(
+    'textOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -72,6 +72,170 @@ class _HomePageWidgetState extends State<HomePageWidget>
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(-42.00000000000001, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(-49.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        TiltEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(-1.658, 0),
+          end: Offset(0, -0.279),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        SaturateEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        SaturateEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        SaturateEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation5': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        SaturateEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation6': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        SaturateEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation7': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        SaturateEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
@@ -385,7 +549,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           fontSize: 22.0,
                         ),
                   ).animateOnPageLoad(
-                      animationsMap['textOnPageLoadAnimation']!),
+                      animationsMap['textOnPageLoadAnimation1']!),
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -465,7 +629,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       height: 100.0,
                                       fit: BoxFit.cover,
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation']!),
                                 ),
                               ),
                               Align(
@@ -482,7 +647,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           color: Colors.white,
                                           fontSize: 30.0,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation2']!),
                                 ),
                               ),
                             ],
@@ -645,7 +811,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ),
                               ],
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation1']!),
                         ),
                         if (FFAppState().MenuCondicao == 'Monte sua Pizza')
                           Padding(
@@ -917,7 +1084,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation2']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Monte sua Pizza')
                           Padding(
@@ -1375,7 +1543,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation3']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Pizzas')
                           Padding(
@@ -1663,7 +1832,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation4']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Pizzas')
                           Padding(
@@ -1951,7 +2121,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation5']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Bebidas')
                           Padding(
@@ -2239,7 +2410,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation6']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Bebidas')
                           Padding(
@@ -2527,7 +2699,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation7']!),
                           ),
                       ],
                     ),
