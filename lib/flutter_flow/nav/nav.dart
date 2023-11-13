@@ -62,6 +62,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'meucarrinho',
           path: '/meucarrinho',
           builder: (context, params) => MeucarrinhoWidget(),
+        ),
+        FFRoute(
+          name: 'pagamento',
+          path: '/pagamento',
+          builder: (context, params) => PagamentoWidget(),
+        ),
+        FFRoute(
+          name: 'MeusPedidos',
+          path: '/meusPedidos',
+          builder: (context, params) => MeusPedidosWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

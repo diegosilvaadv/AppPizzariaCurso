@@ -41,7 +41,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-74.0, 0.0),
+          begin: Offset(-49.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -60,7 +60,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(41.0, 0.0),
+          begin: Offset(44.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -1168,10 +1168,19 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                         ],
                       ),
-                      Icon(
-                        Icons.history,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 35.0,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('MeusPedidos');
+                        },
+                        child: Icon(
+                          Icons.history,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 35.0,
+                        ),
                       ),
                       Icon(
                         Icons.person,

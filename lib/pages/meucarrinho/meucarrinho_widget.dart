@@ -498,10 +498,28 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.local_grocery_store,
-                                      color: Color(0xFFE46D1F),
-                                      size: 40.0,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'meucarrinho',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.local_grocery_store,
+                                        color: Color(0xFFE46D1F),
+                                        size: 40.0,
+                                      ),
                                     ),
                                   ),
                                   Align(
@@ -545,10 +563,27 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           ],
                         ),
                       ),
-                      Icon(
-                        Icons.history,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 35.0,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'MeusPedidos',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.history,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 35.0,
+                        ),
                       ),
                       Icon(
                         Icons.person,
