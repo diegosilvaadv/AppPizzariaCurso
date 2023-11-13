@@ -913,7 +913,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                     Text(
                                                       formatNumber(
-                                                        widget.teste!.length,
+                                                        widget.teste!.last.id,
                                                         formatType:
                                                             FormatType.custom,
                                                         format: '',
