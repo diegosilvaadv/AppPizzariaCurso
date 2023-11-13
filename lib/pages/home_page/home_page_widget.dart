@@ -605,13 +605,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ),
                               ),
                               child: Opacity(
-                                opacity: 0.6,
+                                opacity: 0.5,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(8.0),
                                     bottomRight: Radius.circular(8.0),
                                     topLeft: Radius.circular(0.0),
-                                    topRight: Radius.circular(8.0),
+                                    topRight: Radius.circular(0.0),
                                   ),
                                   child: Image.asset(
                                     'assets/images/photo-1513104890138-7c749659a591_(1).jpeg',
