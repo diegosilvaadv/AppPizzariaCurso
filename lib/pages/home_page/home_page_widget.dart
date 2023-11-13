@@ -17,7 +17,12 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+  const HomePageWidget({
+    Key? key,
+    this.teste,
+  }) : super(key: key);
+
+  final List<ProdutosRow>? teste;
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
@@ -661,6 +666,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             scrollDirection: Axis.horizontal,
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -676,7 +682,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     options: FFButtonOptions(
                                       height: 40.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
+                                          10.0, 0.0, 10.0, 0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -703,6 +709,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             fontFamily: 'Readex Pro',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
+                                            fontSize: 18.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(
@@ -726,7 +733,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     options: FFButtonOptions(
                                       height: 40.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
+                                          10.0, 0.0, 10.0, 0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -754,6 +761,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             fontFamily: 'Readex Pro',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
+                                            fontSize: 18.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(
@@ -774,7 +782,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        10.0, 0.0, 10.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: valueOrDefault<Color>(
@@ -800,6 +808,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           fontFamily: 'Readex Pro',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
+                                          fontSize: 18.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
@@ -870,24 +879,52 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           context)
                                                       .secondaryBackground,
                                                 ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '8 Pedaços',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontSize: 16.0,
-                                                        ),
-                                                  ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '8 Pedaços',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      formatNumber(
+                                                        widget.teste!.length,
+                                                        formatType:
+                                                            FormatType.custom,
+                                                        format: '',
+                                                        locale: '',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                               expanded: Padding(
