@@ -1636,7 +1636,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       ProdutosTable().queryRows(
                                                     queryFn: (q) => q.eq(
                                                       'tag',
-                                                      'Pizzas Salgadas',
+                                                      'Pizza Salgada',
                                                     ),
                                                   ),
                                                   builder: (context, snapshot) {
@@ -1925,7 +1925,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       ProdutosTable().queryRows(
                                                     queryFn: (q) => q.eq(
                                                       'tag',
-                                                      'Pizzas Doces',
+                                                      'Pizza Doce',
                                                     ),
                                                   ),
                                                   builder: (context, snapshot) {

@@ -281,7 +281,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         ],
                       ),
                       Text(
-                        'R\$10,00',
+                        'R\$130,00',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 25.0,
