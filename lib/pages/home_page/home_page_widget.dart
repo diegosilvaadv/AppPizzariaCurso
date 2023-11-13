@@ -1723,7 +1723,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               8.0),
                                                                       child: Image
                                                                           .network(
-                                                                        'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                        columnProdutosRow
+                                                                            .img!,
                                                                         width:
                                                                             70.0,
                                                                         height:
@@ -2021,7 +2022,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               8.0),
                                                                       child: Image
                                                                           .network(
-                                                                        'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                        columnProdutosRow
+                                                                            .img!,
                                                                         width:
                                                                             70.0,
                                                                         height:
@@ -2316,7 +2318,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               8.0),
                                                                       child: Image
                                                                           .network(
-                                                                        'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                        columnProdutosRow
+                                                                            .img!,
                                                                         width:
                                                                             70.0,
                                                                         height:
@@ -2611,7 +2614,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               8.0),
                                                                       child: Image
                                                                           .network(
-                                                                        'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                        columnProdutosRow
+                                                                            .img!,
                                                                         width:
                                                                             70.0,
                                                                         height:

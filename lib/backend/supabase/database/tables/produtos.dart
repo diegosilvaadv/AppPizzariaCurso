@@ -31,4 +31,7 @@ class ProdutosRow extends SupabaseDataRow {
 
   String? get tag => getField<String>('tag');
   set tag(String? value) => setField<String>('tag', value);
+
+  String? get img => getField<String>('img');
+  set img(String? value) => setField<String>('img', value);
 }
