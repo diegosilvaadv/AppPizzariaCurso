@@ -90,10 +90,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(
-            teste: params.getParam<ProdutosRow>(
-                'teste', ParamType.SupabaseRow, true),
-          ),
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: 'Login',
