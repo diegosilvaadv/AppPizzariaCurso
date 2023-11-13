@@ -482,10 +482,27 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           size: 45.0,
                         ),
                       ),
-                      Icon(
-                        Icons.search,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 35.0,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'pesquisa',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.search,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 35.0,
+                        ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.00, 0.00),

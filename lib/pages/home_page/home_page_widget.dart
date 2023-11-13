@@ -1,8 +1,10 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:badges/badges.dart' as badges;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -340,33 +342,62 @@ class _HomePageWidgetState extends State<HomePageWidget>
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Bom dia, Fulano',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 22.0,
+          title: FutureBuilder<List<UsersRow>>(
+            future: UsersTable().querySingleRow(
+              queryFn: (q) => q.eq(
+                'user_id',
+                currentUserUid,
+              ),
+            ),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  scaffoldKey.currentState!.openDrawer();
-                },
-                child: Icon(
-                  Icons.list_outlined,
-                  color: Color(0xFFE46D1F),
-                  size: 30.0,
-                ),
-              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation1']!),
-            ],
+                  ),
+                );
+              }
+              List<UsersRow> rowUsersRowList = snapshot.data!;
+              final rowUsersRow =
+                  rowUsersRowList.isNotEmpty ? rowUsersRowList.first : null;
+              return Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${functions.saudacao()}, ${rowUsersRow?.nome}',
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 22.0,
+                        ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation']!),
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      scaffoldKey.currentState!.openDrawer();
+                    },
+                    child: Icon(
+                      Icons.list_outlined,
+                      color: Color(0xFFE46D1F),
+                      size: 30.0,
+                    ),
+                  ).animateOnPageLoad(
+                      animationsMap['iconOnPageLoadAnimation1']!),
+                ],
+              );
+            },
           ),
           actions: [],
           centerTitle: false,
@@ -1312,10 +1343,27 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         size: 45.0,
                       ).animateOnPageLoad(
                           animationsMap['iconOnPageLoadAnimation2']!),
-                      Icon(
-                        Icons.search,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 35.0,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'pesquisa',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.search,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 35.0,
+                        ),
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.max,
