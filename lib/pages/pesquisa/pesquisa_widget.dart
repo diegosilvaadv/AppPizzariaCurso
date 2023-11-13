@@ -356,10 +356,11 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                         },
                         child: Icon(
                           Icons.search,
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: Color(0xFFE46D1F),
                           size: 35.0,
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['iconOnPageLoadAnimation']!),
                       Align(
                         alignment: AlignmentDirectional(0.00, 0.00),
                         child: Row(
@@ -438,12 +439,28 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                           ],
                         ),
                       ),
-                      Icon(
-                        Icons.history,
-                        color: Color(0xFFE46D1F),
-                        size: 35.0,
-                      ).animateOnPageLoad(
-                          animationsMap['iconOnPageLoadAnimation']!),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'MeusPedidos',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.history,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 35.0,
+                        ),
+                      ),
                       Icon(
                         Icons.person,
                         color: FlutterFlowTheme.of(context).secondaryText,
