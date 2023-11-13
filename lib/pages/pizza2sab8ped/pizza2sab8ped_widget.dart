@@ -50,6 +50,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

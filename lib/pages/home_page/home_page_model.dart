@@ -25,6 +25,18 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController3;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController4;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController5;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController6;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
@@ -33,6 +45,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     unfocusNode.dispose();
     expandableController1.dispose();
     expandableController2.dispose();
+    expandableController3.dispose();
+    expandableController4.dispose();
+    expandableController5.dispose();
+    expandableController6.dispose();
   }
 
   /// Action blocks are added here.
