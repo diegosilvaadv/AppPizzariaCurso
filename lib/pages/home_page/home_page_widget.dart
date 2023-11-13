@@ -352,10 +352,19 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       fontSize: 22.0,
                     ),
               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
-              Icon(
-                Icons.list_outlined,
-                color: Color(0xFFE46D1F),
-                size: 30.0,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  scaffoldKey.currentState!.openDrawer();
+                },
+                child: Icon(
+                  Icons.list_outlined,
+                  color: Color(0xFFE46D1F),
+                  size: 30.0,
+                ),
               ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation1']!),
             ],
           ),
