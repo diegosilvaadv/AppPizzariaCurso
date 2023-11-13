@@ -2080,7 +2080,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: Text(
-                                                                                      columnProdutosRow.descricao!,
+                                                                                      columnProdutosRow.descricao!.maybeHandleOverflow(
+                                                                                        maxChars: 40,
+                                                                                        replacement: '…',
+                                                                                      ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Readex Pro',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -2376,7 +2379,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: Text(
-                                                                                      columnProdutosRow.descricao!,
+                                                                                      columnProdutosRow.descricao!.maybeHandleOverflow(
+                                                                                        maxChars: 40,
+                                                                                        replacement: '…',
+                                                                                      ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Readex Pro',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -2672,7 +2678,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: Text(
-                                                                                      columnProdutosRow.descricao!,
+                                                                                      columnProdutosRow.descricao!.maybeHandleOverflow(
+                                                                                        maxChars: 40,
+                                                                                        replacement: '…',
+                                                                                      ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Readex Pro',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
