@@ -483,9 +483,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                         ),
                       ),
                       Icon(
-                        Icons.local_pizza,
+                        Icons.search,
                         color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 40.0,
+                        size: 35.0,
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.00, 0.00),

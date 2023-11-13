@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -459,8 +460,28 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     .fromSTEB(
                                                         0.0, 0.0, 8.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
+                                                  onPressed: () async {
+                                                    GoRouter.of(context)
+                                                        .prepareAuthEvent();
+
+                                                    final user =
+                                                        await authManager
+                                                            .signInWithEmail(
+                                                      context,
+                                                      _model
+                                                          .emailloginController
+                                                          .text,
+                                                      _model
+                                                          .senhaloginController
+                                                          .text,
+                                                    );
+                                                    if (user == null) {
+                                                      return;
+                                                    }
+
+                                                    context.goNamedAuth(
+                                                        'HomePage',
+                                                        context.mounted);
                                                   },
                                                   text: 'Entrar',
                                                   options: FFButtonOptions(
@@ -899,8 +920,40 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     .fromSTEB(
                                                         0.0, 0.0, 8.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
+                                                  onPressed: () async {
+                                                    GoRouter.of(context)
+                                                        .prepareAuthEvent();
+                                                    if (_model.senhaController
+                                                            .text !=
+                                                        _model.senhaController
+                                                            .text) {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Passwords don\'t match!',
+                                                          ),
+                                                        ),
+                                                      );
+                                                      return;
+                                                    }
+
+                                                    final user = await authManager
+                                                        .createAccountWithEmail(
+                                                      context,
+                                                      _model.emailController1
+                                                          .text,
+                                                      _model
+                                                          .senhaController.text,
+                                                    );
+                                                    if (user == null) {
+                                                      return;
+                                                    }
+
+                                                    context.goNamedAuth(
+                                                        'HomePage',
+                                                        context.mounted);
                                                   },
                                                   text: 'Entrar',
                                                   options: FFButtonOptions(

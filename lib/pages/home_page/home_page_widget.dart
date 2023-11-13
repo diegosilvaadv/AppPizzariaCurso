@@ -184,8 +184,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   opacity: 0.6,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://images.unsplash.com/photo-1513104890138-7c749659a591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwaXp6YXxlbnwwfHx8fDE2OTk4ODI2NTB8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                    child: Image.asset(
+                                      'assets/images/photo-1513104890138-7c749659a591_(1).jpeg',
                                       width: double.infinity,
                                       height: double.infinity,
                                       fit: BoxFit.cover,
@@ -1092,9 +1092,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ).animateOnPageLoad(
                           animationsMap['iconOnPageLoadAnimation2']!),
                       Icon(
-                        Icons.local_pizza,
+                        Icons.search,
                         color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 40.0,
+                        size: 35.0,
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.max,
