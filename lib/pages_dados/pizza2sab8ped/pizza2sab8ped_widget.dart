@@ -304,6 +304,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     snapshot.data!;
                                                 return ListView.builder(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   shrinkWrap: true,
                                                   scrollDirection:
                                                       Axis.vertical,
@@ -406,7 +407,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                         child:
                                                                             Checkbox(
                                                                           value: _model.checkboxValueMap[listViewProdutosRow] ??=
-                                                                              true,
+                                                                              FFAppState().teste[0] == false,
                                                                           onChanged:
                                                                               (newValue) async {
                                                                             setState(() =>
