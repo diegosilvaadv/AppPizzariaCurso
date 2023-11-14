@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -15,6 +16,12 @@ class Pizza2sab8pedModel extends FlutterFlowModel<Pizza2sab8pedWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
+
+  // State field(s) for Checkbox widget.
+
+  Map<ProdutosRow, bool> checkboxValueMap = {};
+  List<ProdutosRow> get checkboxCheckedItems =>
+      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
 
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
