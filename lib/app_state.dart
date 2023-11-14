@@ -28,12 +28,6 @@ class FFAppState extends ChangeNotifier {
   set MenuCondicao(String _value) {
     _MenuCondicao = _value;
   }
-
-  double _condicaoSabor1 = 0;
-  double get condicaoSabor1 => _condicaoSabor1;
-  set condicaoSabor1(double _value) {
-    _condicaoSabor1 = _value;
-  }
 }
 
 LatLng? _latLngFromString(String? val) {
