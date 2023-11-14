@@ -264,195 +264,232 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                             ],
                                           ),
                                           collapsed: Container(),
-                                          expanded: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
-                                            child: FutureBuilder<
-                                                List<ProdutosRow>>(
-                                              future: ProdutosTable().queryRows(
-                                                queryFn: (q) => q.in_(
-                                                  'tag',
-                                                  [
-                                                    'Pizza Salgada',
-                                                    'Pizza Doce'
-                                                  ],
-                                                ),
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
+                                          expanded: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              if (FFAppState().condicaoSabor1 ==
+                                                  0.0)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10.0, 10.0,
+                                                          10.0, 10.0),
+                                                  child: FutureBuilder<
+                                                      List<ProdutosRow>>(
+                                                    future: ProdutosTable()
+                                                        .queryRows(
+                                                      queryFn: (q) => q.in_(
+                                                        'tag',
+                                                        [
+                                                          'Pizza Salgada',
+                                                          'Pizza Doce'
+                                                        ],
                                                       ),
                                                     ),
-                                                  );
-                                                }
-                                                List<ProdutosRow>
-                                                    listViewProdutosRowList =
-                                                    snapshot.data!;
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  primary: false,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount:
-                                                      listViewProdutosRowList
-                                                          .length,
-                                                  itemBuilder:
-                                                      (context, listViewIndex) {
-                                                    final listViewProdutosRow =
-                                                        listViewProdutosRowList[
-                                                            listViewIndex];
-                                                    return Card(
-                                                      clipBehavior: Clip
-                                                          .antiAliasWithSaveLayer,
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      elevation: 4.0,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      child: Padding(
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<ProdutosRow>
+                                                          listViewProdutosRowList =
+                                                          snapshot.data!;
+                                                      return ListView.builder(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Expanded(
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Text(
-                                                                        listViewProdutosRow
-                                                                            .nomeProduto!,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Readex Pro',
-                                                                              fontSize: 16.0,
-                                                                            ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          listViewProdutosRow
-                                                                              .tag!,
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount:
+                                                            listViewProdutosRowList
+                                                                .length,
+                                                        itemBuilder: (context,
+                                                            listViewIndex) {
+                                                          final listViewProdutosRow =
+                                                              listViewProdutosRowList[
+                                                                  listViewIndex];
+                                                          return InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .condicaoSabor1 =
+                                                                    FFAppState()
+                                                                            .condicaoSabor1 +
+                                                                        1.0;
+                                                              });
+                                                            },
+                                                            child: Card(
+                                                              clipBehavior: Clip
+                                                                  .antiAliasWithSaveLayer,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              elevation: 4.0,
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              child: Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        10.0,
+                                                                        10.0,
+                                                                        10.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Expanded(
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              Text(
+                                                                                listViewProdutosRow.nomeProduto!,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Readex Pro',
+                                                                                      fontSize: 16.0,
+                                                                                    ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                child: Text(
+                                                                                  listViewProdutosRow.tag!,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Readex Pro',
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                        fontSize: 16.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          formatNumber(
+                                                                            listViewProdutosRow.valorProduto!,
+                                                                            formatType:
+                                                                                FormatType.custom,
+                                                                            format:
+                                                                                '0.00',
+                                                                            locale:
+                                                                                '',
+                                                                          ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                fontSize: 16.0,
+                                                                                fontSize: 18.0,
                                                                               ),
                                                                         ),
-                                                                      ),
-                                                                      Theme(
-                                                                        data:
-                                                                            ThemeData(
-                                                                          checkboxTheme:
-                                                                              CheckboxThemeData(
-                                                                            visualDensity:
-                                                                                VisualDensity.compact,
-                                                                            materialTapTargetSize:
-                                                                                MaterialTapTargetSize.shrinkWrap,
-                                                                            shape:
-                                                                                RoundedRectangleBorder(
-                                                                              borderRadius: BorderRadius.circular(4.0),
-                                                                            ),
-                                                                          ),
-                                                                          unselectedWidgetColor:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                        ),
-                                                                        child:
-                                                                            Checkbox(
-                                                                          value: _model.checkboxValueMap[listViewProdutosRow] ??=
-                                                                              FFAppState().teste,
-                                                                          onChanged:
-                                                                              (newValue) async {
-                                                                            setState(() =>
-                                                                                _model.checkboxValueMap[listViewProdutosRow] = newValue!);
-                                                                          },
-                                                                          activeColor:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          checkColor:
-                                                                              FlutterFlowTheme.of(context).info,
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
                                                                 ),
-                                                                Text(
-                                                                  formatNumber(
-                                                                    listViewProdutosRow
-                                                                        .valorProduto!,
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .custom,
-                                                                    format:
-                                                                        '0.00',
-                                                                    locale: '',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        fontSize:
-                                                                            18.0,
-                                                                      ),
-                                                                ),
-                                                              ],
+                                                              ),
                                                             ),
-                                                          ],
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              if (FFAppState().condicaoSabor1 !=
+                                                  0.0)
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      'Pizza de frango  R\$ 50.00',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 20.0,
+                                                              ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          setState(() {
+                                                            FFAppState()
+                                                                    .condicaoSabor1 =
+                                                                FFAppState()
+                                                                        .condicaoSabor1 +
+                                                                    -1.0;
+                                                          });
+                                                        },
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          color:
+                                                              Color(0xFFE13C27),
+                                                          size: 24.0,
                                                         ),
                                                       ),
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                            ),
+                                                    ),
+                                                  ],
+                                                ),
+                                            ],
                                           ),
                                           theme: ExpandableThemeData(
                                             tapHeaderToExpand: true,

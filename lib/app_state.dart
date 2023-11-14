@@ -29,10 +29,10 @@ class FFAppState extends ChangeNotifier {
     _MenuCondicao = _value;
   }
 
-  bool _teste = false;
-  bool get teste => _teste;
-  set teste(bool _value) {
-    _teste = _value;
+  double _condicaoSabor1 = 0;
+  double get condicaoSabor1 => _condicaoSabor1;
+  set condicaoSabor1(double _value) {
+    _condicaoSabor1 = _value;
   }
 }
 

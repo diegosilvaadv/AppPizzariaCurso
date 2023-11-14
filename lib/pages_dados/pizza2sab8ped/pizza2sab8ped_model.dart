@@ -17,12 +17,6 @@ class Pizza2sab8pedModel extends FlutterFlowModel<Pizza2sab8pedWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
-  // State field(s) for Checkbox widget.
-
-  Map<ProdutosRow, bool> checkboxValueMap = {};
-  List<ProdutosRow> get checkboxCheckedItems =>
-      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
-
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
