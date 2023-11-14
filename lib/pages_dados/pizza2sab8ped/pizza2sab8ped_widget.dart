@@ -98,7 +98,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 0.0),
+                                  15.0, 30.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [

@@ -78,7 +78,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 10.0, 10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
