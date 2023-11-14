@@ -407,7 +407,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                         child:
                                                                             Checkbox(
                                                                           value: _model.checkboxValueMap[listViewProdutosRow] ??=
-                                                                              FFAppState().teste[0] == false,
+                                                                              FFAppState().teste,
                                                                           onChanged:
                                                                               (newValue) async {
                                                                             setState(() =>
