@@ -1839,7 +1839,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           future:
                                                               ProdutosTable()
                                                                   .queryRows(
-                                                            queryFn: (q) => q,
+                                                            queryFn: (q) =>
+                                                                q.eq(
+                                                              'created_at',
+                                                              supaSerialize<
+                                                                      DateTime>(
+                                                                  functions
+                                                                      .dadosdodia()
+                                                                      .start),
+                                                            ),
                                                           ),
                                                           builder: (context,
                                                               snapshot) {
@@ -1887,7 +1895,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     fontFamily:
                                                                         'Readex Pro',
                                                                     fontSize:
-                                                                        30.0,
+                                                                        25.0,
                                                                   ),
                                                             );
                                                           },

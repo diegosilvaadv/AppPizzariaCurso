@@ -25,7 +25,7 @@ String saudacao() {
   return 'Boa Noite, ';
 }
 
-DateTimeRange dadosdodia(DateTime dados) {
+DateTimeRange dadosdodia() {
   // display the sum of a list for the current day only
   final now = DateTime.now();
   final startOfDay = DateTime(now.year, now.month, now.day);
