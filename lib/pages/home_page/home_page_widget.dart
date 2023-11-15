@@ -1845,7 +1845,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               ProdutosTable()
                                                                   .queryRows(
                                                             queryFn: (q) =>
-                                                                q.eq(
+                                                                q.neq(
                                                               'created_at',
                                                               supaSerialize<
                                                                       DateTime>(
