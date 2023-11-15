@@ -1844,9 +1844,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               'created_at',
                                                               supaSerialize<
                                                                       DateTime>(
-                                                                  functions
-                                                                      .dadosdodia()
-                                                                      .end),
+                                                                  _model
+                                                                      .teste
+                                                                      .first
+                                                                      .createdAt),
                                                             ),
                                                           ),
                                                           builder: (context,
