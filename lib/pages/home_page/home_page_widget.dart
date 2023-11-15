@@ -1839,16 +1839,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           future:
                                                               ProdutosTable()
                                                                   .queryRows(
-                                                            queryFn: (q) =>
-                                                                q.eq(
-                                                              'created_at',
-                                                              supaSerialize<
-                                                                      DateTime>(
-                                                                  functions
-                                                                      .dadosdodia(
-                                                                          getCurrentTimestamp)
-                                                                      .start),
-                                                            ),
+                                                            queryFn: (q) => q,
                                                           ),
                                                           builder: (context,
                                                               snapshot) {
@@ -1896,7 +1887,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     fontFamily:
                                                                         'Readex Pro',
                                                                     fontSize:
-                                                                        20.0,
+                                                                        30.0,
                                                                   ),
                                                             );
                                                           },
