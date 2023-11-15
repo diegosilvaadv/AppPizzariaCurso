@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:badges/badges.dart' as badges;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -1848,16 +1847,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             queryFn: (q) =>
                                                                 q.eq(
                                                               'created_at',
-                                                              supaSerialize<DateTime>(functions
-                                                                  .dadosdodia(List.generate(
-                                                                      random_data
-                                                                          .randomInteger(
-                                                                              0,
-                                                                              0),
-                                                                      (index) =>
-                                                                          random_data
-                                                                              .randomDate()).toList())
-                                                                  .start),
+                                                              supaSerialize<
+                                                                      DateTime>(
+                                                                  functions
+                                                                      .dadoslistasoma()),
                                                             ),
                                                           ),
                                                           builder: (context,
@@ -1906,7 +1899,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     fontFamily:
                                                                         'Readex Pro',
                                                                     fontSize:
-                                                                        22.0,
+                                                                        25.0,
                                                                   ),
                                                             );
                                                           },

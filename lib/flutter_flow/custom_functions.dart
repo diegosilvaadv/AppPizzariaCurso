@@ -25,7 +25,7 @@ String saudacao() {
   return 'Boa Noite, ';
 }
 
-DateTimeRange dadosdodia(List<DateTime> dia) {
+DateTimeRange dadosdodia() {
   // display the sum of a list for the current day only
   final now = DateTime.now();
   final startOfDay = DateTime(now.year, now.month, now.day);
@@ -44,4 +44,13 @@ double? totalsomalista(List<double>? numeros) {
     soma += elemento;
   }
   return soma;
+}
+
+DateTime dadoslistasoma() {
+  // display the sum of a list for the current day only
+  final now = DateTime.now();
+  final startOfDay = DateTime(now.year, now.month, now.day);
+  final endOfDay =
+      startOfDay.add(Duration(days: 1)).subtract(Duration(milliseconds: 1));
+  return startOfDay;
 }
