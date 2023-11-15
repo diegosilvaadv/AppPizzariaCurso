@@ -24,3 +24,24 @@ String saudacao() {
   }
   return 'Boa Noite, ';
 }
+
+DateTimeRange dadosdodia(DateTime dados) {
+  // display the sum of a list for the current day only
+  final now = DateTime.now();
+  final startOfDay = DateTime(now.year, now.month, now.day);
+  final endOfDay =
+      startOfDay.add(Duration(days: 1)).subtract(Duration(milliseconds: 1));
+  return DateTimeRange(start: startOfDay, end: endOfDay);
+}
+
+double? totalsomalista(List<double>? numeros) {
+  if (numeros == null || numeros.isEmpty) {
+    return 0;
+  }
+
+  double soma = 0;
+  for (double elemento in numeros) {
+    soma += elemento;
+  }
+  return soma;
+}
