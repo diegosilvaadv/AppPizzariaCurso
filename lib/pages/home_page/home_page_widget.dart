@@ -1022,10 +1022,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         0.0),
                                                             child:
                                                                 FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                context.pushNamed(
-                                                                    'pizza2sab8ped');
+                                                              onPressed: () {
+                                                                print(
+                                                                    'Button pressed ...');
                                                               },
                                                               text: 'Montar',
                                                               options:
@@ -2800,6 +2799,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );
@@ -2827,6 +2827,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
                                     ),
                                   },
                                 );
@@ -2888,7 +2889,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('MeusPedidos');
+                          context.pushNamed(
+                            'MeusPedidos',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
                         },
                         child: Icon(
                           Icons.history,

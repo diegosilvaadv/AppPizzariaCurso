@@ -328,6 +328,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );
@@ -380,6 +381,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
                                       ),
                                     },
                                   );
@@ -451,6 +453,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );

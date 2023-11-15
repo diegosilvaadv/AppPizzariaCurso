@@ -474,6 +474,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );
@@ -496,6 +497,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );
@@ -594,6 +596,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );

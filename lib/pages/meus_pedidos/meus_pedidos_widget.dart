@@ -290,6 +290,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );
@@ -312,6 +313,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
                               ),
                             },
                           );
@@ -341,6 +343,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
                                       ),
                                     },
                                   );
