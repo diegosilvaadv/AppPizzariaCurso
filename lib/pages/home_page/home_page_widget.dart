@@ -1846,7 +1846,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       DateTime>(
                                                                   functions
                                                                       .dadosdodia()
-                                                                      .start),
+                                                                      .end),
                                                             ),
                                                           ),
                                                           builder: (context,
@@ -1895,7 +1895,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     fontFamily:
                                                                         'Readex Pro',
                                                                     fontSize:
-                                                                        25.0,
+                                                                        22.0,
                                                                   ),
                                                             );
                                                           },
