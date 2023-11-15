@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:badges/badges.dart' as badges;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -275,6 +276,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {});
+    });
 
     _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.expandableController2 = ExpandableController(initialExpanded: false);
@@ -1842,12 +1848,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             queryFn: (q) =>
                                                                 q.eq(
                                                               'created_at',
-                                                              supaSerialize<
-                                                                      DateTime>(
-                                                                  _model
-                                                                      .teste
-                                                                      .first
-                                                                      .createdAt),
+                                                              supaSerialize<DateTime>(functions
+                                                                  .dadosdodia(List.generate(
+                                                                      random_data
+                                                                          .randomInteger(
+                                                                              0,
+                                                                              0),
+                                                                      (index) =>
+                                                                          random_data
+                                                                              .randomDate()).toList())
+                                                                  .start),
                                                             ),
                                                           ),
                                                           builder: (context,
