@@ -27,6 +27,63 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, -53.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 360.ms,
+          begin: Offset(-59.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 780.ms,
+          begin: Offset(-50.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
     'iconOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -81,9 +138,11 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
               padding: EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 10.0, 10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Meus Pedidos',
+                    textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           fontSize: 30.0,
@@ -91,10 +150,10 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                         ),
                   ),
                 ],
-              ),
+              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -103,7 +162,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ],
-              ),
+              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
             ),
             Expanded(
               child: ListView(
@@ -250,7 +309,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                           ],
                         ),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation']!),
                   ),
                 ],
               ),
