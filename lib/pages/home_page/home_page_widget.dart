@@ -132,7 +132,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
     ),
     'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      applyInitialState: true,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
@@ -147,32 +146,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-      ],
-    ),
-    'rowOnActionTriggerAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, -28.0),
-          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'rowOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      applyInitialState: true,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
@@ -187,26 +165,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-      ],
-    ),
-    'rowOnActionTriggerAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, -28.0),
-          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -720,14 +678,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         FFAppState().MenuCondicao =
                                             'Monte sua Pizza';
                                       });
-                                      if (animationsMap[
-                                              'rowOnActionTriggerAnimation1'] !=
-                                          null) {
-                                        await animationsMap[
-                                                'rowOnActionTriggerAnimation1']!
-                                            .controller
-                                            .forward(from: 0.0);
-                                      }
                                     },
                                     text: 'Monte sua Pizza',
                                     options: FFButtonOptions(
@@ -1144,13 +1094,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            )
-                                .animateOnPageLoad(
-                                    animationsMap['rowOnPageLoadAnimation2']!)
-                                .animateOnActionTrigger(
-                                  animationsMap[
-                                      'rowOnActionTriggerAnimation1']!,
-                                ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation2']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Monte sua Pizza')
                           Padding(
@@ -1608,13 +1553,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            )
-                                .animateOnPageLoad(
-                                    animationsMap['rowOnPageLoadAnimation3']!)
-                                .animateOnActionTrigger(
-                                  animationsMap[
-                                      'rowOnActionTriggerAnimation2']!,
-                                ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation3']!),
                           ),
                         if (FFAppState().MenuCondicao == 'Pizzas')
                           Padding(
