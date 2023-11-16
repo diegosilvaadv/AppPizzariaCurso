@@ -687,10 +687,14 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().quanty =
-                                      FFAppState().quanty + -1;
-                                });
+                                if (FFAppState().quanty != 1) {
+                                  setState(() {
+                                    FFAppState().quanty =
+                                        FFAppState().quanty + -1;
+                                  });
+                                } else {
+                                  return;
+                                }
                               },
                               child: FaIcon(
                                 FontAwesomeIcons.minus,
@@ -702,7 +706,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                                16.0, 0.0, 16.0, 0.0),
                             child: Text(
                               formatNumber(
                                 FFAppState().quanty,
@@ -744,7 +748,6 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                     ),
                     Flexible(
                       child: Container(
-                        width: 215.0,
                         height: 100.0,
                         decoration: BoxDecoration(
                           color: Color(0xFF10DA26),
@@ -757,7 +760,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                             Flexible(
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Adicionar',
                                   style: FlutterFlowTheme.of(context)
