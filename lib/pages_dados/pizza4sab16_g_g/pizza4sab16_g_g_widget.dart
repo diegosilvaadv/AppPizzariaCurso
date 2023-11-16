@@ -2535,6 +2535,16 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                         onTap: () async {
                           if (FFAppState().CondicaoGeral == 5) {
                             setState(() {
+                              FFAppState().TotalPrice = FFAppState()
+                                      .TotalPrice +
+                                  (FFAppState().Sabores.precoSabor1 +
+                                          FFAppState().Sabores.precoSabor2 +
+                                          FFAppState().Sabores.precoSabor3 +
+                                          FFAppState().Sabores.precoSabor4 +
+                                          FFAppState().bordasRef.precoBorda) *
+                                      FFAppState().quanty;
+                            });
+                            setState(() {
                               FFAppState().addToPedidosCar(PedidosStruct(
                                 nomeProduto:
                                     '${FFAppState().Sabores.nomeSabor1}, ${FFAppState().Sabores.nomeSabor2}, ${FFAppState().Sabores.nomeSabor3} & ${FFAppState().Sabores.nomeSabor4}',

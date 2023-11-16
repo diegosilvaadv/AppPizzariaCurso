@@ -1623,6 +1623,14 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                         onTap: () async {
                           if (FFAppState().CondicaoGeral == 3) {
                             setState(() {
+                              FFAppState().TotalPrice = FFAppState()
+                                      .TotalPrice +
+                                  (FFAppState().Sabores.precoSabor1 +
+                                          FFAppState().Sabores.precoSabor2 +
+                                          FFAppState().bordasRef.precoBorda) *
+                                      FFAppState().quanty;
+                            });
+                            setState(() {
                               FFAppState().addToPedidosCar(PedidosStruct(
                                 nomeProduto:
                                     '${FFAppState().Sabores.nomeSabor1} & ${FFAppState().Sabores.nomeSabor2}',
