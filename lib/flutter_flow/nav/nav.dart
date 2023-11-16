@@ -136,6 +136,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'pizza2sab16GG',
           path: '/pizza2sab16GG',
           builder: (context, params) => Pizza2sab16GGWidget(),
+        ),
+        FFRoute(
+          name: 'pizza4sab8GG',
+          path: '/pizza4sab8GG',
+          builder: (context, params) => Pizza4sab8GGWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
