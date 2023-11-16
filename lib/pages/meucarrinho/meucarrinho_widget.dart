@@ -189,7 +189,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 20.0,
+                                      fontSize: 21.0,
                                     ),
                               ),
                             if (FFAppState().NumCarrinho == 0)
@@ -199,7 +199,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 20.0,
+                                      fontSize: 21.0,
                                     ),
                               ),
                           ],
@@ -526,10 +526,14 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     .NumCarrinho +
                                                                 -1;
                                                         FFAppState()
-                                                                .TotalPrice =
-                                                            FFAppState()
-                                                                    .TotalPrice +
-                                                                1.0;
+                                                            .TotalPrice = FFAppState()
+                                                                .TotalPrice +
+                                                            (-pedidosItem
+                                                                        .precoTotal -
+                                                                    pedidosItem
+                                                                        .precoBorda) *
+                                                                (pedidosItem
+                                                                    .quanty);
                                                       });
                                                     },
                                                     child: Icon(
@@ -596,39 +600,42 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 25.0,
+                                    fontSize: 22.0,
                                   ),
                             ),
                           ),
                         ],
                       ),
-                      Container(
-                        width: 215.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF10DA26),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Ir para pagamento',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 20.0,
-                                      ),
+                      Flexible(
+                        child: Container(
+                          width: 215.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF10DA26),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Ir para pagamento',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 20.0,
+                                        ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
