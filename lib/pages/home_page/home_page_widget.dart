@@ -2534,7 +2534,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 children: [
                                                                                   Text(
                                                                                     formatNumber(
-                                                                                      columnProdutosRow.valorProduto! / 2,
+                                                                                      columnProdutosRow.valorProduto!,
                                                                                       formatType: FormatType.custom,
                                                                                       currency: 'R\$',
                                                                                       format: '0.00',
@@ -2870,7 +2870,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 children: [
                                                                                   Text(
                                                                                     formatNumber(
-                                                                                      columnProdutosRow.valorProduto! / 2,
+                                                                                      columnProdutosRow.valorProduto!,
                                                                                       formatType: FormatType.custom,
                                                                                       currency: 'R\$',
                                                                                       format: '0.00',
