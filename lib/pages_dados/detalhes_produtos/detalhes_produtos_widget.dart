@@ -171,7 +171,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                             Expanded(
                               child: Text(
                                 formatNumber(
-                                  widget.detalhesProdutos!.valorProduto!,
+                                  widget.detalhesProdutos!.valorProduto! / 2,
                                   formatType: FormatType.custom,
                                   currency: 'R\$',
                                   format: '0.00',
@@ -184,6 +184,20 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                       color: Color(0xFF10DA26),
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: Text(
+                                'Pizza de 8 Pedaços',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w500,
                                     ),
                               ),
                             ),
