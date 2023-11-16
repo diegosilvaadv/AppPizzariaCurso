@@ -926,7 +926,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                             child: Text(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .nomeSabor1,
+                                                                  .nomeSabor2,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -945,7 +945,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                             formatNumber(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .precoSabor1,
+                                                                  .precoSabor2,
                                                               formatType:
                                                                   FormatType
                                                                       .custom,
@@ -1508,7 +1508,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 119.0,
+                      width: 146.0,
                       height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -1521,17 +1521,39 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.minus,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 25.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (FFAppState().quanty != 1) {
+                                  setState(() {
+                                    FFAppState().quanty =
+                                        FFAppState().quanty + -1;
+                                  });
+                                } else {
+                                  return;
+                                }
+                              },
+                              child: FaIcon(
+                                FontAwesomeIcons.minus,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
-                              '1',
+                              formatNumber(
+                                FFAppState().quanty,
+                                formatType: FormatType.custom,
+                                format: '',
+                                locale: '',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1543,10 +1565,27 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 8.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.plus,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 25.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (FFAppState().quanty != 100) {
+                                  setState(() {
+                                    FFAppState().quanty =
+                                        FFAppState().quanty + 1;
+                                  });
+                                } else {
+                                  return;
+                                }
+                              },
+                              child: FaIcon(
+                                FontAwesomeIcons.plus,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                         ],
@@ -1577,24 +1616,33 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                             Flexible(
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
+                                    6.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Adicionar',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        fontSize: 20.0,
+                                        fontSize: 18.0,
                                       ),
                                 ),
                               ),
                             ),
-                            Flexible(
+                            Expanded(
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
+                                    0.0, 0.0, 6.0, 0.0),
                                 child: Text(
-                                  'R\$ 60,00',
+                                  formatNumber(
+                                    (FFAppState().Sabores.precoSabor1 +
+                                            FFAppState().Sabores.precoSabor2 +
+                                            FFAppState().bordasRef.precoBorda) *
+                                        FFAppState().quanty,
+                                    formatType: FormatType.custom,
+                                    currency: 'R\$',
+                                    format: '0.00',
+                                    locale: 'pt_BR',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
