@@ -1030,7 +1030,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               onPressed:
                                                                   () async {
                                                                 context.pushNamed(
-                                                                    'pizza2sab8ped');
+                                                                    'pizza2sab8G');
                                                               },
                                                               text: 'Montar',
                                                               options:
@@ -1311,9 +1311,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   child:
                                                                       FFButtonWidget(
                                                                     onPressed:
-                                                                        () {
-                                                                      print(
-                                                                          'Button pressed ...');
+                                                                        () async {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'pizza2sab16GG',
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          kTransitionInfoKey:
+                                                                              TransitionInfo(
+                                                                            hasTransition:
+                                                                                true,
+                                                                            transitionType:
+                                                                                PageTransitionType.fade,
+                                                                          ),
+                                                                        },
+                                                                      );
                                                                     },
                                                                     text:
                                                                         'Montar',

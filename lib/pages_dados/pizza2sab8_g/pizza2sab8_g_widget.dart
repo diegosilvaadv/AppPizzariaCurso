@@ -5,29 +5,42 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'pizza2sab8ped_model.dart';
-export 'pizza2sab8ped_model.dart';
+import 'pizza2sab8_g_model.dart';
+export 'pizza2sab8_g_model.dart';
 
-class Pizza2sab8pedWidget extends StatefulWidget {
-  const Pizza2sab8pedWidget({Key? key}) : super(key: key);
+class Pizza2sab8GWidget extends StatefulWidget {
+  const Pizza2sab8GWidget({Key? key}) : super(key: key);
 
   @override
-  _Pizza2sab8pedWidgetState createState() => _Pizza2sab8pedWidgetState();
+  _Pizza2sab8GWidgetState createState() => _Pizza2sab8GWidgetState();
 }
 
-class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
-  late Pizza2sab8pedModel _model;
+class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
+  late Pizza2sab8GModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Pizza2sab8pedModel());
+    _model = createModel(context, () => Pizza2sab8GModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().bordasRef = BordasRefStruct.fromSerializableMap(
+            jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+        FFAppState().quanty = 1;
+        FFAppState().Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
+            '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+        FFAppState().CondicaoGeral = 0;
+      });
+    });
 
     _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.expandableController2 = ExpandableController(initialExpanded: false);
@@ -104,22 +117,32 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Card(
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    elevation: 4.0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 6.0, 6.0, 6.0),
-                                      child: Icon(
-                                        Icons.chevron_left,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 24.0,
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.safePop();
+                                    },
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      elevation: 4.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            6.0, 6.0, 6.0, 6.0),
+                                        child: Icon(
+                                          Icons.chevron_left,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24.0,
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,6 +34,18 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DetalhesProdutosModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().bordasRef = BordasRefStruct.fromSerializableMap(
+            jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+        FFAppState().quanty = 1;
+        FFAppState().Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
+            '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+        FFAppState().CondicaoGeral = 0;
+      });
+    });
 
     _model.expandableController = ExpandableController(initialExpanded: false);
   }

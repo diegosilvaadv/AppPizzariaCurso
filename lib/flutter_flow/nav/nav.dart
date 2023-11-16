@@ -100,9 +100,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: 'pizza2sab8ped',
-          path: '/pizza2sab8ped',
-          builder: (context, params) => Pizza2sab8pedWidget(),
+          name: 'pizza2sab8G',
+          path: '/pizza2sab8G',
+          builder: (context, params) => Pizza2sab8GWidget(),
         ),
         FFRoute(
           name: 'meucarrinho',
@@ -131,6 +131,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             detalhesProdutos: params.getParam<ProdutosRow>(
                 'detalhesProdutos', ParamType.SupabaseRow),
           ),
+        ),
+        FFRoute(
+          name: 'pizza2sab16GG',
+          path: '/pizza2sab16GG',
+          builder: (context, params) => Pizza2sab16GGWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
