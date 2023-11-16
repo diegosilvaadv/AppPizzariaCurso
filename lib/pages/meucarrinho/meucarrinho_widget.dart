@@ -27,7 +27,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
+    'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -74,6 +74,26 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           duration: 600.ms,
           begin: Offset(62.0, 0.0),
           end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        ShakeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 1000.ms,
+          hz: 10,
+          offset: Offset(0.0, 0.0),
+          rotation: 0.087,
         ),
       ],
     ),
@@ -204,7 +224,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                               ),
                           ],
                         ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation']!),
+                            animationsMap['rowOnPageLoadAnimation1']!),
                       ),
                       if (FFAppState().NumCarrinho != 0)
                         Padding(
@@ -248,229 +268,143 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                             ],
                           ),
                         ),
-                      Builder(
-                        builder: (context) {
-                          final pedidos = FFAppState().pedidosCar.toList();
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: pedidos.length,
-                            itemBuilder: (context, pedidosIndex) {
-                              final pedidosItem = pedidos[pedidosIndex];
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      elevation: 6.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                      if (responsiveVisibility(
+                        context: context,
+                        phone: false,
+                      ))
+                        Builder(
+                          builder: (context) {
+                            final pedidos = FFAppState().pedidosCar.toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: pedidos.length,
+                              itemBuilder: (context, pedidosIndex) {
+                                final pedidosItem = pedidos[pedidosIndex];
+                                return Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 10.0, 10.0, 10.0),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        elevation: 6.0,
+                                        shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                         ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 10.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(12.0),
-                                                child: Image.network(
-                                                  pedidosItem.img,
-                                                  width: 70.0,
-                                                  height: 80.0,
-                                                  fit: BoxFit.cover,
+                                        child: Container(
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 10.0, 10.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                  child: Image.network(
+                                                    pedidosItem.img,
+                                                    width: 70.0,
+                                                    height: 80.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
-                                              ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          6.0, 0.0, 0.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    6.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                pedidosItem
-                                                                    .nomeProduto,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      fontSize:
-                                                                          18.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    6.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              formatNumber(
-                                                                pedidosItem
-                                                                    .precoTotal,
-                                                                formatType:
-                                                                    FormatType
-                                                                        .custom,
-                                                                currency: 'R\$',
-                                                                format: '0.00',
-                                                                locale: 'pt_BR',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: Color(
-                                                                        0xFF10DA26),
-                                                                    fontSize:
-                                                                        18.0,
-                                                                  ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                'X ${pedidosItem.quanty.toString()}',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      fontSize:
-                                                                          16.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    6.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                '${pedidosItem.nomeBorda}',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontSize:
-                                                                          18.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            if (pedidosItem
-                                                                    .precoBorda !=
-                                                                0.0)
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(6.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
                                                                 child: Text(
-                                                                  formatNumber(
-                                                                    pedidosItem
-                                                                        .precoBorda,
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .custom,
-                                                                    currency:
-                                                                        'R\$',
-                                                                    format:
-                                                                        '0.00',
-                                                                    locale:
-                                                                        'pt_BR',
-                                                                  ),
+                                                                  pedidosItem
+                                                                      .nomeProduto,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Readex Pro',
-                                                                        color: Color(
-                                                                            0xFF10DA26),
                                                                         fontSize:
                                                                             18.0,
                                                                       ),
                                                                 ),
                                                               ),
-                                                            if (pedidosItem
-                                                                    .precoBorda !=
-                                                                0.0)
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                formatNumber(
+                                                                  pedidosItem
+                                                                      .precoTotal,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .custom,
+                                                                  currency:
+                                                                      'R\$',
+                                                                  format:
+                                                                      '0.00',
+                                                                  locale:
+                                                                      'pt_BR',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: Color(
+                                                                          0xFF10DA26),
+                                                                      fontSize:
+                                                                          18.0,
+                                                                    ),
+                                                              ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
@@ -494,70 +428,166 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                       ),
                                                                 ),
                                                               ),
-                                                          ],
+                                                            ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .removeAtIndexFromPedidosCar(
-                                                                pedidosIndex);
-                                                        FFAppState()
-                                                                .NumCarrinho =
-                                                            FFAppState()
-                                                                    .NumCarrinho +
-                                                                -1;
-                                                        FFAppState()
-                                                            .TotalPrice = FFAppState()
-                                                                .TotalPrice +
-                                                            (-pedidosItem
-                                                                        .precoTotal -
-                                                                    pedidosItem
-                                                                        .precoBorda) *
-                                                                (pedidosItem
-                                                                    .quanty
-                                                                    .toDouble());
-                                                      });
-                                                    },
-                                                    child: Icon(
-                                                      Icons.delete_sweep,
-                                                      color: Color(0xFFE13C27),
-                                                      size: 24.0,
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Text(
+                                                                  '${pedidosItem.nomeBorda}',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              if (pedidosItem
+                                                                      .precoBorda !=
+                                                                  0.0)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    formatNumber(
+                                                                      pedidosItem
+                                                                          .precoBorda,
+                                                                      formatType:
+                                                                          FormatType
+                                                                              .custom,
+                                                                      currency:
+                                                                          'R\$',
+                                                                      format:
+                                                                          '0.00',
+                                                                      locale:
+                                                                          'pt_BR',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          color:
+                                                                              Color(0xFF10DA26),
+                                                                          fontSize:
+                                                                              18.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              if (pedidosItem
+                                                                      .precoBorda !=
+                                                                  0.0)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    'X ${pedidosItem.quanty.toString()}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          fontSize:
+                                                                              16.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
-                                                ],
-                                              ),
-                                            ],
+                                                ),
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        setState(() {
+                                                          FFAppState()
+                                                              .removeAtIndexFromPedidosCar(
+                                                                  pedidosIndex);
+                                                          FFAppState()
+                                                                  .NumCarrinho =
+                                                              FFAppState()
+                                                                      .NumCarrinho +
+                                                                  -1;
+                                                          FFAppState()
+                                                              .TotalPrice = FFAppState()
+                                                                  .TotalPrice +
+                                                              (-pedidosItem
+                                                                          .precoTotal -
+                                                                      pedidosItem
+                                                                          .precoBorda) *
+                                                                  (pedidosItem
+                                                                      .quanty
+                                                                      .toDouble());
+                                                        });
+                                                      },
+                                                      child: Icon(
+                                                        Icons.delete_sweep,
+                                                        color:
+                                                            Color(0xFFE13C27),
+                                                        size: 24.0,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation']!),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'containerOnPageLoadAnimation']!),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
                       if (FFAppState().NumCarrinho == 0)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -576,7 +606,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation2']!),
                         ),
                     ],
                   ),
