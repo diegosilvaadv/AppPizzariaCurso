@@ -163,7 +163,7 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 6.0, 8.0, 6.0),
                                         child: Text(
-                                          'Pizza Grande 2 Sabores',
+                                          'Pizza Extra Grande 4 Sabores',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
