@@ -44,6 +44,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
         FFAppState().Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
             '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
         FFAppState().CondicaoGeral = 0;
+        FFAppState().CondicaoBordas = 0;
       });
     });
 
