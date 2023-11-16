@@ -525,6 +525,11 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                             FFAppState()
                                                                     .NumCarrinho +
                                                                 -1;
+                                                        FFAppState()
+                                                                .TotalPrice =
+                                                            FFAppState()
+                                                                    .TotalPrice +
+                                                                1.0;
                                                       });
                                                     },
                                                     child: Icon(
