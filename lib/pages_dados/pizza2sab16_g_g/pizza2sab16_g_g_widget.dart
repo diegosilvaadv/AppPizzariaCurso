@@ -1191,10 +1191,8 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda ==
-                                                  0.0)
+                                              if (FFAppState().CondicaoGeral ==
+                                                  2)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1353,10 +1351,8 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoGeral ==
+                                                  3)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
