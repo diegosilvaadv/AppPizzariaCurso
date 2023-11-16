@@ -1027,9 +1027,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         0.0),
                                                             child:
                                                                 FFButtonWidget(
-                                                              onPressed: () {
-                                                                print(
-                                                                    'Button pressed ...');
+                                                              onPressed:
+                                                                  () async {
+                                                                context.pushNamed(
+                                                                    'pizza2sab8ped');
                                                               },
                                                               text: 'Montar',
                                                               options:
