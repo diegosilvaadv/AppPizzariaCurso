@@ -52,6 +52,47 @@ class FFAppState extends ChangeNotifier {
   set quanty(int _value) {
     _quanty = _value;
   }
+
+  SaboresRefStruct _Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
+      '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+  SaboresRefStruct get Sabores => _Sabores;
+  set Sabores(SaboresRefStruct _value) {
+    _Sabores = _value;
+  }
+
+  void updateSaboresStruct(Function(SaboresRefStruct) updateFn) {
+    updateFn(_Sabores);
+  }
+
+  double _PrecoSabor1 = 0;
+  double get PrecoSabor1 => _PrecoSabor1;
+  set PrecoSabor1(double _value) {
+    _PrecoSabor1 = _value;
+  }
+
+  double _PrecoSabor2 = 0;
+  double get PrecoSabor2 => _PrecoSabor2;
+  set PrecoSabor2(double _value) {
+    _PrecoSabor2 = _value;
+  }
+
+  double _PrecoSabor3 = 0;
+  double get PrecoSabor3 => _PrecoSabor3;
+  set PrecoSabor3(double _value) {
+    _PrecoSabor3 = _value;
+  }
+
+  double _PrecoSabor4 = 0;
+  double get PrecoSabor4 => _PrecoSabor4;
+  set PrecoSabor4(double _value) {
+    _PrecoSabor4 = _value;
+  }
+
+  int _condicaoGeral = 0;
+  int get condicaoGeral => _condicaoGeral;
+  set condicaoGeral(int _value) {
+    _condicaoGeral = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -314,12 +314,19 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                         BorderRadius.circular(
                                                             6.0),
                                                   ),
-                                                  child: Icon(
-                                                    Icons.local_pizza,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(6.0, 6.0,
+                                                                6.0, 6.0),
+                                                    child: Icon(
+                                                      Icons.local_pizza,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
