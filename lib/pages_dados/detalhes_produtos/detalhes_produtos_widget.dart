@@ -365,10 +365,8 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda ==
-                                                  0.0)
+                                              if (FFAppState().CondicaoGeral ==
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -527,10 +525,8 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoGeral !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -585,10 +581,8 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoGeral !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -842,11 +836,10 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                           height: 100.0,
                           decoration: BoxDecoration(
                             color: () {
-                              if (FFAppState().bordasRef.precoBorda == 0.0) {
+                              if (FFAppState().CondicaoGeral == 0) {
                                 return FlutterFlowTheme.of(context)
                                     .primaryBackground;
-                              } else if (FFAppState().bordasRef.precoBorda !=
-                                  0.0) {
+                              } else if (FFAppState().CondicaoGeral != 0) {
                                 return Color(0xFF10DA26);
                               } else {
                                 return Color(0xFF10DA26);
