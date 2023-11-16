@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -162,7 +163,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Flexible(
+            Expanded(
               child: Card(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -211,8 +212,11 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                setState(() {
+                                  FFAppState().NumCarrinho = 0;
+                                  FFAppState().pedidosCar = [];
+                                });
                               },
                               text: 'Limpar',
                               options: FFButtonOptions(

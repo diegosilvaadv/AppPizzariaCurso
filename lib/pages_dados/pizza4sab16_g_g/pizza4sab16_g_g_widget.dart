@@ -2523,69 +2523,123 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                       ),
                     ),
                     Flexible(
-                      child: Container(
-                        width: 215.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color: () {
-                            if (FFAppState().CondicaoGeral < 5) {
-                              return FlutterFlowTheme.of(context)
-                                  .primaryBackground;
-                            } else if (FFAppState().CondicaoGeral == 5) {
-                              return Color(0xFF10DA26);
-                            } else {
-                              return FlutterFlowTheme.of(context)
-                                  .primaryBackground;
-                            }
-                          }(),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Adicionar',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 18.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 6.0, 0.0),
-                                child: Text(
-                                  formatNumber(
-                                    (FFAppState().Sabores.precoSabor1 +
-                                            FFAppState().Sabores.precoSabor2 +
-                                            FFAppState().Sabores.precoSabor3 +
-                                            FFAppState().Sabores.precoSabor4 +
-                                            FFAppState().bordasRef.precoBorda) *
-                                        FFAppState().quanty,
-                                    formatType: FormatType.custom,
-                                    currency: 'R\$',
-                                    format: '0.00',
-                                    locale: 'pt_BR',
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (FFAppState().CondicaoGeral == 5) {
+                            setState(() {
+                              FFAppState().addToPedidosCar(PedidosStruct(
+                                nomeProduto:
+                                    '${FFAppState().Sabores.nomeSabor1}, ${FFAppState().Sabores.nomeSabor2}, ${FFAppState().Sabores.nomeSabor3} & ${FFAppState().Sabores.nomeSabor4}',
+                                img:
+                                    'https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/DwOgEjTSjDyrasg891tQccTC0KMre0IRkLiIc3fv.png',
+                                quanty: FFAppState().quanty,
+                                precoTotal: FFAppState().Sabores.precoSabor1 +
+                                    FFAppState().Sabores.precoSabor2 +
+                                    FFAppState().Sabores.precoSabor3 +
+                                    FFAppState().Sabores.precoSabor4,
+                                precoBorda: FFAppState().bordasRef.precoBorda,
+                                nomeBorda: FFAppState().bordasRef.nomeBorda,
+                              ));
+                              FFAppState().quanty = 1;
+                              FFAppState().CondicaoGeral = 0;
+                              FFAppState().bordasRef = BordasRefStruct
+                                  .fromSerializableMap(jsonDecode(
+                                      '{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+                              FFAppState().Sabores = SaboresRefStruct
+                                  .fromSerializableMap(jsonDecode(
+                                      '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+                              FFAppState().NumCarrinho =
+                                  FFAppState().NumCarrinho + 1;
+                            });
+
+                            context.goNamed('meucarrinho');
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Escolha as opções acima para continuar.',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 20.0,
-                                      ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
+                          }
+                        },
+                        child: Container(
+                          width: 215.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: () {
+                              if (FFAppState().CondicaoGeral < 5) {
+                                return FlutterFlowTheme.of(context)
+                                    .primaryBackground;
+                              } else if (FFAppState().CondicaoGeral == 5) {
+                                return Color(0xFF10DA26);
+                              } else {
+                                return FlutterFlowTheme.of(context)
+                                    .primaryBackground;
+                              }
+                            }(),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      6.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Adicionar',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 18.0,
+                                        ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 6.0, 0.0),
+                                  child: Text(
+                                    formatNumber(
+                                      (FFAppState().Sabores.precoSabor1 +
+                                              FFAppState().Sabores.precoSabor2 +
+                                              FFAppState().Sabores.precoSabor3 +
+                                              FFAppState().Sabores.precoSabor4 +
+                                              FFAppState()
+                                                  .bordasRef
+                                                  .precoBorda) *
+                                          FFAppState().quanty,
+                                      formatType: FormatType.custom,
+                                      currency: 'R\$',
+                                      format: '0.00',
+                                      locale: 'pt_BR',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 20.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

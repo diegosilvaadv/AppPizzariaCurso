@@ -803,7 +803,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                 img: widget.detalhesProdutos?.img,
                                 quanty: FFAppState().quanty,
                                 precoTotal:
-                                    widget.detalhesProdutos?.valorProduto,
+                                    widget.detalhesProdutos!.valorProduto! / 2,
                                 precoBorda: FFAppState().bordasRef.precoBorda,
                                 nomeBorda: FFAppState().bordasRef.nomeBorda,
                               ));
