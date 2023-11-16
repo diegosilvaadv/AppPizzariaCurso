@@ -46,6 +46,12 @@ class FFAppState extends ChangeNotifier {
   void updateBordasRefStruct(Function(BordasRefStruct) updateFn) {
     updateFn(_bordasRef);
   }
+
+  int _quanty = 1;
+  int get quanty => _quanty;
+  set quanty(int _value) {
+    _quanty = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

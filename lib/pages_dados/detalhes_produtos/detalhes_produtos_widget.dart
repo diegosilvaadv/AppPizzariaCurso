@@ -669,7 +669,6 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 119.0,
                       height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -682,17 +681,35 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.minus,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 25.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                setState(() {
+                                  FFAppState().quanty =
+                                      FFAppState().quanty + -1;
+                                });
+                              },
+                              child: FaIcon(
+                                FontAwesomeIcons.minus,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
-                              '1',
+                              formatNumber(
+                                FFAppState().quanty,
+                                formatType: FormatType.custom,
+                                format: '',
+                                locale: '',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -704,10 +721,22 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 8.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.plus,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 25.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                setState(() {
+                                  FFAppState().quanty = FFAppState().quanty + 1;
+                                });
+                              },
+                              child: FaIcon(
+                                FontAwesomeIcons.plus,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                         ],
