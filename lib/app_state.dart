@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
 import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -27,6 +28,23 @@ class FFAppState extends ChangeNotifier {
   String get MenuCondicao => _MenuCondicao;
   set MenuCondicao(String _value) {
     _MenuCondicao = _value;
+  }
+
+  BordasStruct _bordaRef = BordasStruct.fromSerializableMap(
+      jsonDecode('{\"nome_borda\":\"sem bordas\",\"preco_borda\":\"0\"}'));
+  BordasStruct get bordaRef => _bordaRef;
+  set bordaRef(BordasStruct _value) {
+    _bordaRef = _value;
+  }
+
+  void updateBordaRefStruct(Function(BordasStruct) updateFn) {
+    updateFn(_bordaRef);
+  }
+
+  double _condicaoBordas = 0;
+  double get condicaoBordas => _condicaoBordas;
+  set condicaoBordas(double _value) {
+    _condicaoBordas = _value;
   }
 }
 
