@@ -464,7 +464,8 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                   showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
+                                    isDismissible: false,
+                                    useSafeArea: true,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(

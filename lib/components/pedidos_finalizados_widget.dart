@@ -1,9 +1,12 @@
 import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pedidos_finalizados_model.dart';
@@ -17,8 +20,24 @@ class PedidosFinalizadosWidget extends StatefulWidget {
       _PedidosFinalizadosWidgetState();
 }
 
-class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget> {
+class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
+    with TickerProviderStateMixin {
   late PedidosFinalizadosModel _model;
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 830.ms,
+          duration: 2000.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -177,7 +196,7 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget> {
               ],
             ),
           ),
-        ),
+        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
       ],
     );
   }
