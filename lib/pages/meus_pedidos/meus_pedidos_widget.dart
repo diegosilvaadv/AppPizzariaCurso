@@ -428,7 +428,12 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             30.0, 0.0, 0.0, 0.0),
                                         child: badges.Badge(
                                           badgeContent: Text(
-                                            '1',
+                                            formatNumber(
+                                              FFAppState().NumCarrinho,
+                                              formatType: FormatType.custom,
+                                              format: '',
+                                              locale: '',
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(

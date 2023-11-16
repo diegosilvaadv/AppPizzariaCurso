@@ -406,7 +406,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                             30.0, 0.0, 0.0, 0.0),
                                         child: badges.Badge(
                                           badgeContent: Text(
-                                            '1',
+                                            FFAppState().NumCarrinho.toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(

@@ -789,67 +789,118 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                       ),
                     ),
                     Flexible(
-                      child: Container(
-                        width: 220.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color: () {
-                            if (FFAppState().bordasRef.precoBorda == 0.0) {
-                              return FlutterFlowTheme.of(context)
-                                  .primaryBackground;
-                            } else if (FFAppState().bordasRef.precoBorda !=
-                                0.0) {
-                              return Color(0xFF10DA26);
-                            } else {
-                              return Color(0xFF10DA26);
-                            }
-                          }(),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Adicionar',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 20.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
-                                child: Text(
-                                  formatNumber(
-                                    (widget.detalhesProdutos!.valorProduto! /
-                                                2 +
-                                            FFAppState().bordasRef.precoBorda) *
-                                        FFAppState().quanty,
-                                    formatType: FormatType.custom,
-                                    currency: 'R\$',
-                                    format: '0.00',
-                                    locale: 'pt_BR',
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (FFAppState().CondicaoGeral == 1) {
+                            setState(() {
+                              FFAppState().addToPedidosCar(PedidosStruct(
+                                nomeProduto:
+                                    widget.detalhesProdutos?.nomeProduto,
+                                img: widget.detalhesProdutos?.img,
+                                quanty: FFAppState().quanty,
+                                precoTotal:
+                                    widget.detalhesProdutos?.valorProduto,
+                                precoBorda: FFAppState().bordasRef.precoBorda,
+                                nomeBorda: FFAppState().bordasRef.nomeBorda,
+                              ));
+                              FFAppState().quanty = 1;
+                              FFAppState().CondicaoGeral = 0;
+                              FFAppState().bordasRef = BordasRefStruct
+                                  .fromSerializableMap(jsonDecode(
+                                      '{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+                              FFAppState().Sabores = SaboresRefStruct
+                                  .fromSerializableMap(jsonDecode(
+                                      '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+                              FFAppState().NumCarrinho =
+                                  FFAppState().NumCarrinho + 1;
+                            });
+
+                            context.goNamed('meucarrinho');
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Escolha as opções acima para continuar.',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 20.0,
-                                      ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
+                          }
+                        },
+                        child: Container(
+                          width: 220.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: () {
+                              if (FFAppState().bordasRef.precoBorda == 0.0) {
+                                return FlutterFlowTheme.of(context)
+                                    .primaryBackground;
+                              } else if (FFAppState().bordasRef.precoBorda !=
+                                  0.0) {
+                                return Color(0xFF10DA26);
+                              } else {
+                                return Color(0xFF10DA26);
+                              }
+                            }(),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Adicionar',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 20.0,
+                                        ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 8.0, 0.0),
+                                  child: Text(
+                                    formatNumber(
+                                      (widget.detalhesProdutos!.valorProduto! /
+                                                  2 +
+                                              FFAppState()
+                                                  .bordasRef
+                                                  .precoBorda) *
+                                          FFAppState().quanty,
+                                      formatType: FormatType.custom,
+                                      currency: 'R\$',
+                                      format: '0.00',
+                                      locale: 'pt_BR',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 20.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

@@ -1857,8 +1857,7 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                             child: Text(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .precoSabor4
-                                                                  .toString(),
+                                                                  .nomeSabor4,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
