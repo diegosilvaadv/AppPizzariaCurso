@@ -1404,7 +1404,7 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                             child: Text(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .nomeSabor2,
+                                                                  .nomeSabor3,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -1423,7 +1423,7 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                             formatNumber(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .precoSabor2,
+                                                                  .precoSabor3,
                                                               formatType:
                                                                   FormatType
                                                                       .custom,
@@ -1857,7 +1857,8 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                             child: Text(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .nomeSabor2,
+                                                                  .precoSabor4
+                                                                  .toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -1876,7 +1877,7 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                             formatNumber(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .precoSabor2,
+                                                                  .precoSabor4,
                                                               formatType:
                                                                   FormatType
                                                                       .custom,
