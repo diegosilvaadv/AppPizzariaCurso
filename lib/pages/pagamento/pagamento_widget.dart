@@ -1,3 +1,6 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
+import '/components/pedidos_finalizados_widget.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -195,6 +198,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                   6.0, 6.0, 6.0, 6.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -374,30 +378,138 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Realizar Pagamento',
-                        options: FFButtonOptions(
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFFE46D1F),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
+                      FutureBuilder<List<StatusDosPedidosRow>>(
+                        future: StatusDosPedidosTable().querySingleRow(
+                          queryFn: (q) => q
+                              .eq(
+                                'user_id',
+                                currentUserUid,
+                              )
+                              .eq(
+                                'status',
+                                'Não pago',
+                              ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<StatusDosPedidosRow>
+                              buttonStatusDosPedidosRowList = snapshot.data!;
+                          final buttonStatusDosPedidosRow =
+                              buttonStatusDosPedidosRowList.isNotEmpty
+                                  ? buttonStatusDosPedidosRowList.first
+                                  : null;
+                          return FFButtonWidget(
+                            onPressed: () async {
+                              if (FFAppState().pedidosCar.length >= 1) {
+                                await StatusDosPedidosTable().update(
+                                  data: {
+                                    'status': 'Preparando',
+                                  },
+                                  matchingRows: (rows) => rows
+                                      .eq(
+                                        'user_id',
+                                        currentUserUid,
+                                      )
+                                      .eq(
+                                        'status',
+                                        'Não pago',
+                                      ),
+                                );
+                                setState(() {
+                                  FFAppState().contador = -1;
+                                });
+                                while (FFAppState().contador <=
+                                    FFAppState().pedidosCar.length) {
+                                  setState(() {
+                                    FFAppState().contador =
+                                        FFAppState().contador + 1;
+                                  });
+                                  await PedidosTable().insert({
+                                    'created_at': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
+                                    'numero_ped': buttonStatusDosPedidosRow?.id,
+                                    'nome_produto': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .nomeProduto,
+                                    'preco_produto': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .precoTotal,
+                                    'img': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .img,
+                                    'quanty': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .quanty,
+                                    'nome_borda': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .nomeBorda,
+                                    'preco_borda': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .precoBorda,
+                                    'user_id': currentUserUid,
+                                  });
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: PedidosFinalizadosWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                }
+                              } else {
+                                return;
+                              }
+                            },
+                            text: 'Realizar Pagamento',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFFE46D1F),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
                                   ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
