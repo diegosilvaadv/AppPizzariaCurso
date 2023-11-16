@@ -54,7 +54,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
@@ -174,94 +174,117 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                     final pedidosCarrinho = FFAppState().pedidosCar.toList();
                     return ListView.builder(
                       padding: EdgeInsets.zero,
+                      primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: pedidosCarrinho.length,
                       itemBuilder: (context, pedidosCarrinhoIndex) {
                         final pedidosCarrinhoItem =
                             pedidosCarrinho[pedidosCarrinhoIndex];
-                        return Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 6.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '${pedidosCarrinhoItem.nomeProduto}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 16.0,
-                                        ),
-                                  ),
-                                  Text(
-                                    'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
-                                      pedidosCarrinhoItem.precoTotal,
-                                      formatType: FormatType.custom,
-                                      currency: 'R\$',
-                                      format: '0.00',
-                                      locale: 'pt_BR',
-                                    )}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 15.0,
-                                        ),
-                                  ),
-                                ],
-                              ),
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 10.0, 10.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
-                            Padding(
+                            child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 10.0),
-                              child: Row(
+                                  6.0, 6.0, 6.0, 6.0),
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    '${pedidosCarrinhoItem.nomeBorda}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 16.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 6.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '${pedidosCarrinhoItem.nomeProduto}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 16.0,
+                                              ),
                                         ),
-                                  ),
-                                  if (pedidosCarrinhoItem.precoBorda != 0.0)
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
-                                          pedidosCarrinhoItem.precoBorda,
-                                          formatType: FormatType.custom,
-                                          currency: 'R\$',
-                                          format: '0.00',
-                                          locale: 'pt_BR',
-                                        )}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 15.0,
-                                            ),
-                                      ),
+                                        Text(
+                                          'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
+                                            pedidosCarrinhoItem.precoTotal,
+                                            formatType: FormatType.custom,
+                                            currency: 'R\$',
+                                            format: '0.00',
+                                            locale: 'pt_BR',
+                                          )}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 15.0,
+                                              ),
+                                        ),
+                                      ],
                                     ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '${pedidosCarrinhoItem.nomeBorda}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 16.0,
+                                              ),
+                                        ),
+                                        if (pedidosCarrinhoItem.precoBorda !=
+                                            0.0)
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
+                                                pedidosCarrinhoItem.precoBorda,
+                                                formatType: FormatType.custom,
+                                                currency: 'R\$',
+                                                format: '0.00',
+                                                locale: 'pt_BR',
+                                              )}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 15.0,
+                                                      ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
-                          ],
+                          ),
                         );
                       },
                     );
