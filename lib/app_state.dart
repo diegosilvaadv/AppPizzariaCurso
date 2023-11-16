@@ -37,6 +37,9 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _pedidosCar;
     });
+    _safeInit(() {
+      _TotalPrice = prefs.getDouble('ff_TotalPrice') ?? _TotalPrice;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -138,6 +141,13 @@ class FFAppState extends ChangeNotifier {
   int get CondicaoBordas => _CondicaoBordas;
   set CondicaoBordas(int _value) {
     _CondicaoBordas = _value;
+  }
+
+  double _TotalPrice = 0;
+  double get TotalPrice => _TotalPrice;
+  set TotalPrice(double _value) {
+    _TotalPrice = _value;
+    prefs.setDouble('ff_TotalPrice', _value);
   }
 }
 

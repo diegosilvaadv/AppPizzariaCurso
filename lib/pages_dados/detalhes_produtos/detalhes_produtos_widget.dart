@@ -791,6 +791,13 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                         onTap: () async {
                           if (FFAppState().CondicaoGeral == 1) {
                             setState(() {
+                              FFAppState().TotalPrice = FFAppState()
+                                      .TotalPrice +
+                                  (widget.detalhesProdutos!.valorProduto! / 2 +
+                                          FFAppState().bordasRef.precoBorda) *
+                                      FFAppState().quanty;
+                            });
+                            setState(() {
                               FFAppState().addToPedidosCar(PedidosStruct(
                                 nomeProduto:
                                     widget.detalhesProdutos?.nomeProduto,

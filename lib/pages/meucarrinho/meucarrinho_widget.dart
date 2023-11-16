@@ -434,7 +434,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                 ),
               ),
             ),
-            if (FFAppState().NumCarrinho == 0)
+            if (FFAppState().NumCarrinho != 0)
               Container(
                 width: double.infinity,
                 height: 74.0,
@@ -461,7 +461,13 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
-                              'R\$ 50,00',
+                              formatNumber(
+                                FFAppState().TotalPrice,
+                                formatType: FormatType.custom,
+                                currency: 'R\$',
+                                format: '0.00',
+                                locale: 'pt_BR',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -483,17 +489,19 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'Ir para pagamento',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      fontSize: 20.0,
-                                    ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Ir para pagamento',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 20.0,
+                                      ),
+                                ),
                               ),
                             ),
                           ],
