@@ -2099,10 +2099,8 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda ==
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas ==
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -2184,6 +2182,11 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                                     FFAppState()
                                                                             .CondicaoGeral +
                                                                         1;
+                                                                FFAppState()
+                                                                        .CondicaoBordas =
+                                                                    FFAppState()
+                                                                            .CondicaoBordas +
+                                                                        1;
                                                               });
                                                             },
                                                             child: Card(
@@ -2261,10 +2264,8 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -2319,10 +2320,8 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -2347,6 +2346,11 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                                                                     .CondicaoGeral =
                                                                 FFAppState()
                                                                         .CondicaoGeral +
+                                                                    -1;
+                                                            FFAppState()
+                                                                    .CondicaoBordas =
+                                                                FFAppState()
+                                                                        .CondicaoBordas +
                                                                     -1;
                                                           });
                                                         },
@@ -2595,19 +2599,17 @@ class _Pizza4sab16GGWidgetState extends State<Pizza4sab16GGWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Flexible(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      6.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Adicionar',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 18.0,
-                                        ),
-                                  ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Adicionar',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 18.0,
+                                      ),
                                 ),
                               ),
                               Expanded(

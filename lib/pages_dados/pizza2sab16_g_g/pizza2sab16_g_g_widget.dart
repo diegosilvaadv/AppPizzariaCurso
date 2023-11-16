@@ -1681,19 +1681,17 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Flexible(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      6.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Adicionar',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 18.0,
-                                        ),
-                                  ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Adicionar',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 18.0,
+                                      ),
                                 ),
                               ),
                               Expanded(

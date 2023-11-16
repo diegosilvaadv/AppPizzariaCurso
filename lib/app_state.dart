@@ -133,6 +133,12 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList(
         'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
   }
+
+  int _CondicaoBordas = 0;
+  int get CondicaoBordas => _CondicaoBordas;
+  set CondicaoBordas(int _value) {
+    _CondicaoBordas = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

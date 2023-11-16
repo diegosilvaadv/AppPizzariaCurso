@@ -851,19 +851,17 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Flexible(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Adicionar',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 20.0,
-                                        ),
-                                  ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Adicionar',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 20.0,
+                                      ),
                                 ),
                               ),
                               Flexible(
@@ -887,7 +885,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Readex Pro',
-                                          fontSize: 20.0,
+                                          fontSize: 18.0,
                                         ),
                                   ),
                                 ),
