@@ -128,8 +128,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'detalhes_produtos',
           path: '/detalhesProdutos',
           builder: (context, params) => DetalhesProdutosWidget(
-            produtos:
-                params.getParam<ProdutosRow>('produtos', ParamType.SupabaseRow),
+            detalhesProdutos: params.getParam<ProdutosRow>(
+                'detalhesProdutos', ParamType.SupabaseRow),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

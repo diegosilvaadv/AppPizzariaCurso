@@ -5,8 +5,8 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class BordasStruct extends BaseStruct {
-  BordasStruct({
+class BordasRefStruct extends BaseStruct {
+  BordasRefStruct({
     String? nomeBorda,
     double? precoBorda,
   })  : _nomeBorda = nomeBorda,
@@ -25,13 +25,13 @@ class BordasStruct extends BaseStruct {
   void incrementPrecoBorda(double amount) => _precoBorda = precoBorda + amount;
   bool hasPrecoBorda() => _precoBorda != null;
 
-  static BordasStruct fromMap(Map<String, dynamic> data) => BordasStruct(
+  static BordasRefStruct fromMap(Map<String, dynamic> data) => BordasRefStruct(
         nomeBorda: data['nome_borda'] as String?,
         precoBorda: castToType<double>(data['preco_borda']),
       );
 
-  static BordasStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? BordasStruct.fromMap(data) : null;
+  static BordasRefStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? BordasRefStruct.fromMap(data) : null;
 
   Map<String, dynamic> toMap() => {
         'nome_borda': _nomeBorda,
@@ -50,8 +50,8 @@ class BordasStruct extends BaseStruct {
         ),
       }.withoutNulls;
 
-  static BordasStruct fromSerializableMap(Map<String, dynamic> data) =>
-      BordasStruct(
+  static BordasRefStruct fromSerializableMap(Map<String, dynamic> data) =>
+      BordasRefStruct(
         nomeBorda: deserializeParam(
           data['nome_borda'],
           ParamType.String,
@@ -65,11 +65,11 @@ class BordasStruct extends BaseStruct {
       );
 
   @override
-  String toString() => 'BordasStruct(${toMap()})';
+  String toString() => 'BordasRefStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
-    return other is BordasStruct &&
+    return other is BordasRefStruct &&
         nomeBorda == other.nomeBorda &&
         precoBorda == other.precoBorda;
   }
@@ -78,11 +78,11 @@ class BordasStruct extends BaseStruct {
   int get hashCode => const ListEquality().hash([nomeBorda, precoBorda]);
 }
 
-BordasStruct createBordasStruct({
+BordasRefStruct createBordasRefStruct({
   String? nomeBorda,
   double? precoBorda,
 }) =>
-    BordasStruct(
+    BordasRefStruct(
       nomeBorda: nomeBorda,
       precoBorda: precoBorda,
     );

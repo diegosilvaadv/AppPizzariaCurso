@@ -30,21 +30,21 @@ class FFAppState extends ChangeNotifier {
     _MenuCondicao = _value;
   }
 
-  BordasStruct _bordaRef = BordasStruct.fromSerializableMap(
-      jsonDecode('{\"nome_borda\":\"sem bordas\",\"preco_borda\":\"0\"}'));
-  BordasStruct get bordaRef => _bordaRef;
-  set bordaRef(BordasStruct _value) {
-    _bordaRef = _value;
+  int _bordaCondicao = 0;
+  int get bordaCondicao => _bordaCondicao;
+  set bordaCondicao(int _value) {
+    _bordaCondicao = _value;
   }
 
-  void updateBordaRefStruct(Function(BordasStruct) updateFn) {
-    updateFn(_bordaRef);
+  BordasRefStruct _bordasRef = BordasRefStruct.fromSerializableMap(
+      jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+  BordasRefStruct get bordasRef => _bordasRef;
+  set bordasRef(BordasRefStruct _value) {
+    _bordasRef = _value;
   }
 
-  double _condicaoBordas = 0;
-  double get condicaoBordas => _condicaoBordas;
-  set condicaoBordas(double _value) {
-    _condicaoBordas = _value;
+  void updateBordasRefStruct(Function(BordasRefStruct) updateFn) {
+    updateFn(_bordasRef);
   }
 }
 

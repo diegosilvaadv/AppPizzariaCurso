@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -15,10 +14,10 @@ export 'detalhes_produtos_model.dart';
 class DetalhesProdutosWidget extends StatefulWidget {
   const DetalhesProdutosWidget({
     Key? key,
-    required this.produtos,
+    required this.detalhesProdutos,
   }) : super(key: key);
 
-  final ProdutosRow? produtos;
+  final ProdutosRow? detalhesProdutos;
 
   @override
   _DetalhesProdutosWidgetState createState() => _DetalhesProdutosWidgetState();
@@ -94,7 +93,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.network(
-                                  widget.produtos!.img!,
+                                  widget.detalhesProdutos!.img!,
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.cover,
@@ -141,8 +140,9 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                             8.0, 6.0, 8.0, 6.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            widget.produtos?.nomeProduto,
-                                            'sem nome',
+                                            widget
+                                                .detalhesProdutos?.nomeProduto,
+                                            'NomeProduto',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -169,9 +169,38 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                           children: [
                             Expanded(
                               child: Text(
+                                formatNumber(
+                                  widget.detalhesProdutos!.valorProduto!,
+                                  formatType: FormatType.custom,
+                                  currency: 'R\$',
+                                  format: '0.00',
+                                  locale: 'pt_BR',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Color(0xFF10DA26),
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
                                 valueOrDefault<String>(
-                                  widget.produtos?.descricao,
-                                  'descrição',
+                                  widget.detalhesProdutos?.descricao,
+                                  'descricao',
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -187,7 +216,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
+                            10.0, 0.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,15 +224,16 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                             Expanded(
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget.produtos?.tag,
-                                  'tag',
+                                  widget.detalhesProdutos?.tag,
+                                  'tags',
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 20.0,
+                                      fontSize: 16.0,
                                       fontWeight: FontWeight.w500,
+                                      fontStyle: FontStyle.italic,
                                     ),
                               ),
                             ),
@@ -286,129 +316,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                               ),
                                             ],
                                           ),
-                                          collapsed: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 10.0, 10.0, 10.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    if (FFAppState()
-                                                            .condicaoBordas !=
-                                                        0.0)
-                                                      Text(
-                                                        FFAppState()
-                                                            .bordaRef
-                                                            .nomeBorda,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              fontSize: 18.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
-                                                      ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 10.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    if (FFAppState()
-                                                            .condicaoBordas !=
-                                                        0.0)
-                                                      Text(
-                                                        formatNumber(
-                                                          FFAppState()
-                                                              .bordaRef
-                                                              .precoBorda,
-                                                          formatType:
-                                                              FormatType.custom,
-                                                          currency: 'R\$',
-                                                          format: '0.00',
-                                                          locale: 'pt_BR',
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              fontSize: 16.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
-                                                      ),
-                                                  ],
-                                                ),
-                                              ),
-                                              if (FFAppState().condicaoBordas ==
-                                                  1.0)
-                                                FFButtonWidget(
-                                                  onPressed: () async {
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .condicaoBordas =
-                                                          FFAppState()
-                                                                  .condicaoBordas +
-                                                              -1.0;
-                                                      FFAppState().bordaRef =
-                                                          BordasStruct
-                                                              .fromSerializableMap(
-                                                                  jsonDecode(
-                                                                      '{\"nome_borda\":\"sem bordas\",\"preco_borda\":\"0\"}'));
-                                                    });
-                                                  },
-                                                  text: 'Alterar Borda',
-                                                  options: FFButtonOptions(
-                                                    height: 40.0,
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: Color(0xFFE46D1F),
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: Colors.white,
-                                                        ),
-                                                    elevation: 3.0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                ),
-                                            ],
-                                          ),
+                                          collapsed: Container(),
                                           expanded: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -459,116 +367,79 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     final listViewProdutosRow =
                                                         listViewProdutosRowList[
                                                             listViewIndex];
-                                                    return InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .bordaRef =
-                                                              BordasStruct(
-                                                            nomeBorda:
-                                                                listViewProdutosRow
-                                                                    .nomeProduto,
-                                                            precoBorda:
-                                                                listViewProdutosRow
-                                                                    .valorProduto,
-                                                          );
-                                                          FFAppState()
-                                                                  .condicaoBordas =
-                                                              FFAppState()
-                                                                      .condicaoBordas +
-                                                                  1.0;
-                                                        });
-                                                      },
-                                                      child: Card(
-                                                        clipBehavior: Clip
-                                                            .antiAliasWithSaveLayer,
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        elevation: 4.0,
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      widget
-                                                                          .produtos
-                                                                          ?.nomeProduto,
-                                                                      'nome',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          fontSize:
-                                                                              18.0,
-                                                                        ),
+                                                    return Card(
+                                                      clipBehavior: Clip
+                                                          .antiAliasWithSaveLayer,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 4.0,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    10.0,
+                                                                    10.0,
+                                                                    10.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  listViewProdutosRow
+                                                                      .nomeProduto!,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  formatNumber(
+                                                                    listViewProdutosRow
+                                                                        .valorProduto!,
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .custom,
+                                                                    currency:
+                                                                        'R\$',
+                                                                    format:
+                                                                        '0.00',
+                                                                    locale:
+                                                                        'pt_BR',
                                                                   ),
-                                                                  Text(
-                                                                    formatNumber(
-                                                                      widget
-                                                                          .produtos!
-                                                                          .valorProduto!,
-                                                                      formatType:
-                                                                          FormatType
-                                                                              .custom,
-                                                                      currency:
-                                                                          'R\$',
-                                                                      format:
-                                                                          '0.00',
-                                                                      locale:
-                                                                          'pt_BR',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          fontSize:
-                                                                              18.0,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
                                                     );

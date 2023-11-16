@@ -1717,7 +1717,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     'detalhes_produtos',
                                                                     queryParameters:
                                                                         {
-                                                                      'produtos':
+                                                                      'detalhesProdutos':
                                                                           serializeParam(
                                                                         columnProdutosRow,
                                                                         ParamType
@@ -2041,7 +2041,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 'detalhes_produtos',
                                                                 queryParameters:
                                                                     {
-                                                                  'produtos':
+                                                                  'detalhesProdutos':
                                                                       serializeParam(
                                                                     columnProdutosRow,
                                                                     ParamType
@@ -2377,7 +2377,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 'detalhes_produtos',
                                                                 queryParameters:
                                                                     {
-                                                                  'produtos':
+                                                                  'detalhesProdutos':
                                                                       serializeParam(
                                                                     columnProdutosRow,
                                                                     ParamType
@@ -2713,7 +2713,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 'detalhes_produtos',
                                                                 queryParameters:
                                                                     {
-                                                                  'produtos':
+                                                                  'detalhesProdutos':
                                                                       serializeParam(
                                                                     columnProdutosRow,
                                                                     ParamType
