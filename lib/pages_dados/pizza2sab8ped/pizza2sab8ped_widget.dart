@@ -273,7 +273,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                 children: [
                                                   if (FFAppState()
                                                           .Sabores
-                                                          .precoSabor1 !=
+                                                          .precoSabor1 ==
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -521,7 +521,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     ),
                                                   if (FFAppState()
                                                           .Sabores
-                                                          .precoSabor1 ==
+                                                          .precoSabor1 !=
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -730,7 +730,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                 children: [
                                                   if (FFAppState()
                                                           .Sabores
-                                                          .precoSabor2 !=
+                                                          .precoSabor2 ==
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -913,7 +913,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     ),
                                                   if (FFAppState()
                                                           .Sabores
-                                                          .precoSabor2 ==
+                                                          .precoSabor2 !=
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -978,7 +978,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     ),
                                                   if (FFAppState()
                                                           .Sabores
-                                                          .precoSabor2 ==
+                                                          .precoSabor2 !=
                                                       0.0)
                                                     Padding(
                                                       padding:
