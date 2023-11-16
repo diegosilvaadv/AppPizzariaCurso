@@ -219,6 +219,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                   setState(() {
                                     FFAppState().NumCarrinho = 0;
                                     FFAppState().pedidosCar = [];
+                                    FFAppState().TotalPrice = 0;
                                   });
                                 },
                                 text: 'Limpar',
