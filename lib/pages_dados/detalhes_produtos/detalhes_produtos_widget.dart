@@ -669,6 +669,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      width: 150.0,
                       height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -706,7 +707,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
+                                8.0, 0.0, 8.0, 0.0),
                             child: Text(
                               formatNumber(
                                 FFAppState().quanty,
@@ -731,9 +732,14 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().quanty = FFAppState().quanty + 1;
-                                });
+                                if (FFAppState().quanty != 100) {
+                                  setState(() {
+                                    FFAppState().quanty =
+                                        FFAppState().quanty + 1;
+                                  });
+                                } else {
+                                  return;
+                                }
                               },
                               child: FaIcon(
                                 FontAwesomeIcons.plus,
@@ -748,9 +754,19 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                     ),
                     Flexible(
                       child: Container(
+                        width: 220.0,
                         height: 100.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFF10DA26),
+                          color: () {
+                            if (FFAppState().bordaCondicao == 0) {
+                              return FlutterFlowTheme.of(context)
+                                  .primaryBackground;
+                            } else if (FFAppState().bordaCondicao != 0) {
+                              return Color(0xFF10DA26);
+                            } else {
+                              return Color(0xFF10DA26);
+                            }
+                          }(),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Row(
@@ -777,7 +793,16 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: Text(
-                                  'R\$ 60,00',
+                                  formatNumber(
+                                    (widget.detalhesProdutos!.valorProduto! /
+                                                2 +
+                                            FFAppState().bordasRef.precoBorda) *
+                                        FFAppState().quanty,
+                                    formatType: FormatType.custom,
+                                    currency: 'R\$',
+                                    format: '0.00',
+                                    locale: 'pt_BR',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
