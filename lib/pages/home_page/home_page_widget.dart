@@ -1495,9 +1495,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   child:
                                                                       FFButtonWidget(
                                                                     onPressed:
-                                                                        () {
-                                                                      print(
-                                                                          'Button pressed ...');
+                                                                        () async {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'pizza4sab16GG',
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          kTransitionInfoKey:
+                                                                              TransitionInfo(
+                                                                            hasTransition:
+                                                                                true,
+                                                                            transitionType:
+                                                                                PageTransitionType.fade,
+                                                                          ),
+                                                                        },
+                                                                      );
                                                                     },
                                                                     text:
                                                                         'Montar',

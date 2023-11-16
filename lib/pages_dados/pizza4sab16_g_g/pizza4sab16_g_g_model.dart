@@ -3,7 +3,7 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'pizza4sab8_g_g_widget.dart' show Pizza4sab8GGWidget;
+import 'pizza4sab16_g_g_widget.dart' show Pizza4sab16GGWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -12,7 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class Pizza4sab8GGModel extends FlutterFlowModel<Pizza4sab8GGWidget> {
+class Pizza4sab16GGModel extends FlutterFlowModel<Pizza4sab16GGWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

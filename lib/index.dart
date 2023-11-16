@@ -11,5 +11,5 @@ export '/pages_dados/detalhes_produtos/detalhes_produtos_widget.dart'
     show DetalhesProdutosWidget;
 export '/pages_dados/pizza2sab16_g_g/pizza2sab16_g_g_widget.dart'
     show Pizza2sab16GGWidget;
-export '/pages_dados/pizza4sab8_g_g/pizza4sab8_g_g_widget.dart'
-    show Pizza4sab8GGWidget;
+export '/pages_dados/pizza4sab16_g_g/pizza4sab16_g_g_widget.dart'
+    show Pizza4sab16GGWidget;
