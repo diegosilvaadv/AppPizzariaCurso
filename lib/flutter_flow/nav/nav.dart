@@ -125,9 +125,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PesquisaWidget(),
         ),
         FFRoute(
-          name: 'detalhes_produtos',
-          path: '/detalhesProdutos',
-          builder: (context, params) => DetalhesProdutosWidget(
+          name: 'detalhes_pizzas',
+          path: '/detalhesPizzas',
+          builder: (context, params) => DetalhesPizzasWidget(
             detalhesProdutos: params.getParam<ProdutosRow>(
                 'detalhesProdutos', ParamType.SupabaseRow),
           ),
@@ -141,6 +141,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'pizza4sab16GG',
           path: '/pizza4sab16GG',
           builder: (context, params) => Pizza4sab16GGWidget(),
+        ),
+        FFRoute(
+          name: 'detalhes_bebidas',
+          path: '/detalhesBebidas',
+          builder: (context, params) => DetalhesBebidasWidget(
+            detalhesProdutos: params.getParam<ProdutosRow>(
+                'detalhesProdutos', ParamType.SupabaseRow),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -10,11 +10,11 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'detalhes_produtos_model.dart';
-export 'detalhes_produtos_model.dart';
+import 'detalhes_pizzas_model.dart';
+export 'detalhes_pizzas_model.dart';
 
-class DetalhesProdutosWidget extends StatefulWidget {
-  const DetalhesProdutosWidget({
+class DetalhesPizzasWidget extends StatefulWidget {
+  const DetalhesPizzasWidget({
     Key? key,
     required this.detalhesProdutos,
   }) : super(key: key);
@@ -22,18 +22,18 @@ class DetalhesProdutosWidget extends StatefulWidget {
   final ProdutosRow? detalhesProdutos;
 
   @override
-  _DetalhesProdutosWidgetState createState() => _DetalhesProdutosWidgetState();
+  _DetalhesPizzasWidgetState createState() => _DetalhesPizzasWidgetState();
 }
 
-class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
-  late DetalhesProdutosModel _model;
+class _DetalhesPizzasWidgetState extends State<DetalhesPizzasWidget> {
+  late DetalhesPizzasModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DetalhesProdutosModel());
+    _model = createModel(context, () => DetalhesPizzasModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {

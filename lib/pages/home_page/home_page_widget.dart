@@ -1739,7 +1739,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     () async {
                                                                   context
                                                                       .pushNamed(
-                                                                    'detalhes_produtos',
+                                                                    'detalhes_pizzas',
                                                                     queryParameters:
                                                                         {
                                                                       'detalhesProdutos':
@@ -2063,7 +2063,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                'detalhes_produtos',
+                                                                'detalhes_pizzas',
                                                                 queryParameters:
                                                                     {
                                                                   'detalhesProdutos':
@@ -2399,7 +2399,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                'detalhes_produtos',
+                                                                'detalhes_bebidas',
                                                                 queryParameters:
                                                                     {
                                                                   'detalhesProdutos':
@@ -2735,7 +2735,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                'detalhes_produtos',
+                                                                'detalhes_bebidas',
                                                                 queryParameters:
                                                                     {
                                                                   'detalhesProdutos':
