@@ -558,6 +558,26 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           );
                         },
                       ),
+                      if (FFAppState().NumCarrinho == 0)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/empty-cart-7359557-6024626.png',
+                                  width: 300.0,
+                                  height: 300.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                     ],
                   ),
                 ),
