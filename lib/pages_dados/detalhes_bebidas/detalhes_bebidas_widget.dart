@@ -393,16 +393,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                           width: 220.0,
                           height: 100.0,
                           decoration: BoxDecoration(
-                            color: () {
-                              if (FFAppState().CondicaoGeral == 0) {
-                                return FlutterFlowTheme.of(context)
-                                    .primaryBackground;
-                              } else if (FFAppState().CondicaoGeral != 0) {
-                                return Color(0xFF10DA26);
-                              } else {
-                                return Color(0xFF10DA26);
-                              }
-                            }(),
+                            color: Color(0xFF10DA26),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Row(
