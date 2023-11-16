@@ -169,55 +169,103 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Suco de Manga',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 16.0,
+                Builder(
+                  builder: (context) {
+                    final pedidosCarrinho = FFAppState().pedidosCar.toList();
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: pedidosCarrinho.length,
+                      itemBuilder: (context, pedidosCarrinhoIndex) {
+                        final pedidosCarrinhoItem =
+                            pedidosCarrinho[pedidosCarrinhoIndex];
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 6.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '${pedidosCarrinhoItem.nomeProduto}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
+                                  Text(
+                                    'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
+                                      pedidosCarrinhoItem.precoTotal,
+                                      formatType: FormatType.custom,
+                                      currency: 'R\$',
+                                      format: '0.00',
+                                      locale: 'pt_BR',
+                                    )}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 15.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
-                      ),
-                      Text(
-                        '2x R\$10,00',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 15.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${pedidosCarrinhoItem.nomeBorda}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
+                                  if (pedidosCarrinhoItem.precoBorda != 0.0)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
+                                          pedidosCarrinhoItem.precoBorda,
+                                          formatType: FormatType.custom,
+                                          currency: 'R\$',
+                                          format: '0.00',
+                                          locale: 'pt_BR',
+                                        )}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 15.0,
+                                            ),
+                                      ),
+                                    ),
+                                ],
+                              ),
                             ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Pizza de Frango',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 16.0,
-                            ),
-                      ),
-                      Text(
-                        '2x R\$50,00',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 15.0,
-                            ),
-                      ),
-                    ],
-                  ),
+                          ],
+                        );
+                      },
+                    );
+                  },
                 ),
                 Divider(
                   thickness: 1.0,
@@ -281,7 +329,13 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         ],
                       ),
                       Text(
-                        'R\$130,00',
+                        formatNumber(
+                          FFAppState().TotalPrice + 10,
+                          formatType: FormatType.custom,
+                          currency: 'R\$',
+                          format: '0.00',
+                          locale: 'pt_BR',
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 25.0,
