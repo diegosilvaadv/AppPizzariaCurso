@@ -1192,7 +1192,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState().CondicaoGeral ==
+                                              if (FFAppState().CondicaoBordas ==
                                                   2)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -1275,6 +1275,11 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                     FFAppState()
                                                                             .CondicaoGeral +
                                                                         1;
+                                                                FFAppState()
+                                                                        .CondicaoBordas =
+                                                                    FFAppState()
+                                                                            .CondicaoBordas +
+                                                                        1;
                                                               });
                                                             },
                                                             child: Card(
@@ -1352,7 +1357,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState().CondicaoGeral ==
+                                              if (FFAppState().CondicaoBordas ==
                                                   3)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -1408,10 +1413,8 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1436,6 +1439,11 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                     .CondicaoGeral =
                                                                 FFAppState()
                                                                         .CondicaoGeral +
+                                                                    -1;
+                                                            FFAppState()
+                                                                    .CondicaoBordas =
+                                                                FFAppState()
+                                                                        .CondicaoBordas +
                                                                     -1;
                                                           });
                                                         },

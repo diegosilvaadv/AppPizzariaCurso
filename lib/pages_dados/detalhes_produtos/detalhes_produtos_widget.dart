@@ -366,7 +366,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState().CondicaoGeral ==
+                                              if (FFAppState().CondicaoBordas ==
                                                   0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -449,6 +449,11 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                                     FFAppState()
                                                                             .CondicaoGeral +
                                                                         1;
+                                                                FFAppState()
+                                                                        .CondicaoBordas =
+                                                                    FFAppState()
+                                                                            .CondicaoBordas +
+                                                                        1;
                                                               });
                                                             },
                                                             child: Card(
@@ -526,7 +531,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState().CondicaoGeral !=
+                                              if (FFAppState().CondicaoBordas !=
                                                   0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -582,7 +587,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState().CondicaoGeral !=
+                                              if (FFAppState().CondicaoBordas !=
                                                   0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -608,6 +613,11 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                                     .CondicaoGeral =
                                                                 FFAppState()
                                                                         .CondicaoGeral +
+                                                                    -1;
+                                                            FFAppState()
+                                                                    .CondicaoBordas =
+                                                                FFAppState()
+                                                                        .CondicaoBordas +
                                                                     -1;
                                                           });
                                                         },

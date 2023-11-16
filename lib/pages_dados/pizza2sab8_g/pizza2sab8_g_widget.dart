@@ -1192,10 +1192,8 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda ==
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas ==
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1277,6 +1275,11 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                                                                     FFAppState()
                                                                             .CondicaoGeral +
                                                                         1;
+                                                                FFAppState()
+                                                                        .CondicaoBordas =
+                                                                    FFAppState()
+                                                                            .CondicaoBordas +
+                                                                        1;
                                                               });
                                                             },
                                                             child: Card(
@@ -1354,10 +1357,8 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1412,10 +1413,8 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState()
-                                                      .bordasRef
-                                                      .precoBorda !=
-                                                  0.0)
+                                              if (FFAppState().CondicaoBordas !=
+                                                  0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1440,6 +1439,11 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                                                                     .CondicaoGeral =
                                                                 FFAppState()
                                                                         .CondicaoGeral +
+                                                                    -1;
+                                                            FFAppState()
+                                                                    .CondicaoBordas =
+                                                                FFAppState()
+                                                                        .CondicaoBordas +
                                                                     -1;
                                                           });
                                                         },
