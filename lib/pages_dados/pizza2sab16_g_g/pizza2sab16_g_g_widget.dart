@@ -380,7 +380,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                             listViewProdutosRow.nomeProduto
                                                                         ..precoSabor1 =
                                                                             listViewProdutosRow.valorProduto! /
-                                                                                4,
+                                                                                2,
                                                                     );
                                                                     FFAppState()
                                                                             .CondicaoGeral =
@@ -833,7 +833,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                             listViewProdutosRow.nomeProduto
                                                                         ..precoSabor2 =
                                                                             listViewProdutosRow.valorProduto! /
-                                                                                4,
+                                                                                2,
                                                                     );
                                                                     FFAppState()
                                                                             .CondicaoGeral =
