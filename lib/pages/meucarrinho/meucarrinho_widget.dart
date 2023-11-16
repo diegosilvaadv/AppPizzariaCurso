@@ -413,20 +413,22 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Text(
-                                                              '${pedidosItem.nomeBorda}',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        18.0,
-                                                                  ),
+                                                            Expanded(
+                                                              child: Text(
+                                                                '${pedidosItem.nomeBorda}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontSize:
+                                                                          18.0,
+                                                                    ),
+                                                              ),
                                                             ),
                                                             if (pedidosItem
                                                                     .precoBorda !=
@@ -504,10 +506,32 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Icon(
-                                                    Icons.delete_sweep,
-                                                    color: Color(0xFFE13C27),
-                                                    size: 24.0,
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      setState(() {
+                                                        FFAppState()
+                                                            .removeAtIndexFromPedidosCar(
+                                                                pedidosIndex);
+                                                        FFAppState()
+                                                                .NumCarrinho =
+                                                            FFAppState()
+                                                                    .NumCarrinho +
+                                                                -1;
+                                                      });
+                                                    },
+                                                    child: Icon(
+                                                      Icons.delete_sweep,
+                                                      color: Color(0xFFE13C27),
+                                                      size: 24.0,
+                                                    ),
                                                   ),
                                                 ],
                                               ),
