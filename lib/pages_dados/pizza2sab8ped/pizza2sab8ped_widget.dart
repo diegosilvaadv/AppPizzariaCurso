@@ -511,7 +511,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                   color: Color(
                                                                       0xFF10DA26),
                                                                   fontSize:
-                                                                      20.0,
+                                                                      21.0,
                                                                 ),
                                                           ),
                                                         ],
@@ -540,12 +540,13 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                 () async {
                                                               setState(() {
                                                                 FFAppState()
-                                                                        .Sabores =
-                                                                    SaboresRefStruct
-                                                                        .fromSerializableMap(
-                                                                            jsonDecode('{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
-                                                                FFAppState()
-                                                                    .PrecoSabor1 = 0;
+                                                                    .updateSaboresStruct(
+                                                                  (e) => e
+                                                                    ..nomeSabor1 =
+                                                                        'nenhuma'
+                                                                    ..precoSabor1 =
+                                                                        0.0,
+                                                                );
                                                                 FFAppState()
                                                                         .condicaoGeral =
                                                                     FFAppState()
@@ -964,7 +965,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                   color: Color(
                                                                       0xFF10DA26),
                                                                   fontSize:
-                                                                      20.0,
+                                                                      21.0,
                                                                 ),
                                                           ),
                                                         ],
@@ -993,10 +994,13 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                 () async {
                                                               setState(() {
                                                                 FFAppState()
-                                                                        .Sabores =
-                                                                    SaboresRefStruct
-                                                                        .fromSerializableMap(
-                                                                            jsonDecode('{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+                                                                    .updateSaboresStruct(
+                                                                  (e) => e
+                                                                    ..nomeSabor2 =
+                                                                        'nenhuma'
+                                                                    ..precoSabor2 =
+                                                                        0.0,
+                                                                );
                                                                 FFAppState()
                                                                     .PrecoSabor2 = 0;
                                                                 FFAppState()
