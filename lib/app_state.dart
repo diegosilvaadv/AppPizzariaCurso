@@ -30,12 +30,6 @@ class FFAppState extends ChangeNotifier {
     _MenuCondicao = _value;
   }
 
-  int _bordaCondicao = 0;
-  int get bordaCondicao => _bordaCondicao;
-  set bordaCondicao(int _value) {
-    _bordaCondicao = _value;
-  }
-
   BordasRefStruct _bordasRef = BordasRefStruct.fromSerializableMap(
       jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
   BordasRefStruct get bordasRef => _bordasRef;
@@ -64,34 +58,10 @@ class FFAppState extends ChangeNotifier {
     updateFn(_Sabores);
   }
 
-  double _PrecoSabor1 = 0;
-  double get PrecoSabor1 => _PrecoSabor1;
-  set PrecoSabor1(double _value) {
-    _PrecoSabor1 = _value;
-  }
-
-  double _PrecoSabor2 = 0;
-  double get PrecoSabor2 => _PrecoSabor2;
-  set PrecoSabor2(double _value) {
-    _PrecoSabor2 = _value;
-  }
-
-  double _PrecoSabor3 = 0;
-  double get PrecoSabor3 => _PrecoSabor3;
-  set PrecoSabor3(double _value) {
-    _PrecoSabor3 = _value;
-  }
-
-  double _PrecoSabor4 = 0;
-  double get PrecoSabor4 => _PrecoSabor4;
-  set PrecoSabor4(double _value) {
-    _PrecoSabor4 = _value;
-  }
-
-  int _condicaoGeral = 0;
-  int get condicaoGeral => _condicaoGeral;
-  set condicaoGeral(int _value) {
-    _condicaoGeral = _value;
+  int _CondicaoGeral = 0;
+  int get CondicaoGeral => _CondicaoGeral;
+  set CondicaoGeral(int _value) {
+    _CondicaoGeral = _value;
   }
 }
 

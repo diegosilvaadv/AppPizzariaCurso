@@ -168,7 +168,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                               ),
                             ),
                             Text(
-                              '${FFAppState().condicaoGeral.toString()}/3',
+                              '${FFAppState().CondicaoGeral.toString()}/3',
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ],
@@ -360,8 +360,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                                 4,
                                                                     );
                                                                     FFAppState()
-                                                                            .condicaoGeral =
-                                                                        FFAppState().condicaoGeral +
+                                                                            .CondicaoGeral =
+                                                                        FFAppState().CondicaoGeral +
                                                                             1;
                                                                   });
                                                                 },
@@ -542,14 +542,14 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                     .updateSaboresStruct(
                                                                   (e) => e
                                                                     ..nomeSabor1 =
-                                                                        'nenhuma'
+                                                                        'Nenhum'
                                                                     ..precoSabor1 =
                                                                         0.0,
                                                                 );
                                                                 FFAppState()
-                                                                        .condicaoGeral =
+                                                                        .CondicaoGeral =
                                                                     FFAppState()
-                                                                            .condicaoGeral +
+                                                                            .CondicaoGeral +
                                                                         -1;
                                                               });
                                                             },
@@ -813,8 +813,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                                 4,
                                                                     );
                                                                     FFAppState()
-                                                                            .condicaoGeral =
-                                                                        FFAppState().condicaoGeral +
+                                                                            .CondicaoGeral =
+                                                                        FFAppState().CondicaoGeral +
                                                                             1;
                                                                   });
                                                                 },
@@ -926,7 +926,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                             child: Text(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .nomeSabor2,
+                                                                  .nomeSabor1,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -945,7 +945,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                             formatNumber(
                                                               FFAppState()
                                                                   .Sabores
-                                                                  .precoSabor2,
+                                                                  .precoSabor1,
                                                               formatType:
                                                                   FormatType
                                                                       .custom,
@@ -995,16 +995,14 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                     .updateSaboresStruct(
                                                                   (e) => e
                                                                     ..nomeSabor2 =
-                                                                        'nenhuma'
+                                                                        'Nenhuma'
                                                                     ..precoSabor2 =
                                                                         0.0,
                                                                 );
                                                                 FFAppState()
-                                                                    .PrecoSabor2 = 0;
-                                                                FFAppState()
-                                                                        .condicaoGeral =
+                                                                        .CondicaoGeral =
                                                                     FFAppState()
-                                                                            .condicaoGeral +
+                                                                            .CondicaoGeral +
                                                                         -1;
                                                               });
                                                             },
@@ -1170,8 +1168,10 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState().bordaCondicao ==
-                                                  0)
+                                              if (FFAppState()
+                                                      .bordasRef
+                                                      .precoBorda ==
+                                                  0.0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1239,11 +1239,6 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                             onTap: () async {
                                                               setState(() {
                                                                 FFAppState()
-                                                                        .bordaCondicao =
-                                                                    FFAppState()
-                                                                            .bordaCondicao +
-                                                                        1;
-                                                                FFAppState()
                                                                         .bordasRef =
                                                                     BordasRefStruct(
                                                                   nomeBorda:
@@ -1254,9 +1249,9 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                           .valorProduto,
                                                                 );
                                                                 FFAppState()
-                                                                        .condicaoGeral =
+                                                                        .CondicaoGeral =
                                                                     FFAppState()
-                                                                            .condicaoGeral +
+                                                                            .CondicaoGeral +
                                                                         1;
                                                               });
                                                             },
@@ -1335,8 +1330,10 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState().bordaCondicao !=
-                                                  0)
+                                              if (FFAppState()
+                                                      .bordasRef
+                                                      .precoBorda !=
+                                                  0.0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1391,8 +1388,10 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState().bordaCondicao !=
-                                                  0)
+                                              if (FFAppState()
+                                                      .bordasRef
+                                                      .precoBorda !=
+                                                  0.0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -1408,20 +1407,15 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                         onPressed: () async {
                                                           setState(() {
                                                             FFAppState()
-                                                                    .bordaCondicao =
-                                                                FFAppState()
-                                                                        .bordaCondicao +
-                                                                    -1;
-                                                            FFAppState()
                                                                     .bordasRef =
                                                                 BordasRefStruct
                                                                     .fromSerializableMap(
                                                                         jsonDecode(
                                                                             '{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
                                                             FFAppState()
-                                                                    .condicaoGeral =
+                                                                    .CondicaoGeral =
                                                                 FFAppState()
-                                                                        .condicaoGeral +
+                                                                        .CondicaoGeral +
                                                                     -1;
                                                           });
                                                         },
@@ -1563,7 +1557,17 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                         width: 215.0,
                         height: 100.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFF10DA26),
+                          color: () {
+                            if (FFAppState().CondicaoGeral < 3) {
+                              return FlutterFlowTheme.of(context)
+                                  .primaryBackground;
+                            } else if (FFAppState().CondicaoGeral == 3) {
+                              return Color(0xFF10DA26);
+                            } else {
+                              return FlutterFlowTheme.of(context)
+                                  .primaryBackground;
+                            }
+                          }(),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Row(
@@ -1590,16 +1594,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: Text(
-                                  formatNumber(
-                                    (FFAppState().Sabores.precoSabor1 +
-                                            FFAppState().Sabores.precoSabor2 +
-                                            FFAppState().bordasRef.precoBorda) *
-                                        FFAppState().quanty,
-                                    formatType: FormatType.custom,
-                                    currency: 'R\$',
-                                    format: '0.00',
-                                    locale: 'pt_BR',
-                                  ),
+                                  'R\$ 60,00',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

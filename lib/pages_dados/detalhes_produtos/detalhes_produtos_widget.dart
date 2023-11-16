@@ -352,8 +352,10 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                           expanded: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (FFAppState().bordaCondicao ==
-                                                  0)
+                                              if (FFAppState()
+                                                      .bordasRef
+                                                      .precoBorda ==
+                                                  0.0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -421,11 +423,6 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                             onTap: () async {
                                                               setState(() {
                                                                 FFAppState()
-                                                                        .bordaCondicao =
-                                                                    FFAppState()
-                                                                            .bordaCondicao +
-                                                                        1;
-                                                                FFAppState()
                                                                         .bordasRef =
                                                                     BordasRefStruct(
                                                                   nomeBorda:
@@ -435,6 +432,11 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                                       listViewProdutosRow
                                                                           .valorProduto,
                                                                 );
+                                                                FFAppState()
+                                                                        .CondicaoGeral =
+                                                                    FFAppState()
+                                                                            .CondicaoGeral +
+                                                                        1;
                                                               });
                                                             },
                                                             child: Card(
@@ -512,8 +514,10 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     },
                                                   ),
                                                 ),
-                                              if (FFAppState().bordaCondicao !=
-                                                  0)
+                                              if (FFAppState()
+                                                      .bordasRef
+                                                      .precoBorda !=
+                                                  0.0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -568,8 +572,10 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              if (FFAppState().bordaCondicao !=
-                                                  0)
+                                              if (FFAppState()
+                                                      .bordasRef
+                                                      .precoBorda !=
+                                                  0.0)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
@@ -585,16 +591,16 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                                         onPressed: () async {
                                                           setState(() {
                                                             FFAppState()
-                                                                    .bordaCondicao =
-                                                                FFAppState()
-                                                                        .bordaCondicao +
-                                                                    -1;
-                                                            FFAppState()
                                                                     .bordasRef =
                                                                 BordasRefStruct
                                                                     .fromSerializableMap(
                                                                         jsonDecode(
                                                                             '{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+                                                            FFAppState()
+                                                                    .CondicaoGeral =
+                                                                FFAppState()
+                                                                        .CondicaoGeral +
+                                                                    -1;
                                                           });
                                                         },
                                                         text: 'Alterar Borda',
@@ -775,10 +781,11 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                         height: 100.0,
                         decoration: BoxDecoration(
                           color: () {
-                            if (FFAppState().bordaCondicao == 0) {
+                            if (FFAppState().bordasRef.precoBorda == 0.0) {
                               return FlutterFlowTheme.of(context)
                                   .primaryBackground;
-                            } else if (FFAppState().bordaCondicao != 0) {
+                            } else if (FFAppState().bordasRef.precoBorda !=
+                                0.0) {
                               return Color(0xFF10DA26);
                             } else {
                               return Color(0xFF10DA26);
