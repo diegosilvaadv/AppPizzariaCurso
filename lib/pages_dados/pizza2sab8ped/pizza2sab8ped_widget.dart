@@ -360,10 +360,6 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                                 4,
                                                                     );
                                                                     FFAppState()
-                                                                            .PrecoSabor1 =
-                                                                        listViewProdutosRow.valorProduto! /
-                                                                            4;
-                                                                    FFAppState()
                                                                             .condicaoGeral =
                                                                         FFAppState().condicaoGeral +
                                                                             1;
@@ -456,7 +452,7 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                     ),
                                                   if (FFAppState()
                                                           .Sabores
-                                                          .precoSabor1 ==
+                                                          .precoSabor1 !=
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -816,10 +812,6 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                                             listViewProdutosRow.valorProduto! /
                                                                                 4,
                                                                     );
-                                                                    FFAppState()
-                                                                            .PrecoSabor2 =
-                                                                        listViewProdutosRow.valorProduto! /
-                                                                            4;
                                                                     FFAppState()
                                                                             .condicaoGeral =
                                                                         FFAppState().condicaoGeral +
