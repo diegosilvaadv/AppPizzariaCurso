@@ -272,7 +272,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   if (FFAppState()
-                                                          .PrecoSabor1 ==
+                                                          .Sabores
+                                                          .precoSabor1 !=
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -454,7 +455,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                       ),
                                                     ),
                                                   if (FFAppState()
-                                                          .PrecoSabor1 !=
+                                                          .Sabores
+                                                          .precoSabor1 ==
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -518,7 +520,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                       ),
                                                     ),
                                                   if (FFAppState()
-                                                          .PrecoSabor1 !=
+                                                          .Sabores
+                                                          .precoSabor1 ==
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -726,7 +729,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   if (FFAppState()
-                                                          .PrecoSabor2 ==
+                                                          .Sabores
+                                                          .precoSabor2 !=
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -908,7 +912,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                       ),
                                                     ),
                                                   if (FFAppState()
-                                                          .PrecoSabor2 !=
+                                                          .Sabores
+                                                          .precoSabor2 ==
                                                       0.0)
                                                     Padding(
                                                       padding:
@@ -972,7 +977,8 @@ class _Pizza2sab8pedWidgetState extends State<Pizza2sab8pedWidget> {
                                                       ),
                                                     ),
                                                   if (FFAppState()
-                                                          .PrecoSabor2 !=
+                                                          .Sabores
+                                                          .precoSabor2 ==
                                                       0.0)
                                                     Padding(
                                                       padding:
