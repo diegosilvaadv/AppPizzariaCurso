@@ -27,7 +27,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
   late MeucarrinhoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  var hasColumnTriggered = false;
   final animationsMap = {
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -56,6 +56,46 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           delay: 0.ms,
           duration: 600.ms,
           begin: Offset(38.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      applyInitialState: false,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(62.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'columnOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: false,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(-63.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -117,6 +157,17 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MeucarrinhoModel());
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
+
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      animationsMap['columnOnPageLoadAnimation']!.controller.forward(from: 0.0);
+    });
   }
 
   @override
@@ -538,6 +589,14 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 (pedidosItem
                                                                     .quanty);
                                                       });
+                                                      if (animationsMap[
+                                                              'columnOnActionTriggerAnimation'] !=
+                                                          null) {
+                                                        animationsMap[
+                                                                'columnOnActionTriggerAnimation']!
+                                                            .controller
+                                                            .reset();
+                                                      }
                                                     },
                                                     child: Icon(
                                                       Icons.delete_sweep,
@@ -554,7 +613,13 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                     ),
                                   ),
                                 ],
-                              );
+                              )
+                                  .animateOnPageLoad(animationsMap[
+                                      'columnOnPageLoadAnimation']!)
+                                  .animateOnActionTrigger(
+                                      animationsMap[
+                                          'columnOnActionTriggerAnimation']!,
+                                      hasBeenTriggered: hasColumnTriggered);
                             },
                           );
                         },
