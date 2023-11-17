@@ -229,7 +229,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
-                                      text: 'Status',
+                                      text: listViewStatusDosPedidosRow.status!,
                                       options: FFButtonOptions(
                                         height: 40.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
