@@ -148,7 +148,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          fontSize: 30.0,
+                          fontSize: 31.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -554,7 +554,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
-                      color: FlutterFlowTheme.of(context).secondaryText,
+                      color: Color(0xFFE46D1F),
                       width: 1.0,
                     ),
                   ),

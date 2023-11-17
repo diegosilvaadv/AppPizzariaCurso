@@ -69,7 +69,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation': AnimationInfo(
+    'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -242,6 +242,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.bounceOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 90.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -626,8 +638,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['containerOnPageLoadAnimation']!),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation1']!),
                             Align(
                               alignment: AlignmentDirectional(-0.72, -1.23),
                               child: Padding(
@@ -3076,7 +3088,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     ],
                   ),
                 ),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation2']!),
             ),
           ],
         ),
