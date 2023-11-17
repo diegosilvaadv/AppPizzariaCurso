@@ -555,8 +555,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     pedidosItem
                                                                         .precoBorda) *
                                                                 (pedidosItem
-                                                                    .quanty
-                                                                    .toDouble());
+                                                                    .quanty);
                                                       });
                                                     },
                                                     child: Icon(
