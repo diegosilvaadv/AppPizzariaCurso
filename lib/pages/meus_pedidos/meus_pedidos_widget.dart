@@ -148,7 +148,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          fontSize: 31.0,
+                          fontSize: 30.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -156,13 +156,16 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
               ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
                     'Pedidos Pententes',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          fontSize: 19.0,
+                        ),
                   ),
                 ],
               ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
@@ -448,9 +451,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                                     if (columnPedidosRow
                                                                             .precoProduto !=
                                                                         0.0) {
-                                                                      return FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground;
+                                                                      return Color(
+                                                                          0x6E14181B);
                                                                     } else if (columnPedidosRow
                                                                             .precoBorda ==
                                                                         0.0) {
