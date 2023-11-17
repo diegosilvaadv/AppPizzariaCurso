@@ -61,7 +61,29 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
       ],
     ),
     'listViewOnPageLoadAnimation': AnimationInfo(
+      reverse: true,
       trigger: AnimationTrigger.onPageLoad,
+      applyInitialState: true,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(62.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'listViewOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
@@ -136,6 +158,13 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MeucarrinhoModel());
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -174,7 +203,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 19.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -575,8 +604,13 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 ],
                               );
                             },
-                          ).animateOnPageLoad(
-                              animationsMap['listViewOnPageLoadAnimation']!);
+                          )
+                              .animateOnPageLoad(
+                                  animationsMap['listViewOnPageLoadAnimation']!)
+                              .animateOnActionTrigger(
+                                animationsMap[
+                                    'listViewOnActionTriggerAnimation']!,
+                              );
                         },
                       ),
                       if (FFAppState().NumCarrinho == 0)
