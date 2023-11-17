@@ -651,60 +651,55 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                         ],
                       ),
                       Flexible(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await StatusDosPedidosTable().insert({
-                              'created_at':
-                                  supaSerialize<DateTime>(getCurrentTimestamp),
-                              'status': 'Não pago',
-                              'user_id': currentUserUid,
-                              'preco_total': FFAppState().TotalPrice,
-                            });
-                            await Future.delayed(
-                                const Duration(milliseconds: 2000));
+                        child: Container(
+                          width: 215.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF10DA26),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await StatusDosPedidosTable().insert({
+                                'created_at': supaSerialize<DateTime>(
+                                    getCurrentTimestamp),
+                                'status': 'Não pago',
+                                'user_id': currentUserUid,
+                                'preco_total': FFAppState().TotalPrice,
+                              });
+                              await Future.delayed(
+                                  const Duration(milliseconds: 2000));
 
-                            context.pushNamed(
-                              'pagamento',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                ),
-                              },
-                            );
-                          },
-                          child: Container(
-                            width: 215.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF10DA26),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Ir para pagamento',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 20.0,
-                                          ),
-                                    ),
+                              context.pushNamed(
+                                'pagamento',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
                                   ),
-                                ),
-                              ],
+                                },
+                              );
+                            },
+                            text: 'IR PARA PAGAMENTO',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF10DA26),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),

@@ -208,17 +208,19 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
-                                          '${pedidosCarrinhoItem.nomeProduto}',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                fontSize: 16.0,
-                                              ),
+                                        Expanded(
+                                          child: Text(
+                                            '${pedidosCarrinhoItem.nomeProduto}',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 16.0,
+                                                ),
+                                          ),
                                         ),
                                         Text(
                                           'X ${pedidosCarrinhoItem.quanty.toString()}  ${formatNumber(
@@ -246,17 +248,19 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          '${pedidosCarrinhoItem.nomeBorda}',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                fontSize: 16.0,
-                                              ),
+                                        Expanded(
+                                          child: Text(
+                                            '${pedidosCarrinhoItem.nomeBorda}',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 16.0,
+                                                ),
+                                          ),
                                         ),
                                         if (pedidosCarrinhoItem.precoBorda !=
                                             0.0)
