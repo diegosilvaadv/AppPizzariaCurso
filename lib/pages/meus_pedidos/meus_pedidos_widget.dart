@@ -343,7 +343,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                       MainAxisAlignment
                                                           .spaceBetween,
                                                   children: [
-                                                    Expanded(
+                                                    Flexible(
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -366,7 +366,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
                                                       child: Text(
                                                         '${columnPedidosRow.quanty?.toString()} X ${formatNumber(
                                                           columnPedidosRow
