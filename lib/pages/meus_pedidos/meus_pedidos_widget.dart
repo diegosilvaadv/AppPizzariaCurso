@@ -437,22 +437,35 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                               fontSize: 16.0,
                                                             ),
                                                       ),
-                                                    if (columnPedidosRow
-                                                            .precoBorda ==
-                                                        0.0)
-                                                      Text(
-                                                        'Grátis',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: Color(
-                                                                  0xFF10DA26),
-                                                              fontSize: 16.0,
-                                                            ),
-                                                      ),
+                                                    Text(
+                                                      'Grátis',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: () {
+                                                                  if (columnPedidosRow
+                                                                          .precoBorda ==
+                                                                      0.0) {
+                                                                    return Color(
+                                                                        0xFF10DA26);
+                                                                  } else if (columnPedidosRow
+                                                                          .precoProduto !=
+                                                                      0.0) {
+                                                                    return FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground;
+                                                                  } else {
+                                                                    return Color(
+                                                                        0x00000000);
+                                                                  }
+                                                                }(),
+                                                                fontSize: 16.0,
+                                                              ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),
