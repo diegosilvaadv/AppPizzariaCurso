@@ -237,8 +237,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
+                                        color: Color(0xFFE46D1F),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -260,12 +259,15 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        '20/11/2023 - 10h',
+                                        dateTimeFormat(
+                                            'dd/MM/yyyy | kk:mm',
+                                            listViewStatusDosPedidosRow
+                                                .createdAt),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              fontSize: 20.0,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
@@ -330,76 +332,135 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             (columnIndex) {
                                           final columnPedidosRow =
                                               columnPedidosRowList[columnIndex];
-                                          return Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    columnPedidosRow
-                                                        .nomeProduto!,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 16.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                                Column(
+                                          return Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 20.0, 0.0, 0.0),
+                                                child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      formatNumber(
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
                                                         columnPedidosRow
-                                                            .precoProduto!,
-                                                        formatType:
-                                                            FormatType.custom,
-                                                        currency: 'R\$',
-                                                        format: '0.00',
-                                                        locale: 'pt_BR',
+                                                            .nomeProduto!,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 16.0,
+                                                            ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      children: [
+                                                        Text(
+                                                          formatNumber(
+                                                            columnPedidosRow
+                                                                .precoProduto!,
+                                                            formatType:
+                                                                FormatType
+                                                                    .custom,
+                                                            currency: 'R\$',
+                                                            format: '0.00',
+                                                            locale: 'pt_BR',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
                                                                 fontSize: 16.0,
                                                               ),
-                                                    ),
-                                                    Text(
-                                                      'X ${formatNumber(
-                                                        columnPedidosRow.quanty,
-                                                        formatType:
-                                                            FormatType.custom,
-                                                        format: '',
-                                                        locale: '',
-                                                      )}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                        ),
+                                                        Text(
+                                                          'X ${formatNumber(
+                                                            columnPedidosRow
+                                                                .quanty,
+                                                            formatType:
+                                                                FormatType
+                                                                    .custom,
+                                                            format: '',
+                                                            locale: '',
+                                                          )}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium,
+                                                        ),
+                                                      ],
                                                     ),
                                                   ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              if (columnPedidosRow.precoBorda !=
+                                                  0.0)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 6.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        columnPedidosRow
+                                                            .nomeBorda!,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 16.0,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        'X ${columnPedidosRow.quanty?.toString()} ${formatNumber(
+                                                          columnPedidosRow
+                                                              .precoBorda,
+                                                          formatType:
+                                                              FormatType.custom,
+                                                          currency: 'R\$',
+                                                          format: '0.00',
+                                                          locale: 'pt_BR',
+                                                        )}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 16.0,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                            ],
                                           );
                                         }),
                                       );
