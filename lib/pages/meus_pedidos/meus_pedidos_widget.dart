@@ -446,16 +446,16 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                                         Color>(
                                                                   () {
                                                                     if (columnPedidosRow
-                                                                            .precoBorda ==
-                                                                        0.0) {
-                                                                      return Color(
-                                                                          0xFF10DA26);
-                                                                    } else if (columnPedidosRow
                                                                             .precoProduto !=
                                                                         0.0) {
                                                                       return FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground;
+                                                                    } else if (columnPedidosRow
+                                                                            .precoBorda ==
+                                                                        0.0) {
+                                                                      return Color(
+                                                                          0xFF10DA26);
                                                                     } else {
                                                                       return FlutterFlowTheme.of(
                                                                               context)
