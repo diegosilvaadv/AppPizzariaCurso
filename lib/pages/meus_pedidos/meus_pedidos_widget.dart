@@ -148,7 +148,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          fontSize: 31.0,
+                          fontSize: 30.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -438,30 +438,20 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                     if (columnPedidosRow
-                                                            .precoProduto ==
+                                                            .precoBorda ==
                                                         0.0)
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if (columnPedidosRow
-                                                                  .precoBorda ==
-                                                              0.0)
-                                                            Text(
-                                                              'Grátis',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: Color(
-                                                                        0xFF10DA26),
-                                                                    fontSize:
-                                                                        16.0,
-                                                                  ),
+                                                      Text(
+                                                        'Grátis',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              color: Color(
+                                                                  0xFF10DA26),
+                                                              fontSize: 16.0,
                                                             ),
-                                                        ],
                                                       ),
                                                   ],
                                                 ),
