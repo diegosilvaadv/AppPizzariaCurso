@@ -444,30 +444,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color:
-                                                                    valueOrDefault<
-                                                                        Color>(
-                                                                  () {
-                                                                    if (columnPedidosRow
-                                                                            .precoProduto !=
-                                                                        0.0) {
-                                                                      return Color(
-                                                                          0x6E14181B);
-                                                                    } else if (columnPedidosRow
-                                                                            .precoBorda ==
-                                                                        0.0) {
-                                                                      return Color(
-                                                                          0xFF10DA26);
-                                                                    } else {
-                                                                      return FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground;
-                                                                    }
-                                                                  }(),
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
+                                                                color: Color(
+                                                                    0xFF10DA26),
                                                                 fontSize: 16.0,
                                                               ),
                                                     ),
