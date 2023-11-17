@@ -43,4 +43,7 @@ class PedidosRow extends SupabaseDataRow {
 
   String? get userId => getField<String>('user_id');
   set userId(String? value) => setField<String>('user_id', value);
+
+  bool? get massaGratis => getField<bool>('massa gratis');
+  set massaGratis(bool? value) => setField<bool>('massa gratis', value);
 }
