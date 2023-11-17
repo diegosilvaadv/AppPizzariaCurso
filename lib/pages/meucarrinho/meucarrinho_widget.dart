@@ -60,26 +60,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
         ),
       ],
     ),
-    'listViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      applyInitialState: true,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(62.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
     'listViewOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
@@ -202,7 +182,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 31.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -611,13 +591,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 ],
                               );
                             },
-                          )
-                              .animateOnPageLoad(
-                                  animationsMap['listViewOnPageLoadAnimation']!)
-                              .animateOnActionTrigger(
-                                animationsMap[
-                                    'listViewOnActionTriggerAnimation']!,
-                              );
+                          ).animateOnActionTrigger(
+                            animationsMap['listViewOnActionTriggerAnimation']!,
+                          );
                         },
                       ),
                       if (FFAppState().NumCarrinho == 0)
