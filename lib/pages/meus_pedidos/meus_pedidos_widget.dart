@@ -438,20 +438,30 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                     if (columnPedidosRow
-                                                            .nomeBorda ==
-                                                        'borda')
-                                                      Text(
-                                                        'Grátis',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: Color(
-                                                                  0xFF10DA26),
-                                                              fontSize: 16.0,
+                                                            .precoProduto ==
+                                                        0.0)
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          if (columnPedidosRow
+                                                                  .precoBorda ==
+                                                              0.0)
+                                                            Text(
+                                                              'Grátis',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Color(
+                                                                        0xFF10DA26),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                  ),
                                                             ),
+                                                        ],
                                                       ),
                                                   ],
                                                 ),
