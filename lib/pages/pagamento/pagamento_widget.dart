@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pagamento_model.dart';
@@ -399,12 +400,11 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
+                                width: 20.0,
+                                height: 20.0,
+                                child: SpinKitThreeBounce(
+                                  color: Color(0xFFE46D1F),
+                                  size: 20.0,
                                 ),
                               ),
                             );

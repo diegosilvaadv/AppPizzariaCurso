@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'meus_pedidos_model.dart';
@@ -184,12 +185,11 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
+                        width: 20.0,
+                        height: 20.0,
+                        child: SpinKitThreeBounce(
+                          color: Color(0xFFE46D1F),
+                          size: 20.0,
                         ),
                       ),
                     );
@@ -311,14 +311,11 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
+                                            width: 20.0,
+                                            height: 20.0,
+                                            child: SpinKitThreeBounce(
+                                              color: Color(0xFFE46D1F),
+                                              size: 20.0,
                                             ),
                                           ),
                                         );

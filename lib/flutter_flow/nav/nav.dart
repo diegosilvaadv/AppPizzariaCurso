@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -332,12 +333,11 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Center(
                   child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+                    width: 20.0,
+                    height: 20.0,
+                    child: SpinKitThreeBounce(
+                      color: Color(0xFFE46D1F),
+                      size: 20.0,
                     ),
                   ),
                 )
