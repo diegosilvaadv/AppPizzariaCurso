@@ -343,17 +343,40 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                       MainAxisAlignment
                                                           .spaceBetween,
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          columnPedidosRow
+                                                              .nomeProduto!,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 16.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
                                                       child: Text(
-                                                        columnPedidosRow
-                                                            .nomeProduto!,
+                                                        '${columnPedidosRow.quanty?.toString()} X ${formatNumber(
+                                                          columnPedidosRow
+                                                              .precoProduto,
+                                                          formatType:
+                                                              FormatType.custom,
+                                                          currency: 'R\$',
+                                                          format: '0.00',
+                                                          locale: 'pt_BR',
+                                                        )}',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -363,26 +386,6 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                               fontSize: 16.0,
                                                             ),
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      '${columnPedidosRow.quanty?.toString()} X ${formatNumber(
-                                                        columnPedidosRow
-                                                            .precoProduto,
-                                                        formatType:
-                                                            FormatType.custom,
-                                                        currency: 'R\$',
-                                                        format: '0.00',
-                                                        locale: 'pt_BR',
-                                                      )}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                fontSize: 16.0,
-                                                              ),
                                                     ),
                                                   ],
                                                 ),
@@ -400,17 +403,19 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
-                                                        columnPedidosRow
-                                                            .nomeBorda!,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              fontSize: 16.0,
-                                                            ),
+                                                      Expanded(
+                                                        child: Text(
+                                                          columnPedidosRow
+                                                              .nomeBorda!,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 16.0,
+                                                              ),
+                                                        ),
                                                       ),
                                                       Text(
                                                         '${columnPedidosRow.quanty?.toString()}X ${formatNumber(
