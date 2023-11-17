@@ -438,7 +438,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                     Stack(
                                                       children: [
                                                         if (columnPedidosRow
-                                                                .precoProduto ==
+                                                                .precoBorda ==
                                                             0.0)
                                                           Text(
                                                             'Grátis',
@@ -455,7 +455,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                                 ),
                                                           ),
                                                         if (columnPedidosRow
-                                                                .precoBorda ==
+                                                                .precoProduto ==
                                                             0.0)
                                                           Text(
                                                             'Grátis',
@@ -465,8 +465,9 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
-                                                                  color: Color(
-                                                                      0xFF10DA26),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
                                                                   fontSize:
                                                                       16.0,
                                                                 ),
