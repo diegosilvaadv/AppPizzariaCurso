@@ -148,7 +148,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          fontSize: 30.0,
+                          fontSize: 31.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -177,7 +177,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                   )
                       .in_(
                     'status',
-                    ['Preparando', 'Saiu para entrega'],
+                    ['Preparando', 'Entregando'],
                   ).order('created_at'),
                 ),
                 builder: (context, snapshot) {
@@ -237,7 +237,24 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0xFFE46D1F),
+                                        color: valueOrDefault<Color>(
+                                          () {
+                                            if (listViewStatusDosPedidosRow
+                                                    .status ==
+                                                'Preparando') {
+                                              return Color(0xFFE46D1F);
+                                            } else if (listViewStatusDosPedidosRow
+                                                    .status ==
+                                                'Entregando') {
+                                              return FlutterFlowTheme.of(
+                                                      context)
+                                                  .secondary;
+                                            } else {
+                                              return Color(0xFFE46D1F);
+                                            }
+                                          }(),
+                                          Color(0xFFE46D1F),
+                                        ),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -415,6 +432,43 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                     ),
+                                                    Text(
+                                                      'Grátis',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  () {
+                                                                    if (columnPedidosRow
+                                                                            .precoBorda ==
+                                                                        0.0) {
+                                                                      return Color(
+                                                                          0xFF10DA26);
+                                                                    } else if (columnPedidosRow
+                                                                            .precoProduto !=
+                                                                        0.0) {
+                                                                      return FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground;
+                                                                    } else {
+                                                                      return FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground;
+                                                                    }
+                                                                  }(),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                ),
+                                                                fontSize: 16.0,
+                                                              ),
+                                                    ),
                                                     if (columnPedidosRow
                                                             .precoBorda !=
                                                         0.0)
@@ -437,35 +491,6 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                               fontSize: 16.0,
                                                             ),
                                                       ),
-                                                    Text(
-                                                      'Grátis',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: () {
-                                                                  if (columnPedidosRow
-                                                                          .precoBorda ==
-                                                                      0.0) {
-                                                                    return Color(
-                                                                        0xFF10DA26);
-                                                                  } else if (columnPedidosRow
-                                                                          .precoProduto !=
-                                                                      0.0) {
-                                                                    return FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground;
-                                                                  } else {
-                                                                    return Color(
-                                                                        0x00000000);
-                                                                  }
-                                                                }(),
-                                                                fontSize: 16.0,
-                                                              ),
-                                                    ),
                                                   ],
                                                 ),
                                               ),
