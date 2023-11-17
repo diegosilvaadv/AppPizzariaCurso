@@ -435,22 +435,44 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                     ),
-                                                    if (columnPedidosRow
-                                                            .precoProduto ==
-                                                        0.0)
-                                                      Text(
-                                                        'Grátis',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: Color(
-                                                                  0xFF10DA26),
-                                                              fontSize: 16.0,
-                                                            ),
-                                                      ),
+                                                    Stack(
+                                                      children: [
+                                                        if (columnPedidosRow
+                                                                .precoProduto ==
+                                                            0.0)
+                                                          Text(
+                                                            'Grátis',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: Color(
+                                                                      0xFF10DA26),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                ),
+                                                          ),
+                                                        if (columnPedidosRow
+                                                                .precoBorda ==
+                                                            0.0)
+                                                          Text(
+                                                            'Grátis',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: Color(
+                                                                      0xFF10DA26),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                ),
+                                                          ),
+                                                      ],
+                                                    ),
                                                     if (columnPedidosRow
                                                             .precoBorda !=
                                                         0.0)
