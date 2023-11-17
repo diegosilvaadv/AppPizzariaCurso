@@ -76,7 +76,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         'Realizar Pagamento',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 20.0,
+                              fontSize: 21.0,
                               fontWeight: FontWeight.w600,
                             ),
                       ),
@@ -400,11 +400,11 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 20.0,
-                                height: 20.0,
-                                child: SpinKitThreeBounce(
+                                width: 15.0,
+                                height: 15.0,
+                                child: SpinKitChasingDots(
                                   color: Color(0xFFE46D1F),
-                                  size: 20.0,
+                                  size: 15.0,
                                 ),
                               ),
                             );

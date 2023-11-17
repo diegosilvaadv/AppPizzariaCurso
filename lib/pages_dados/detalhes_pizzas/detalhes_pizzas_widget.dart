@@ -390,13 +390,13 @@ class _DetalhesPizzasWidgetState extends State<DetalhesPizzasWidget> {
                                                       if (!snapshot.hasData) {
                                                         return Center(
                                                           child: SizedBox(
-                                                            width: 20.0,
-                                                            height: 20.0,
+                                                            width: 15.0,
+                                                            height: 15.0,
                                                             child:
-                                                                SpinKitThreeBounce(
+                                                                SpinKitChasingDots(
                                                               color: Color(
                                                                   0xFFE46D1F),
-                                                              size: 20.0,
+                                                              size: 15.0,
                                                             ),
                                                           ),
                                                         );
