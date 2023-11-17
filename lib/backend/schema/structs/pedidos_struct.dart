@@ -13,12 +13,14 @@ class PedidosStruct extends BaseStruct {
     double? precoTotal,
     double? precoBorda,
     String? nomeBorda,
+    bool? massaGratis,
   })  : _nomeProduto = nomeProduto,
         _img = img,
         _quanty = quanty,
         _precoTotal = precoTotal,
         _precoBorda = precoBorda,
-        _nomeBorda = nomeBorda;
+        _nomeBorda = nomeBorda,
+        _massaGratis = massaGratis;
 
   // "nomeProduto" field.
   String? _nomeProduto;
@@ -59,6 +61,12 @@ class PedidosStruct extends BaseStruct {
   set nomeBorda(String? val) => _nomeBorda = val;
   bool hasNomeBorda() => _nomeBorda != null;
 
+  // "massaGratis" field.
+  bool? _massaGratis;
+  bool get massaGratis => _massaGratis ?? false;
+  set massaGratis(bool? val) => _massaGratis = val;
+  bool hasMassaGratis() => _massaGratis != null;
+
   static PedidosStruct fromMap(Map<String, dynamic> data) => PedidosStruct(
         nomeProduto: data['nomeProduto'] as String?,
         img: data['img'] as String?,
@@ -66,6 +74,7 @@ class PedidosStruct extends BaseStruct {
         precoTotal: castToType<double>(data['precoTotal']),
         precoBorda: castToType<double>(data['precoBorda']),
         nomeBorda: data['nomeBorda'] as String?,
+        massaGratis: data['massaGratis'] as bool?,
       );
 
   static PedidosStruct? maybeFromMap(dynamic data) =>
@@ -78,6 +87,7 @@ class PedidosStruct extends BaseStruct {
         'precoTotal': _precoTotal,
         'precoBorda': _precoBorda,
         'nomeBorda': _nomeBorda,
+        'massaGratis': _massaGratis,
       }.withoutNulls;
 
   @override
@@ -105,6 +115,10 @@ class PedidosStruct extends BaseStruct {
         'nomeBorda': serializeParam(
           _nomeBorda,
           ParamType.String,
+        ),
+        'massaGratis': serializeParam(
+          _massaGratis,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -140,6 +154,11 @@ class PedidosStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        massaGratis: deserializeParam(
+          data['massaGratis'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -153,12 +172,20 @@ class PedidosStruct extends BaseStruct {
         quanty == other.quanty &&
         precoTotal == other.precoTotal &&
         precoBorda == other.precoBorda &&
-        nomeBorda == other.nomeBorda;
+        nomeBorda == other.nomeBorda &&
+        massaGratis == other.massaGratis;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([nomeProduto, img, quanty, precoTotal, precoBorda, nomeBorda]);
+  int get hashCode => const ListEquality().hash([
+        nomeProduto,
+        img,
+        quanty,
+        precoTotal,
+        precoBorda,
+        nomeBorda,
+        massaGratis
+      ]);
 }
 
 PedidosStruct createPedidosStruct({
@@ -168,6 +195,7 @@ PedidosStruct createPedidosStruct({
   double? precoTotal,
   double? precoBorda,
   String? nomeBorda,
+  bool? massaGratis,
 }) =>
     PedidosStruct(
       nomeProduto: nomeProduto,
@@ -176,4 +204,5 @@ PedidosStruct createPedidosStruct({
       precoTotal: precoTotal,
       precoBorda: precoBorda,
       nomeBorda: nomeBorda,
+      massaGratis: massaGratis,
     );

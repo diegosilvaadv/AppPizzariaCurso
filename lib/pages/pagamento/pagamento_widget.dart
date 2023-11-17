@@ -465,6 +465,9 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                         .pedidosCar[FFAppState().contador]
                                         .precoBorda,
                                     'user_id': currentUserUid,
+                                    'massa gratis': FFAppState()
+                                        .pedidosCar[FFAppState().contador]
+                                        .massaGratis,
                                   });
                                   showModalBottomSheet(
                                     isScrollControlled: true,

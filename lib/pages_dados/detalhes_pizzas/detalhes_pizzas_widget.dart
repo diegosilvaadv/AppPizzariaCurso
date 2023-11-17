@@ -815,6 +815,8 @@ class _DetalhesPizzasWidgetState extends State<DetalhesPizzasWidget> {
                                     widget.detalhesProdutos!.valorProduto! / 2,
                                 precoBorda: FFAppState().bordasRef.precoBorda,
                                 nomeBorda: FFAppState().bordasRef.nomeBorda,
+                                massaGratis:
+                                    FFAppState().bordasRef.precoBorda == 0.0,
                               ));
                               FFAppState().quanty = 1;
                               FFAppState().CondicaoGeral = 0;
