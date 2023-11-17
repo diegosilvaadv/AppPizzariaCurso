@@ -438,8 +438,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                     if (columnPedidosRow
-                                                            .nomeBorda !=
-                                                        'nenhuma')
+                                                            .nomeBorda ==
+                                                        'borda')
                                                       Text(
                                                         'Grátis',
                                                         style: FlutterFlowTheme
