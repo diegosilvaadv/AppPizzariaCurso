@@ -61,7 +61,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
       ],
     ),
     'listViewOnPageLoadAnimation': AnimationInfo(
-      loop: true,
       trigger: AnimationTrigger.onPageLoad,
       applyInitialState: true,
       effects: [
@@ -203,7 +202,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 31.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
