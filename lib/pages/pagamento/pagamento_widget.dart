@@ -371,6 +371,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 25.0,
+                              fontWeight: FontWeight.w500,
                             ),
                       ),
                     ],
