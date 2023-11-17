@@ -665,7 +665,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                     getCurrentTimestamp),
                                 'status': 'Não pago',
                                 'user_id': currentUserUid,
-                                'preco_total': FFAppState().TotalPrice,
+                                'preco_total': FFAppState().TotalPrice + 10,
                               });
                               await Future.delayed(
                                   const Duration(milliseconds: 2000));
