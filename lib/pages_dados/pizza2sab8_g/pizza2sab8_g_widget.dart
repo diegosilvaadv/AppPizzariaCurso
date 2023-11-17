@@ -1635,6 +1635,8 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                                     FFAppState().Sabores.precoSabor2,
                                 precoBorda: FFAppState().bordasRef.precoBorda,
                                 nomeBorda: FFAppState().bordasRef.nomeBorda,
+                                massaGratis:
+                                    FFAppState().bordasRef.precoBorda == 0.0,
                               ));
                               FFAppState().quanty = 1;
                               FFAppState().CondicaoGeral = 0;
