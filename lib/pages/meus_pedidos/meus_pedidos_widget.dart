@@ -390,33 +390,34 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                   ],
                                                 ),
                                               ),
-                                              if (columnPedidosRow.precoBorda !=
-                                                  0.0)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 6.0, 0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Text(
-                                                          columnPedidosRow
-                                                              .nomeBorda!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                fontSize: 16.0,
-                                                              ),
-                                                        ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 6.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        columnPedidosRow
+                                                            .nomeBorda!,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 16.0,
+                                                            ),
                                                       ),
+                                                    ),
+                                                    if (columnPedidosRow
+                                                            .precoBorda !=
+                                                        0.0)
                                                       Text(
                                                         '${columnPedidosRow.quanty?.toString()}X ${formatNumber(
                                                           columnPedidosRow
@@ -436,9 +437,25 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                               fontSize: 16.0,
                                                             ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    if (columnPedidosRow
+                                                            .nomeBorda !=
+                                                        'nenhuma')
+                                                      Text(
+                                                        'Grátis',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              color: Color(
+                                                                  0xFF10DA26),
+                                                              fontSize: 16.0,
+                                                            ),
+                                                      ),
+                                                  ],
                                                 ),
+                                              ),
                                             ],
                                           );
                                         }),
@@ -522,7 +539,9 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
+                                              color: Color(0xFF10DA26),
                                               fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                       ),
                                     ],
