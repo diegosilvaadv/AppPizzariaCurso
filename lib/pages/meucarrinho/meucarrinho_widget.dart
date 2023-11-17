@@ -60,7 +60,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation': AnimationInfo(
+    'listViewOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -570,13 +570,13 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                           ),
                                         ),
                                       ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation']!),
+                                    ),
                                   ),
                                 ],
                               );
                             },
-                          );
+                          ).animateOnPageLoad(
+                              animationsMap['listViewOnPageLoadAnimation']!);
                         },
                       ),
                       if (FFAppState().NumCarrinho == 0)
