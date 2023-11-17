@@ -586,6 +586,14 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 (pedidosItem
                                                                     .quanty);
                                                       });
+                                                      if (animationsMap[
+                                                              'listViewOnActionTriggerAnimation'] !=
+                                                          null) {
+                                                        await animationsMap[
+                                                                'listViewOnActionTriggerAnimation']!
+                                                            .controller
+                                                            .forward(from: 0.0);
+                                                      }
                                                     },
                                                     child: Icon(
                                                       Icons.delete_sweep,
