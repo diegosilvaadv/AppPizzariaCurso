@@ -367,48 +367,25 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                     ),
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      children: [
-                                                        Text(
-                                                          formatNumber(
-                                                            columnPedidosRow
-                                                                .precoProduto!,
-                                                            formatType:
-                                                                FormatType
-                                                                    .custom,
-                                                            currency: 'R\$',
-                                                            format: '0.00',
-                                                            locale: 'pt_BR',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
+                                                    Text(
+                                                      '${columnPedidosRow.quanty?.toString()} X ${formatNumber(
+                                                        columnPedidosRow
+                                                            .precoProduto,
+                                                        formatType:
+                                                            FormatType.custom,
+                                                        currency: 'R\$',
+                                                        format: '0.00',
+                                                        locale: 'pt_BR',
+                                                      )}',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
                                                                 fontSize: 16.0,
                                                               ),
-                                                        ),
-                                                        Text(
-                                                          'X ${formatNumber(
-                                                            columnPedidosRow
-                                                                .quanty,
-                                                            formatType:
-                                                                FormatType
-                                                                    .custom,
-                                                            format: '',
-                                                            locale: '',
-                                                          )}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ],
                                                     ),
                                                   ],
                                                 ),
@@ -439,7 +416,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             ),
                                                       ),
                                                       Text(
-                                                        'X ${columnPedidosRow.quanty?.toString()} ${formatNumber(
+                                                        '${columnPedidosRow.quanty?.toString()}X ${formatNumber(
                                                           columnPedidosRow
                                                               .precoBorda,
                                                           formatType:
