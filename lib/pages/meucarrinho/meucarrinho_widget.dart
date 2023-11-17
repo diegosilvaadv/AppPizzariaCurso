@@ -60,26 +60,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
         ),
       ],
     ),
-    'listViewOnActionTriggerAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(62.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
     'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -137,13 +117,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MeucarrinhoModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -182,7 +155,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 29.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -565,14 +538,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 (pedidosItem
                                                                     .quanty);
                                                       });
-                                                      if (animationsMap[
-                                                              'listViewOnActionTriggerAnimation'] !=
-                                                          null) {
-                                                        await animationsMap[
-                                                                'listViewOnActionTriggerAnimation']!
-                                                            .controller
-                                                            .forward(from: 0.0);
-                                                      }
                                                     },
                                                     child: Icon(
                                                       Icons.delete_sweep,
@@ -591,8 +556,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 ],
                               );
                             },
-                          ).animateOnActionTrigger(
-                            animationsMap['listViewOnActionTriggerAnimation']!,
                           );
                         },
                       ),
