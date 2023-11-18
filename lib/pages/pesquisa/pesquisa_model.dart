@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -20,8 +21,10 @@ class PesquisaModel extends FlutterFlowModel<PesquisaWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
+  final textFieldKey = GlobalKey();
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
+  String? textFieldSelectedOption;
   String? Function(BuildContext, String?)? textControllerValidator;
   List<String> simpleSearchResults = [];
 
@@ -32,7 +35,6 @@ class PesquisaModel extends FlutterFlowModel<PesquisaWidget> {
   void dispose() {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();
-    textController?.dispose();
   }
 
   /// Action blocks are added here.
