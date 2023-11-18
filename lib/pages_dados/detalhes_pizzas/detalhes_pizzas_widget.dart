@@ -382,7 +382,8 @@ class _DetalhesPizzasWidgetState extends State<DetalhesPizzasWidget> {
                                                             'tag',
                                                             'Bordas',
                                                           )
-                                                          .order('id'),
+                                                          .order('id',
+                                                              ascending: true),
                                                     ),
                                                     builder:
                                                         (context, snapshot) {
@@ -513,6 +514,18 @@ class _DetalhesPizzasWidgetState extends State<DetalhesPizzasWidget> {
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
+                                                                                color: valueOrDefault<Color>(
+                                                                                  () {
+                                                                                    if (widget.detalhesProdutos?.valorProduto == 0.0) {
+                                                                                      return Color(0xFF10DA26);
+                                                                                    } else if (widget.detalhesProdutos?.valorProduto != 0.0) {
+                                                                                      return FlutterFlowTheme.of(context).primaryText;
+                                                                                    } else {
+                                                                                      return FlutterFlowTheme.of(context).primaryText;
+                                                                                    }
+                                                                                  }(),
+                                                                                  FlutterFlowTheme.of(context).primaryText,
+                                                                                ),
                                                                                 fontSize: 18.0,
                                                                               ),
                                                                         ),

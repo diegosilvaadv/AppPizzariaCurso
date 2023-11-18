@@ -92,7 +92,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                     'Pesquisar',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          fontSize: 30.0,
+                          fontSize: 31.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
