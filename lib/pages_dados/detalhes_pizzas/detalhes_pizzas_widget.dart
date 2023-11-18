@@ -848,15 +848,14 @@ class _DetalhesPizzasWidgetState extends State<DetalhesPizzasWidget> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  'Escolha as opções acima para continuar.',
+                                  'Escolha a opção de Borda para continuar.',
                                   style: TextStyle(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),
                                 ),
                                 duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
+                                backgroundColor: Color(0xFFC05A16),
                               ),
                             );
                           }
