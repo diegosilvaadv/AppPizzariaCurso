@@ -1705,7 +1705,7 @@ class _Pizza2sab8GWidgetState extends State<Pizza2sab8GWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 6.0, 0.0),
+                                      6.0, 0.0, 6.0, 0.0),
                                   child: Text(
                                     formatNumber(
                                       (FFAppState().Sabores.precoSabor1 +
