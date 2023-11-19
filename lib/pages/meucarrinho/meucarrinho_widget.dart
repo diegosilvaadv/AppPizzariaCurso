@@ -627,22 +627,26 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   Colors
                                                                       .transparent,
                                                               onTap: () async {
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                      .updatePedidosCarAtIndex(
-                                                                    pedidosIndex,
-                                                                    (e) => e
-                                                                      ..incrementQuanty(
-                                                                          -1),
-                                                                  );
-                                                                  FFAppState()
-                                                                      .TotalPrice = FFAppState()
-                                                                          .TotalPrice +
-                                                                      (-pedidosItem
-                                                                              .precoTotal -
-                                                                          pedidosItem
-                                                                              .precoBorda);
-                                                                });
+                                                                if (pedidosItem
+                                                                        .quanty !=
+                                                                    1) {
+                                                                  setState(() {
+                                                                    FFAppState()
+                                                                        .updatePedidosCarAtIndex(
+                                                                      pedidosIndex,
+                                                                      (e) => e
+                                                                        ..incrementQuanty(
+                                                                            -1),
+                                                                    );
+                                                                    FFAppState()
+                                                                        .TotalPrice = FFAppState()
+                                                                            .TotalPrice +
+                                                                        (-pedidosItem.precoTotal -
+                                                                            pedidosItem.precoBorda);
+                                                                  });
+                                                                } else {
+                                                                  return;
+                                                                }
                                                               },
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
