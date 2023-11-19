@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 31.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -353,7 +353,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Expanded(
+                                              Flexible(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -407,29 +407,68 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Text(
-                                                              formatNumber(
-                                                                pedidosItem
-                                                                    .precoTotal,
-                                                                formatType:
-                                                                    FormatType
-                                                                        .custom,
-                                                                currency: 'R\$',
-                                                                format: '0.00',
-                                                                locale: 'pt_BR',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: Color(
-                                                                        0xFF10DA26),
-                                                                    fontSize:
-                                                                        18.0,
+                                                            if (pedidosItem
+                                                                    .subtotal !=
+                                                                0.0)
+                                                              Flexible(
+                                                                child: Text(
+                                                                  formatNumber(
+                                                                    pedidosItem
+                                                                        .precoTotal,
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .custom,
+                                                                    currency:
+                                                                        'R\$',
+                                                                    format:
+                                                                        '0.00',
+                                                                    locale:
+                                                                        'pt_BR',
                                                                   ),
-                                                            ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Color(
+                                                                            0xFF10DA26),
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            if (pedidosItem
+                                                                    .subtotal ==
+                                                                0.0)
+                                                              Flexible(
+                                                                child: Text(
+                                                                  formatNumber(
+                                                                    pedidosItem
+                                                                        .precoTotal,
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .custom,
+                                                                    currency:
+                                                                        'R\$',
+                                                                    format:
+                                                                        '0.00',
+                                                                    locale:
+                                                                        'pt_BR',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Color(
+                                                                            0xFF10DA26),
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                ),
+                                                              ),
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
@@ -655,9 +694,10 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     .updatePedidosCarAtIndex(
                                                                   pedidosIndex,
                                                                   (e) => e
-                                                                    ..incrementPrecoTotal(
+                                                                    ..incrementSubtotal(pedidosItem
+                                                                            .precoTotal *
                                                                         pedidosItem
-                                                                            .precoTotal),
+                                                                            .quanty),
                                                                 );
                                                               });
                                                             },
