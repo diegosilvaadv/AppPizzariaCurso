@@ -11,6 +11,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'meucarrinho_model.dart';
@@ -468,7 +469,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Expanded(
+                                                            Flexible(
                                                               child: Text(
                                                                 '${pedidosItem.nomeBorda}',
                                                                 style: FlutterFlowTheme.of(
@@ -561,48 +562,212 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .removeAtIndexFromPedidosCar(
-                                                                pedidosIndex);
-                                                        FFAppState()
-                                                                .NumCarrinho =
-                                                            FFAppState()
-                                                                    .NumCarrinho +
-                                                                -1;
-                                                        FFAppState()
-                                                            .TotalPrice = FFAppState()
-                                                                .TotalPrice +
-                                                            (-pedidosItem
-                                                                        .precoTotal -
-                                                                    pedidosItem
-                                                                        .precoBorda) *
-                                                                (pedidosItem
-                                                                    .quanty);
-                                                      });
-                                                      if (animationsMap[
-                                                              'columnOnActionTriggerAnimation'] !=
-                                                          null) {
-                                                        animationsMap[
-                                                                'columnOnActionTriggerAnimation']!
-                                                            .controller
-                                                            .reset();
-                                                      }
-                                                    },
-                                                    child: Icon(
-                                                      Icons.delete_sweep,
-                                                      color: Color(0xFFE13C27),
-                                                      size: 24.0,
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              6.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  6.0,
+                                                                  6.0,
+                                                                  6.0,
+                                                                  6.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                if (FFAppState()
+                                                                        .quanty !=
+                                                                    1) {
+                                                                  setState(() {
+                                                                    FFAppState()
+                                                                        .updatePedidosCarAtIndex(
+                                                                      pedidosIndex,
+                                                                      (e) => e
+                                                                        ..incrementQuanty(
+                                                                            -1)
+                                                                        ..incrementPrecoTotal(
+                                                                            pedidosItem.precoTotal),
+                                                                    );
+                                                                  });
+                                                                } else {
+                                                                  return;
+                                                                }
+                                                              },
+                                                              child: FaIcon(
+                                                                FontAwesomeIcons
+                                                                    .minus,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 25.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              formatNumber(
+                                                                pedidosItem
+                                                                    .quanty,
+                                                                formatType:
+                                                                    FormatType
+                                                                        .custom,
+                                                                format: '',
+                                                                locale: '',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        25.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                if (FFAppState()
+                                                                        .quanty !=
+                                                                    100) {
+                                                                  setState(() {
+                                                                    FFAppState()
+                                                                        .updatePedidosCarAtIndex(
+                                                                      pedidosIndex,
+                                                                      (e) => e
+                                                                        ..incrementQuanty(
+                                                                            1)
+                                                                        ..incrementPrecoTotal(
+                                                                            pedidosItem.precoTotal),
+                                                                    );
+                                                                  });
+                                                                } else {
+                                                                  return;
+                                                                }
+                                                              },
+                                                              child: FaIcon(
+                                                                FontAwesomeIcons
+                                                                    .plus,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 25.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 6.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            setState(() {
+                                                              FFAppState()
+                                                                  .removeAtIndexFromPedidosCar(
+                                                                      pedidosIndex);
+                                                              FFAppState()
+                                                                      .NumCarrinho =
+                                                                  FFAppState()
+                                                                          .NumCarrinho +
+                                                                      -1;
+                                                              FFAppState()
+                                                                  .TotalPrice = FFAppState()
+                                                                      .TotalPrice +
+                                                                  (-pedidosItem
+                                                                              .precoTotal -
+                                                                          pedidosItem
+                                                                              .precoBorda) *
+                                                                      (pedidosItem
+                                                                          .quanty);
+                                                            });
+                                                            if (animationsMap[
+                                                                    'columnOnActionTriggerAnimation'] !=
+                                                                null) {
+                                                              animationsMap[
+                                                                      'columnOnActionTriggerAnimation']!
+                                                                  .controller
+                                                                  .reset();
+                                                            }
+                                                          },
+                                                          child: Icon(
+                                                            Icons.delete_sweep,
+                                                            color: Color(
+                                                                0xFFE13C27),
+                                                            size: 24.0,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
