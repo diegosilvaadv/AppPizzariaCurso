@@ -407,68 +407,36 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            if (pedidosItem
-                                                                    .subtotal !=
-                                                                0.0)
-                                                              Flexible(
-                                                                child: Text(
-                                                                  formatNumber(
-                                                                    pedidosItem
-                                                                        .precoTotal,
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .custom,
-                                                                    currency:
-                                                                        'R\$',
-                                                                    format:
-                                                                        '0.00',
-                                                                    locale:
-                                                                        'pt_BR',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        color: Color(
-                                                                            0xFF10DA26),
-                                                                        fontSize:
-                                                                            18.0,
-                                                                      ),
+                                                            Flexible(
+                                                              child: Text(
+                                                                formatNumber(
+                                                                  pedidosItem
+                                                                          .precoTotal *
+                                                                      pedidosItem
+                                                                          .quanty,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .custom,
+                                                                  currency:
+                                                                      'R\$',
+                                                                  format:
+                                                                      '0.00',
+                                                                  locale:
+                                                                      'pt_BR',
                                                                 ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: Color(
+                                                                          0xFF10DA26),
+                                                                      fontSize:
+                                                                          18.0,
+                                                                    ),
                                                               ),
-                                                            if (pedidosItem
-                                                                    .subtotal ==
-                                                                0.0)
-                                                              Flexible(
-                                                                child: Text(
-                                                                  formatNumber(
-                                                                    pedidosItem
-                                                                        .precoTotal,
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .custom,
-                                                                    currency:
-                                                                        'R\$',
-                                                                    format:
-                                                                        '0.00',
-                                                                    locale:
-                                                                        'pt_BR',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        color: Color(
-                                                                            0xFF10DA26),
-                                                                        fontSize:
-                                                                            18.0,
-                                                                      ),
-                                                                ),
-                                                              ),
+                                                            ),
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
