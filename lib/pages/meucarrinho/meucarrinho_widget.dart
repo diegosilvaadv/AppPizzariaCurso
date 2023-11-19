@@ -507,7 +507,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 child: Text(
                                                                   formatNumber(
                                                                     pedidosItem
-                                                                        .precoBorda,
+                                                                            .precoBorda *
+                                                                        pedidosItem
+                                                                            .quanty,
                                                                     formatType:
                                                                         FormatType
                                                                             .custom,
@@ -671,8 +673,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     .TotalPrice = FFAppState()
                                                                         .TotalPrice +
                                                                     pedidosItem
-                                                                        .quanty
-                                                                        .toDouble();
+                                                                            .precoTotal *
+                                                                        pedidosItem
+                                                                            .quanty;
                                                               });
                                                             },
                                                             child: FaIcon(
