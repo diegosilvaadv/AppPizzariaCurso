@@ -606,10 +606,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     pedidosIndex,
                                                                     (e) => e
                                                                       ..incrementQuanty(
-                                                                          -1)
-                                                                      ..incrementPrecoTotal(
-                                                                          pedidosItem
-                                                                              .precoTotal),
+                                                                          -1),
                                                                   );
                                                                 });
                                                               } else {
