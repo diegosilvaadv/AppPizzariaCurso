@@ -670,12 +670,10 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                         1),
                                                                 );
                                                                 FFAppState()
-                                                                    .TotalPrice = FFAppState()
-                                                                        .TotalPrice +
-                                                                    pedidosItem
-                                                                            .precoTotal *
-                                                                        pedidosItem
-                                                                            .quanty;
+                                                                        .quanty =
+                                                                    FFAppState()
+                                                                            .quanty +
+                                                                        1;
                                                               });
                                                             },
                                                             child: FaIcon(
@@ -822,7 +820,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
                               formatNumber(
-                                FFAppState().TotalPrice,
+                                FFAppState().TotalPrice *
+                                    FFAppState().quanty.toDouble(),
                                 formatType: FormatType.custom,
                                 currency: 'R\$',
                                 format: '0.00',
