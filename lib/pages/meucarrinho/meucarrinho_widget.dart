@@ -694,15 +694,12 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     .updatePedidosCarAtIndex(
                                                                   pedidosIndex,
                                                                   (e) => e
-                                                                    ..subtotal = pedidosItem
-                                                                            .precoTotal *
-                                                                        pedidosItem
-                                                                            .quanty
                                                                     ..incrementQuanty(
                                                                         1)
-                                                                    ..incrementPrecoTotal(
+                                                                    ..incrementPrecoTotal(pedidosItem
+                                                                            .precoTotal *
                                                                         pedidosItem
-                                                                            .precoTotal),
+                                                                            .quanty),
                                                                 );
                                                               });
                                                             },
