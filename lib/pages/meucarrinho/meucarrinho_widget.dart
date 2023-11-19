@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 31.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -612,6 +612,11 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     ..incrementQuanty(
                                                                         -1),
                                                                 );
+                                                                FFAppState()
+                                                                        .TotalPrice =
+                                                                    FFAppState()
+                                                                            .TotalPrice +
+                                                                        -1.0;
                                                               });
                                                             },
                                                             child: FaIcon(
@@ -666,9 +671,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     .TotalPrice = FFAppState()
                                                                         .TotalPrice +
                                                                     pedidosItem
-                                                                            .precoTotal *
-                                                                        pedidosItem
-                                                                            .quanty;
+                                                                        .quanty
+                                                                        .toDouble();
                                                               });
                                                             },
                                                             child: FaIcon(
