@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 31.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -605,7 +605,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     ..incrementQuanty(
                                                                         -1)
                                                                     ..incrementPrecoTotal(
-                                                                        1.0),
+                                                                        pedidosItem
+                                                                            .precoTotal),
                                                                 );
                                                               });
                                                             },
@@ -649,24 +650,18 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 Colors
                                                                     .transparent,
                                                             onTap: () async {
-                                                              if (FFAppState()
-                                                                      .quanty !=
-                                                                  100) {
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                      .updatePedidosCarAtIndex(
-                                                                    pedidosIndex,
-                                                                    (e) => e
-                                                                      ..incrementQuanty(
-                                                                          1)
-                                                                      ..incrementPrecoTotal(
-                                                                          pedidosItem
-                                                                              .precoTotal),
-                                                                  );
-                                                                });
-                                                              } else {
-                                                                return;
-                                                              }
+                                                              setState(() {
+                                                                FFAppState()
+                                                                    .updatePedidosCarAtIndex(
+                                                                  pedidosIndex,
+                                                                  (e) => e
+                                                                    ..incrementQuanty(
+                                                                        1)
+                                                                    ..incrementPrecoTotal(
+                                                                        pedidosItem
+                                                                            .precoTotal),
+                                                                );
+                                                              });
                                                             },
                                                             child: FaIcon(
                                                               FontAwesomeIcons
