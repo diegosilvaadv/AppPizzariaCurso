@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 31.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -282,7 +282,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 options: FFButtonOptions(
                                   height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Color(0xFFE13C27),
@@ -291,6 +291,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.white,
+                                        fontSize: 15.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -637,10 +638,10 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   FFAppState()
                                                                       .TotalPrice = FFAppState()
                                                                           .TotalPrice +
-                                                                      pedidosItem
-                                                                          .precoTotal +
-                                                                      pedidosItem
-                                                                          .precoBorda;
+                                                                      (-pedidosItem
+                                                                              .precoTotal -
+                                                                          pedidosItem
+                                                                              .precoBorda);
                                                                 });
                                                               },
                                                               child: FaIcon(
