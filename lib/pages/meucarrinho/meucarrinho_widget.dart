@@ -610,10 +610,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   pedidosIndex,
                                                                   (e) => e
                                                                     ..incrementQuanty(
-                                                                        -1)
-                                                                    ..incrementPrecoTotal(
-                                                                        pedidosItem
-                                                                            .precoTotal),
+                                                                        -1),
                                                                 );
                                                               });
                                                             },
@@ -665,6 +662,13 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     ..incrementQuanty(
                                                                         1),
                                                                 );
+                                                                FFAppState()
+                                                                    .TotalPrice = FFAppState()
+                                                                        .TotalPrice +
+                                                                    pedidosItem
+                                                                            .precoTotal *
+                                                                        pedidosItem
+                                                                            .quanty;
                                                               });
                                                             },
                                                             child: FaIcon(
