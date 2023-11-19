@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 29.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -579,12 +579,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   6.0,
                                                                   6.0,
                                                                   6.0),
-                                                      child: Row(
+                                                      child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
                                                         children: [
                                                           Padding(
                                                             padding:
