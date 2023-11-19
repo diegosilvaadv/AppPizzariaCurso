@@ -673,9 +673,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     .TotalPrice = FFAppState()
                                                                         .TotalPrice +
                                                                     pedidosItem
-                                                                            .precoTotal *
-                                                                        pedidosItem
-                                                                            .quanty;
+                                                                        .precoTotal;
                                                               });
                                                             },
                                                             child: FaIcon(
