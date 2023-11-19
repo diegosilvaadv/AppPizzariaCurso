@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 29.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -656,7 +656,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   pedidosIndex,
                                                                   (e) => e
                                                                     ..incrementQuanty(
-                                                                        1)
+                                                                        pedidosItem
+                                                                            .quanty)
                                                                     ..incrementPrecoTotal(
                                                                         pedidosItem
                                                                             .precoTotal),
