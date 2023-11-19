@@ -378,18 +378,27 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             Expanded(
-                                                              child: Text(
-                                                                pedidosItem
-                                                                    .nomeProduto,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      fontSize:
-                                                                          18.0,
-                                                                    ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            6.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  pedidosItem
+                                                                      .nomeProduto,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                ),
                                                               ),
                                                             ),
                                                           ],
@@ -542,19 +551,27 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 if (pedidosItem
                                                                         .precoBorda !=
                                                                     0.0)
-                                                                  Text(
-                                                                    'X ${pedidosItem.quanty.toString()}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      'X ${pedidosItem.quanty.toString()}',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            fontSize:
+                                                                                16.0,
+                                                                          ),
+                                                                    ),
                                                                   ),
                                                               ],
                                                             ),
