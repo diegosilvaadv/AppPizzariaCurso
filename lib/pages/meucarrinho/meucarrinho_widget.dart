@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 31.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -675,7 +675,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   fontFamily:
                                                                       'Readex Pro',
                                                                   fontSize:
-                                                                      25.0,
+                                                                      23.0,
                                                                 ),
                                                           ),
                                                           InkWell(
@@ -699,7 +699,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                         pedidosItem
                                                                             .quanty)
                                                                     ..incrementQuanty(
-                                                                        1),
+                                                                        pedidosItem
+                                                                            .quanty),
                                                                 );
                                                               });
                                                             },
