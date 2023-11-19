@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 31.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -657,9 +657,10 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     (e) => e
                                                                       ..incrementQuanty(
                                                                           1)
-                                                                      ..incrementPrecoTotal(
-                                                                          pedidosItem.precoTotal /
-                                                                              2),
+                                                                      ..incrementPrecoTotal((-pedidosItem
+                                                                              .precoTotal) *
+                                                                          (pedidosItem
+                                                                              .quanty)),
                                                                   );
                                                                 });
                                                               } else {
