@@ -208,7 +208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 30.0,
+                  fontSize: 31.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -597,21 +597,15 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                 Colors
                                                                     .transparent,
                                                             onTap: () async {
-                                                              if (FFAppState()
-                                                                      .quanty !=
-                                                                  1) {
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                      .updatePedidosCarAtIndex(
-                                                                    pedidosIndex,
-                                                                    (e) => e
-                                                                      ..incrementQuanty(
-                                                                          -1),
-                                                                  );
-                                                                });
-                                                              } else {
-                                                                return;
-                                                              }
+                                                              setState(() {
+                                                                FFAppState()
+                                                                    .updatePedidosCarAtIndex(
+                                                                  pedidosIndex,
+                                                                  (e) => e
+                                                                    ..incrementQuanty(
+                                                                        -1),
+                                                                );
+                                                              });
                                                             },
                                                             child: FaIcon(
                                                               FontAwesomeIcons
@@ -663,10 +657,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     (e) => e
                                                                       ..incrementQuanty(
                                                                           1)
-                                                                      ..incrementPrecoTotal(pedidosItem
-                                                                              .precoTotal *
-                                                                          pedidosItem
-                                                                              .quanty),
+                                                                      ..incrementPrecoTotal(
+                                                                          pedidosItem.precoTotal /
+                                                                              2),
                                                                   );
                                                                 });
                                                               } else {
