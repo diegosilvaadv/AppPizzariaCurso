@@ -212,103 +212,186 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                             ),
                                                       ),
                                                     ),
-                                                    FFButtonWidget(
-                                                      onPressed: () async {
-                                                        await UsersEnderecosTable()
-                                                            .update(
-                                                          data: {
-                                                            'status':
-                                                                'Opicional',
-                                                          },
-                                                          matchingRows:
-                                                              (rows) => rows
-                                                                  .eq(
-                                                                    'user_id',
-                                                                    currentUserUid,
-                                                                  )
-                                                                  .eq(
-                                                                    'status',
-                                                                    'Principal',
-                                                                  ),
-                                                        );
-                                                        await UsersEnderecosTable()
-                                                            .update(
-                                                          data: {
-                                                            'status':
-                                                                'Principal',
-                                                          },
-                                                          matchingRows:
-                                                              (rows) => rows
-                                                                  .eq(
-                                                                    'user_id',
-                                                                    currentUserUid,
-                                                                  )
-                                                                  .eq(
-                                                                    'id',
-                                                                    listViewUsersEnderecosRow
-                                                                        .id,
-                                                                  ),
-                                                        );
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              await UsersEnderecosTable()
+                                                                  .update(
+                                                                data: {
+                                                                  'status':
+                                                                      'Opicional',
+                                                                },
+                                                                matchingRows:
+                                                                    (rows) =>
+                                                                        rows
+                                                                            .eq(
+                                                                              'user_id',
+                                                                              currentUserUid,
+                                                                            )
+                                                                            .eq(
+                                                                              'status',
+                                                                              'Principal',
+                                                                            ),
+                                                              );
+                                                              await UsersEnderecosTable()
+                                                                  .update(
+                                                                data: {
+                                                                  'status':
+                                                                      'Principal',
+                                                                },
+                                                                matchingRows:
+                                                                    (rows) =>
+                                                                        rows
+                                                                            .eq(
+                                                                              'user_id',
+                                                                              currentUserUid,
+                                                                            )
+                                                                            .eq(
+                                                                              'id',
+                                                                              listViewUsersEnderecosRow.id,
+                                                                            ),
+                                                              );
 
-                                                        context.pushNamed(
-                                                          'Perfil',
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      0),
+                                                              context.pushNamed(
+                                                                'Perfil',
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .fade,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            0),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            },
+                                                            text: 'Selecionar',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              height: 30.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
                                                             ),
-                                                          },
-                                                        );
-                                                      },
-                                                      text: 'Selecionar',
-                                                      options: FFButtonOptions(
-                                                        height: 40.0,
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: Colors
-                                                                      .white,
-                                                                ),
-                                                        elevation: 3.0,
-                                                        borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 1.0,
+                                                          ),
                                                         ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
+                                                        FFButtonWidget(
+                                                          onPressed: () async {
+                                                            await UsersEnderecosTable()
+                                                                .delete(
+                                                              matchingRows:
+                                                                  (rows) => rows
+                                                                      .eq(
+                                                                        'user_id',
+                                                                        currentUserUid,
+                                                                      )
+                                                                      .eq(
+                                                                        'id',
+                                                                        listViewUsersEnderecosRow
+                                                                            .id,
+                                                                      ),
+                                                            );
+                                                          },
+                                                          text: 'Excluir',
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 30.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: Color(
+                                                                0xFFE13C27),
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12.0,
+                                                                    ),
+                                                            elevation: 3.0,
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ],
                                                 ),
