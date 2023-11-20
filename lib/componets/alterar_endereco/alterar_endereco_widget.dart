@@ -1,5 +1,7 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -33,12 +35,31 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
     _model = createModel(context, () => AlterarEnderecoModel());
 
     _model.cepController ??=
-        TextEditingController(text: FFAppState().enderecosRef.cep);
+        TextEditingController(text: FFAppState().enderecoRef.cep);
     _model.cepFocusNode ??= FocusNode();
 
     _model.enderecoController ??=
-        TextEditingController(text: FFAppState().enderecosRef.enderecos);
+        TextEditingController(text: FFAppState().enderecoRef.endereco);
     _model.enderecoFocusNode ??= FocusNode();
+
+    _model.numeroController ??= TextEditingController();
+    _model.numeroFocusNode ??= FocusNode();
+
+    _model.complementoController ??=
+        TextEditingController(text: FFAppState().enderecoRef.complemento);
+    _model.complementoFocusNode ??= FocusNode();
+
+    _model.bairroController ??=
+        TextEditingController(text: FFAppState().enderecoRef.bairro);
+    _model.bairroFocusNode ??= FocusNode();
+
+    _model.cidadeController ??=
+        TextEditingController(text: FFAppState().enderecoRef.cidade);
+    _model.cidadeFocusNode ??= FocusNode();
+
+    _model.estadoController ??=
+        TextEditingController(text: FFAppState().enderecoRef.estado);
+    _model.estadoFocusNode ??= FocusNode();
   }
 
   @override
@@ -60,7 +81,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.sizeOf(context).width * 0.8,
+              width: MediaQuery.sizeOf(context).width * 0.9,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
                 borderRadius: BorderRadius.circular(12.0),
@@ -75,11 +96,11 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Endereços',
+                          'Adicionar Novo Endereço',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 25.0,
+                                    fontSize: 23.0,
                                   ),
                         ),
                         Padding(
@@ -113,7 +134,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -127,7 +148,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Buscar Cep',
+                                  labelText: 'Cep',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
                                   hintStyle:
@@ -174,16 +195,25 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              _model.resultadoAPI = await BuscarCepCall.call(
+                              _model.resultadoAPI = await BuscarCEPCall.call(
                                 cep: _model.cepController.text,
                               );
                               if ((_model.resultadoAPI?.succeeded ?? true)) {
                                 setState(() {
-                                  FFAppState().enderecosRef = EnderecosStruct(
-                                    cep: BuscarCepCall.cep(
+                                  FFAppState().enderecoRef = EnderecosStruct(
+                                    cep: BuscarCEPCall.cep(
                                       (_model.resultadoAPI?.jsonBody ?? ''),
                                     ).toString(),
-                                    enderecos: BuscarCepCall.endereco(
+                                    endereco: BuscarCEPCall.endereco(
+                                      (_model.resultadoAPI?.jsonBody ?? ''),
+                                    ).toString(),
+                                    bairro: BuscarCEPCall.bairro(
+                                      (_model.resultadoAPI?.jsonBody ?? ''),
+                                    ).toString(),
+                                    cidade: BuscarCEPCall.cidade(
+                                      (_model.resultadoAPI?.jsonBody ?? ''),
+                                    ).toString(),
+                                    estado: BuscarCEPCall.estado(
                                       (_model.resultadoAPI?.jsonBody ?? ''),
                                     ).toString(),
                                   );
@@ -204,14 +234,14 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
 
                               setState(() {});
                             },
-                            text: 'buscar',
+                            text: 'Buscar CEP',
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FlutterFlowTheme.of(context).tertiary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -290,6 +320,339 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                               ),
                             ),
                           ),
+                          Container(
+                            width: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Form(
+                              key: _model.formKey1,
+                              autovalidateMode: AutovalidateMode.disabled,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.numeroController,
+                                  focusNode: _model.numeroFocusNode,
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Número',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.numeroControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 8.0, 0.0),
+                              child: TextFormField(
+                                controller: _model.complementoController,
+                                focusNode: _model.complementoFocusNode,
+                                autofocus: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText: 'Complemento',
+                                  labelStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                validator: _model.complementoControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 8.0, 0.0),
+                              child: TextFormField(
+                                controller: _model.bairroController,
+                                focusNode: _model.bairroFocusNode,
+                                autofocus: true,
+                                readOnly: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText: 'Bairro',
+                                  labelStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                validator: _model.bairroControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 8.0, 0.0),
+                              child: TextFormField(
+                                controller: _model.cidadeController,
+                                focusNode: _model.cidadeFocusNode,
+                                autofocus: true,
+                                readOnly: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText: 'Cidade',
+                                  labelStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                validator: _model.cidadeControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Form(
+                              key: _model.formKey2,
+                              autovalidateMode: AutovalidateMode.disabled,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.estadoController,
+                                  focusNode: _model.estadoFocusNode,
+                                  autofocus: true,
+                                  readOnly: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Estado',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.estadoControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -302,20 +665,39 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: AlterarEnderecoWidget(),
-                                  );
+                              if (_model.formKey1.currentState == null ||
+                                  !_model.formKey1.currentState!.validate()) {
+                                return;
+                              }
+                              if (_model.formKey2.currentState == null ||
+                                  !_model.formKey2.currentState!.validate()) {
+                                return;
+                              }
+                              await UsersEnderecosTable().update(
+                                data: {
+                                  'status': 'Opicional',
                                 },
-                              ).then((value) => safeSetState(() {}));
+                                matchingRows: (rows) => rows
+                                    .eq(
+                                      'user_id',
+                                      currentUserUid,
+                                    )
+                                    .eq(
+                                      'status',
+                                      'Principal',
+                                    ),
+                              );
+                              await UsersEnderecosTable().insert({
+                                'cep': _model.cepController.text,
+                                'endereco': _model.enderecoController.text,
+                                'numero': _model.numeroController.text,
+                                'cidade': _model.cidadeController.text,
+                                'UF': _model.estadoController.text,
+                                'bairro': _model.bairroController.text,
+                                'status': 'Principal',
+                              });
                             },
-                            text: 'Alterar',
+                            text: 'Adicionar Endereço',
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(

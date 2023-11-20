@@ -157,14 +157,14 @@ class FFAppState extends ChangeNotifier {
     _contador = _value;
   }
 
-  EnderecosStruct _enderecosRef = EnderecosStruct();
-  EnderecosStruct get enderecosRef => _enderecosRef;
-  set enderecosRef(EnderecosStruct _value) {
-    _enderecosRef = _value;
+  EnderecosStruct _enderecoRef = EnderecosStruct();
+  EnderecosStruct get enderecoRef => _enderecoRef;
+  set enderecoRef(EnderecosStruct _value) {
+    _enderecoRef = _value;
   }
 
-  void updateEnderecosRefStruct(Function(EnderecosStruct) updateFn) {
-    updateFn(_enderecosRef);
+  void updateEnderecoRefStruct(Function(EnderecosStruct) updateFn) {
+    updateFn(_enderecoRef);
   }
 }
 
