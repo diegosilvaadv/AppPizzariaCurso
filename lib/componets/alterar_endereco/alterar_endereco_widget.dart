@@ -1,7 +1,5 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -37,7 +35,8 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
     _model.cepController ??= TextEditingController();
     _model.cepFocusNode ??= FocusNode();
 
-    _model.enderecoController ??= TextEditingController();
+    _model.enderecoController ??=
+        TextEditingController(text: FFAppState().enderecosRef.enderecos);
     _model.enderecoFocusNode ??= FocusNode();
   }
 
@@ -281,16 +280,18 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              await UsersTable().update(
-                                data: {
-                                  'nome': _model.cepController.text,
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: AlterarEnderecoWidget(),
+                                  );
                                 },
-                                matchingRows: (rows) => rows.eq(
-                                  'user_id',
-                                  currentUserUid,
-                                ),
-                              );
-                              Navigator.pop(context);
+                              ).then((value) => safeSetState(() {}));
                             },
                             text: 'Alterar',
                             options: FFButtonOptions(
