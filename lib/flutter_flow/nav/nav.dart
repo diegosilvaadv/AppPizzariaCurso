@@ -150,6 +150,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             detalhesProdutos: params.getParam<ProdutosRow>(
                 'detalhesProdutos', ParamType.SupabaseRow),
           ),
+        ),
+        FFRoute(
+          name: 'Perfil',
+          path: '/perfil',
+          builder: (context, params) => PerfilWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
