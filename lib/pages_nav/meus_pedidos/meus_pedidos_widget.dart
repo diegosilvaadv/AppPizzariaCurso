@@ -739,10 +739,28 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                         size: 35.0,
                       ).animateOnPageLoad(
                           animationsMap['iconOnPageLoadAnimation']!),
-                      Icon(
-                        Icons.person,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 40.0,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'Perfil',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.person,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 40.0,
+                        ),
                       ),
                     ],
                   ),

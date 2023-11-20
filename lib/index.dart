@@ -16,4 +16,4 @@ export '/pages_dados/pizza4sab16_g_g/pizza4sab16_g_g_widget.dart'
     show Pizza4sab16GGWidget;
 export '/pages_dados/detalhes_bebidas/detalhes_bebidas_widget.dart'
     show DetalhesBebidasWidget;
-export '/perfil/perfil_widget.dart' show PerfilWidget;
+export '/pages_nav/perfil/perfil_widget.dart' show PerfilWidget;
