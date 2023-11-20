@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/schema/structs/index.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -154,6 +155,16 @@ class FFAppState extends ChangeNotifier {
   int get contador => _contador;
   set contador(int _value) {
     _contador = _value;
+  }
+
+  EnderecosStruct _enderecosRef = EnderecosStruct();
+  EnderecosStruct get enderecosRef => _enderecosRef;
+  set enderecosRef(EnderecosStruct _value) {
+    _enderecosRef = _value;
+  }
+
+  void updateEnderecosRefStruct(Function(EnderecosStruct) updateFn) {
+    updateFn(_enderecosRef);
   }
 }
 
