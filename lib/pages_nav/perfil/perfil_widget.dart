@@ -425,24 +425,29 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                                 if (contentView1UsersEnderecosRow
                                                         ?.userId ==
                                                     currentUserUid)
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      '${contentView1UsersEnderecosRow?.endereco}, ${contentView1UsersEnderecosRow?.numero} - ${contentView1UsersEnderecosRow?.bairro}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                              ),
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '${contentView1UsersEnderecosRow?.endereco}, ${contentView1UsersEnderecosRow?.numero} - ${contentView1UsersEnderecosRow?.bairro}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                ),
+                                                      ),
                                                     ),
                                                   ),
                                               ],
