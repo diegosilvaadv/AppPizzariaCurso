@@ -32,7 +32,8 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
     super.initState();
     _model = createModel(context, () => AlterarEnderecoModel());
 
-    _model.cepController ??= TextEditingController();
+    _model.cepController ??=
+        TextEditingController(text: FFAppState().enderecosRef.cep);
     _model.cepFocusNode ??= FocusNode();
 
     _model.enderecoController ??=
@@ -178,6 +179,18 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                     ).toString(),
                                   );
                                 });
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: AlterarEnderecoWidget(),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
                               }
 
                               setState(() {});
