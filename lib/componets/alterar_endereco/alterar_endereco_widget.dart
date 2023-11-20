@@ -132,146 +132,157 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                       ),
                     ),
                   ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                  ),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 6.0, 20.0, 10.0),
-                    child: FutureBuilder<List<UsersEnderecosRow>>(
-                      future: UsersEnderecosTable().queryRows(
-                        queryFn: (q) => q.eq(
-                          'user_id',
-                          currentUserUid,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 6.0, 20.0, 10.0),
+                      child: FutureBuilder<List<UsersEnderecosRow>>(
+                        future: UsersEnderecosTable().queryRows(
+                          queryFn: (q) => q.eq(
+                            'user_id',
+                            currentUserUid,
+                          ),
                         ),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 15.0,
-                              height: 15.0,
-                              child: SpinKitChasingDots(
-                                color: Color(0xFFE46D1F),
-                                size: 15.0,
-                              ),
-                            ),
-                          );
-                        }
-                        List<UsersEnderecosRow> listViewUsersEnderecosRowList =
-                            snapshot.data!;
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: listViewUsersEnderecosRowList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewUsersEnderecosRow =
-                                listViewUsersEnderecosRowList[listViewIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            '${listViewUsersEnderecosRow.endereco}, ${listViewUsersEnderecosRow.numero} - ${listViewUsersEnderecosRow.bairro} - ${listViewUsersEnderecosRow.cidade}',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 16.0,
-                                                ),
-                                          ),
-                                          FFButtonWidget(
-                                            onPressed: () async {
-                                              await UsersEnderecosTable()
-                                                  .update(
-                                                data: {
-                                                  'status': 'Principal',
-                                                  'id':
-                                                      listViewUsersEnderecosRow
-                                                          .id,
-                                                },
-                                                matchingRows: (rows) => rows
-                                                    .eq(
-                                                      'user_id',
-                                                      currentUserUid,
-                                                    )
-                                                    .eq(
-                                                      'status',
-                                                      'Principal',
-                                                    ),
-                                              );
-
-                                              context.pushNamed(
-                                                'Perfil',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 0),
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            text: 'Selecionar',
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: Colors.white,
-                                                      ),
-                                              elevation: 3.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 15.0,
+                                height: 15.0,
+                                child: SpinKitChasingDots(
+                                  color: Color(0xFFE46D1F),
+                                  size: 15.0,
                                 ),
                               ),
                             );
-                          },
-                        );
-                      },
+                          }
+                          List<UsersEnderecosRow>
+                              listViewUsersEnderecosRowList = snapshot.data!;
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewUsersEnderecosRowList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewUsersEnderecosRow =
+                                  listViewUsersEnderecosRowList[listViewIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                '${listViewUsersEnderecosRow.endereco}, ${listViewUsersEnderecosRow.numero} - ${listViewUsersEnderecosRow.bairro} - ${listViewUsersEnderecosRow.cidade}',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 16.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                await UsersEnderecosTable()
+                                                    .update(
+                                                  data: {
+                                                    'status': 'Principal',
+                                                    'id':
+                                                        listViewUsersEnderecosRow
+                                                            .id,
+                                                  },
+                                                  matchingRows: (rows) => rows
+                                                      .eq(
+                                                        'user_id',
+                                                        currentUserUid,
+                                                      )
+                                                      .eq(
+                                                        'status',
+                                                        'Principal',
+                                                      ),
+                                                );
+
+                                                context.pushNamed(
+                                                  'Perfil',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 0),
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              text: 'Selecionar',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
