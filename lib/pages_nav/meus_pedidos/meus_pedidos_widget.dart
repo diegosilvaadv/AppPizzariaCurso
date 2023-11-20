@@ -275,20 +275,22 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             BorderRadius.circular(8.0),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        dateTimeFormat(
-                                            'dd/MM/yyyy | kk:mm',
-                                            listViewStatusDosPedidosRow
-                                                .createdAt),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 18.0,
-                                            ),
+                                    Flexible(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 2.0, 0.0),
+                                        child: Text(
+                                          dateTimeFormat(
+                                              'dd/MM/yyyy | kk:mm',
+                                              listViewStatusDosPedidosRow
+                                                  .createdAt),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 16.0,
+                                              ),
+                                        ),
                                       ),
                                     ),
                                     FlutterFlowIconButton(

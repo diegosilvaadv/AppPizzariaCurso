@@ -952,17 +952,45 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        50.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                                              width: 70.0,
-                                                              height: 70.0,
-                                                              fit: BoxFit.cover,
+                                                          Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 8.0,
+                                                            shape:
+                                                                const CircleBorder(),
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFE46D1F),
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            2.0,
+                                                                            2.0,
+                                                                            2.0,
+                                                                            2.0),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              50.0),
+                                                                  child: Image
+                                                                      .network(
+                                                                    'https://images.unsplash.com/photo-1513104890138-7c749659a591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwaXp6YXxlbnwwfHx8fDE3MDA0Mzg1Njl8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                    width: 70.0,
+                                                                    height:
+                                                                        70.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
                                                           Padding(
@@ -1249,19 +1277,45 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              50.0),
-                                                                  child: Image
-                                                                      .network(
-                                                                    'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                                                    width: 70.0,
-                                                                    height:
-                                                                        70.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
+                                                                Material(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                  elevation:
+                                                                      8.0,
+                                                                  shape:
+                                                                      const CircleBorder(),
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFE46D1F),
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          2.0,
+                                                                          2.0,
+                                                                          2.0,
+                                                                          2.0),
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(50.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          'https://images.unsplash.com/photo-1513104890138-7c749659a591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwaXp6YXxlbnwwfHx8fDE3MDA0Mzg1Njl8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                          width:
+                                                                              70.0,
+                                                                          height:
+                                                                              70.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Padding(
@@ -1433,19 +1487,45 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              50.0),
-                                                                  child: Image
-                                                                      .network(
-                                                                    'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8cGl6emF8ZW58MHx8fHwxNjk5ODgyNjUwfDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                                                    width: 70.0,
-                                                                    height:
-                                                                        70.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
+                                                                Material(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                  elevation:
+                                                                      8.0,
+                                                                  shape:
+                                                                      const CircleBorder(),
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFE46D1F),
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          2.0,
+                                                                          2.0,
+                                                                          2.0,
+                                                                          2.0),
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(50.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          'https://images.unsplash.com/photo-1513104890138-7c749659a591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxwaXp6YXxlbnwwfHx8fDE3MDA0Mzg1Njl8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                                          width:
+                                                                              70.0,
+                                                                          height:
+                                                                              70.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Padding(
