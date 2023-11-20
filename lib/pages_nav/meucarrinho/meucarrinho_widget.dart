@@ -632,17 +632,17 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                     1) {
                                                                   setState(() {
                                                                     FFAppState()
+                                                                        .TotalPrice = FFAppState()
+                                                                            .TotalPrice +
+                                                                        (-pedidosItem.precoTotal -
+                                                                            pedidosItem.precoBorda);
+                                                                    FFAppState()
                                                                         .updatePedidosCarAtIndex(
                                                                       pedidosIndex,
                                                                       (e) => e
                                                                         ..incrementQuanty(
                                                                             -1),
                                                                     );
-                                                                    FFAppState()
-                                                                        .TotalPrice = FFAppState()
-                                                                            .TotalPrice +
-                                                                        (-pedidosItem.precoTotal -
-                                                                            pedidosItem.precoBorda);
                                                                   });
                                                                 } else {
                                                                   return;

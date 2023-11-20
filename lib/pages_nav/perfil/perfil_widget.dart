@@ -379,7 +379,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                   ),
                                   child: Container(
                                     width: double.infinity,
-                                    height: 66.0,
+                                    height: 80.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,

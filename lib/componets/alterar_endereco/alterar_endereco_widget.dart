@@ -106,200 +106,223 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (columnUsersEnderecosRow?.userId == currentUserUid)
-                  Card(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    elevation: 4.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Selecione o Endereço já cadastrado',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 16.0,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                if (columnUsersEnderecosRow?.userId == currentUserUid)
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: BorderRadius.circular(8.0),
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 6.0, 20.0, 10.0),
-                        child: FutureBuilder<List<UsersEnderecosRow>>(
-                          future: UsersEnderecosTable().queryRows(
-                            queryFn: (q) => q.eq(
-                              'user_id',
-                              currentUserUid,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 0.0, 6.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    'Selecione o Endereço já cadastrado',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 15.0,
-                                  height: 15.0,
-                                  child: SpinKitChasingDots(
-                                    color: Color(0xFFE46D1F),
-                                    size: 15.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 6.0, 20.0, 10.0),
+                              child: FutureBuilder<List<UsersEnderecosRow>>(
+                                future: UsersEnderecosTable().queryRows(
+                                  queryFn: (q) => q.eq(
+                                    'user_id',
+                                    currentUserUid,
                                   ),
                                 ),
-                              );
-                            }
-                            List<UsersEnderecosRow>
-                                listViewUsersEnderecosRowList = snapshot.data!;
-                            return ListView.builder(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: listViewUsersEnderecosRowList.length,
-                              itemBuilder: (context, listViewIndex) {
-                                final listViewUsersEnderecosRow =
-                                    listViewUsersEnderecosRowList[
-                                        listViewIndex];
-                                return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 10.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  '${listViewUsersEnderecosRow.endereco}, ${listViewUsersEnderecosRow.numero} - ${listViewUsersEnderecosRow.bairro} - ${listViewUsersEnderecosRow.cidade}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 16.0,
-                                                      ),
-                                                ),
-                                              ),
-                                              FFButtonWidget(
-                                                onPressed: () async {
-                                                  await UsersEnderecosTable()
-                                                      .update(
-                                                    data: {
-                                                      'status': 'Opicional',
-                                                    },
-                                                    matchingRows: (rows) => rows
-                                                        .eq(
-                                                          'user_id',
-                                                          currentUserUid,
-                                                        )
-                                                        .eq(
-                                                          'status',
-                                                          'Principal',
-                                                        ),
-                                                  );
-                                                  await UsersEnderecosTable()
-                                                      .update(
-                                                    data: {
-                                                      'status': 'Principal',
-                                                    },
-                                                    matchingRows: (rows) => rows
-                                                        .eq(
-                                                          'user_id',
-                                                          currentUserUid,
-                                                        )
-                                                        .eq(
-                                                          'id',
-                                                          listViewUsersEnderecosRow
-                                                              .id,
-                                                        ),
-                                                  );
-
-                                                  context.pushNamed(
-                                                    'Perfil',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 0),
-                                                      ),
-                                                    },
-                                                  );
-                                                },
-                                                text: 'Selecionar',
-                                                options: FFButtonOptions(
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            color: Colors.white,
-                                                          ),
-                                                  elevation: 3.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 15.0,
+                                        height: 15.0,
+                                        child: SpinKitChasingDots(
+                                          color: Color(0xFFE46D1F),
+                                          size: 15.0,
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
+                                    );
+                                  }
+                                  List<UsersEnderecosRow>
+                                      listViewUsersEnderecosRowList =
+                                      snapshot.data!;
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount:
+                                        listViewUsersEnderecosRowList.length,
+                                    itemBuilder: (context, listViewIndex) {
+                                      final listViewUsersEnderecosRow =
+                                          listViewUsersEnderecosRowList[
+                                              listViewIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 6.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 10.0, 10.0, 10.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        '${listViewUsersEnderecosRow.endereco}, ${listViewUsersEnderecosRow.numero} - ${listViewUsersEnderecosRow.bairro} - ${listViewUsersEnderecosRow.cidade}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 16.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    FFButtonWidget(
+                                                      onPressed: () async {
+                                                        await UsersEnderecosTable()
+                                                            .update(
+                                                          data: {
+                                                            'status':
+                                                                'Opicional',
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows
+                                                                  .eq(
+                                                                    'user_id',
+                                                                    currentUserUid,
+                                                                  )
+                                                                  .eq(
+                                                                    'status',
+                                                                    'Principal',
+                                                                  ),
+                                                        );
+                                                        await UsersEnderecosTable()
+                                                            .update(
+                                                          data: {
+                                                            'status':
+                                                                'Principal',
+                                                          },
+                                                          matchingRows:
+                                                              (rows) => rows
+                                                                  .eq(
+                                                                    'user_id',
+                                                                    currentUserUid,
+                                                                  )
+                                                                  .eq(
+                                                                    'id',
+                                                                    listViewUsersEnderecosRow
+                                                                        .id,
+                                                                  ),
+                                                        );
+
+                                                        context.pushNamed(
+                                                          'Perfil',
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      0),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      text: 'Selecionar',
+                                                      options: FFButtonOptions(
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -371,7 +394,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   child: TextFormField(
                                     controller: _model.cepController,
                                     focusNode: _model.cepFocusNode,
-                                    autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Cep',
@@ -509,7 +531,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   child: TextFormField(
                                     controller: _model.enderecoController,
                                     focusNode: _model.enderecoFocusNode,
-                                    autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Endereço',
@@ -580,7 +601,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                     child: TextFormField(
                                       controller: _model.numeroController,
                                       focusNode: _model.numeroFocusNode,
-                                      autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Número',
@@ -653,7 +673,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   child: TextFormField(
                                     controller: _model.complementoController,
                                     focusNode: _model.complementoFocusNode,
-                                    autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Complemento',
@@ -725,7 +744,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   child: TextFormField(
                                     controller: _model.bairroController,
                                     focusNode: _model.bairroFocusNode,
-                                    autofocus: true,
                                     readOnly: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
@@ -797,7 +815,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   child: TextFormField(
                                     controller: _model.cidadeController,
                                     focusNode: _model.cidadeFocusNode,
-                                    autofocus: true,
                                     readOnly: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
@@ -872,7 +889,6 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                     child: TextFormField(
                                       controller: _model.estadoController,
                                       focusNode: _model.estadoFocusNode,
-                                      autofocus: true,
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
